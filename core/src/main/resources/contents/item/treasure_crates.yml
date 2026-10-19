@@ -1,0 +1,372 @@
+# ==============================================================================
+#                      特殊战利品箱 (Treasure Crates / 可携带版)
+#   这些箱子原本是 BLOCK 型战利品（钓上来后化作下落的木桶方块，需玩家去砸），
+#   现改为 ITEM 型：钓中后凭 to-inventory: true 直接进玩家背包，
+#   手持右键即可开启，避免木桶在熔岩海被烧毁、在水里漂走或被他人抢走。
+#
+#   ⚠ 关键点
+#   1. to-inventory: true 必须写在配置顶层（loot 级函数），这是"直接进背包"的开关。
+#      该函数仅对 ITEM / ENTITY 型生效；BLOCK 型的分发逻辑是硬编码召唤 FallingBlock，
+#      写在这里也无效（见 CustomFishingHook.java 的 case BLOCK 分支）。
+#   2. 箱内奖励用 give-item 动作发放，自定义物品必须写成 CustomFishing:<物品ID>，
+#      原版物品写大写 Material 名（如 DIAMOND）；to-inventory 同样要设为 true。
+#   3. 每种奖励各自独立判定 chance，可能出现"空箱"，也可能一次开出多件。
+#   4. 最后一个动作 item-amount: -1 用于消耗自身，漏写会导致无限开箱。
+# ==============================================================================
+
+# 精制钓具箱：通用钓具补给（鱼钩 + 诱饵），浅水特殊钓竿即可获得
+tackle_crate:
+  material: BARREL
+  nick: <gradient:#D2B48C:#8B4513>精制钓具箱</gradient>
+  display:
+    name: <gradient:#D2B48C:#8B4513><b>精制钓具箱</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 用加固木条与铜钉封装的钓具箱，箱盖上烙着旧渔会的印记。'
+      - '<gray> - 摇晃时能听见鱼钩碰撞与饵料袋摩擦的细碎声响。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：随机获得精制鱼钩 / 诱饵 / 诱鱼剂'
+      - '<gray> - 每件物品独立判定，可能开出多件，也可能空手'
+      - ''
+      - '<#FFAA00>右键点击即可开启'
+  custom-model-data: 50605
+  show-in-fishfinder: false
+  disable-stat: true
+  to-inventory: true
+  price:
+    base: 200
+  events:
+    interact:
+      reward_hook_delicate:
+        type: give-item
+        chance: 0.3
+        value:
+          item: 'CustomFishing:delicate_hook'
+          amount: 1
+          to-inventory: true
+      reward_hook_feather:
+        type: give-item
+        chance: 0.25
+        value:
+          item: 'CustomFishing:feather_hook'
+          amount: 1
+          to-inventory: true
+      reward_hook_magnetic_gold:
+        type: give-item
+        chance: 0.18
+        value:
+          item: 'CustomFishing:magnetic_gold_hook'
+          amount: 1
+          to-inventory: true
+      reward_bait_simple:
+        type: give-item
+        chance: 0.45
+        value:
+          item: 'CustomFishing:simple_bait'
+          amount: 2~4
+          to-inventory: true
+      reward_bait_magnetic:
+        type: give-item
+        chance: 0.35
+        value:
+          item: 'CustomFishing:magnetic_bait'
+          amount: 1~2
+          to-inventory: true
+      reward_chum_storm:
+        type: give-item
+        chance: 0.2
+        value:
+          item: 'CustomFishing:storm_chum'
+          amount: 1~2
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:block.barrel.open
+          source: block
+          volume: 0.9
+          pitch: 1.0
+
+# 深渊宝藏箱：深海海底 (Y < 30) 专属，产出深海钓钩与海洋珍贵素材
+abyssal_treasure_chest:
+  material: BARREL
+  nick: <gradient:#1E90FF:#00008B>深渊宝藏箱</gradient>
+  display:
+    name: <gradient:#1E90FF:#00008B><b>深渊宝藏箱</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 从海沟底部拖上来的铁箍木箱，箱体被水压挤得微微变形，'
+      - '<gray> - 缝隙里嵌着深海沉积物与细碎的鹦鹉螺壳。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：随机获得深海钓钩 / 荧光饵 / 海洋珍贵素材'
+      - '<gray> - 极小概率开出 海洋之心'
+      - ''
+      - '<#FFAA00>右键点击即可开启'
+  custom-model-data: 50606
+  show-in-fishfinder: false
+  disable-stat: true
+  to-inventory: true
+  price:
+    base: 350
+  events:
+    interact:
+      reward_hook_abyssal:
+        type: give-item
+        chance: 0.22
+        value:
+          item: 'CustomFishing:abyssal_heavy_sink_hook'
+          amount: 1
+          to-inventory: true
+      reward_chum_bioluminescent:
+        type: give-item
+        chance: 0.35
+        value:
+          item: 'CustomFishing:bioluminescent_chum'
+          amount: 1~2
+          to-inventory: true
+      reward_diamond:
+        type: give-item
+        chance: 0.35
+        value:
+          item: DIAMOND
+          amount: 1~3
+          to-inventory: true
+      reward_gold_ingot:
+        type: give-item
+        chance: 0.4
+        value:
+          item: GOLD_INGOT
+          amount: 2~5
+          to-inventory: true
+      reward_prismarine_crystals:
+        type: give-item
+        chance: 0.35
+        value:
+          item: PRISMARINE_CRYSTALS
+          amount: 2~6
+          to-inventory: true
+      reward_nautilus_shell:
+        type: give-item
+        chance: 0.15
+        value:
+          item: NAUTILUS_SHELL
+          amount: 1
+          to-inventory: true
+      reward_heart_of_the_sea:
+        type: give-item
+        chance: 0.03
+        value:
+          item: HEART_OF_THE_SEA
+          amount: 1
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:block.barrel.open
+          source: block
+          volume: 0.9
+          pitch: 0.9
+
+# 炼狱保险箱：下界熔岩海专属，产出高温素材与下界稀有矿料
+infernal_strongbox:
+  material: BARREL
+  nick: <gradient:#FF4500:#8B0000>炼狱保险箱</gradient>
+  display:
+    name: <gradient:#FF4500:#8B0000><b>炼狱保险箱</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 外层包着黑曜石与铁皮的厚重保险箱，锁扣已被熔岩烧成暗红色，'
+      - '<gray> - 打开时仍有热气从缝隙里往外冒。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：随机获得下界矿料 / 熔岩饵料 / 打捞到的旧鱼钩'
+      - '<gray> - 极小概率开出 远古残骸'
+      - ''
+      - '<#FFAA00>右键点击即可开启'
+  custom-model-data: 50607
+  show-in-fishfinder: false
+  disable-stat: true
+  to-inventory: true
+  price:
+    base: 320
+  events:
+    interact:
+      reward_chum_magma:
+        type: give-item
+        chance: 0.35
+        value:
+          item: 'CustomFishing:magma_chum'
+          amount: 1~2
+          to-inventory: true
+      # 沉没黑曜石钓钩：本版本 hook 不注册为 Loot，无法直接进权重表，
+      # 因此以「箱内打捞物」的形式产出，作为熔岩池的低阶补偿钩
+      reward_hook_sunken_obsidian:
+        type: give-item
+        chance: 0.28
+        value:
+          item: 'CustomFishing:sunken_obsidian_hook'
+          amount: 1
+          to-inventory: true
+      reward_gold_ingot:
+        type: give-item
+        chance: 0.4
+        value:
+          item: GOLD_INGOT
+          amount: 2~5
+          to-inventory: true
+      reward_gold_nugget:
+        type: give-item
+        chance: 0.5
+        value:
+          item: GOLD_NUGGET
+          amount: 4~12
+          to-inventory: true
+      reward_blaze_powder:
+        type: give-item
+        chance: 0.4
+        value:
+          item: BLAZE_POWDER
+          amount: 2~6
+          to-inventory: true
+      reward_magma_cream:
+        type: give-item
+        chance: 0.3
+        value:
+          item: MAGMA_CREAM
+          amount: 1~3
+          to-inventory: true
+      reward_obsidian:
+        type: give-item
+        chance: 0.3
+        value:
+          item: OBSIDIAN
+          amount: 2~5
+          to-inventory: true
+      reward_ancient_debris:
+        type: give-item
+        chance: 0.04
+        value:
+          item: ANCIENT_DEBRIS
+          amount: 1
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:block.barrel.open
+          source: block
+          volume: 0.9
+          pitch: 1.1
+
+# 虚空遗物立方：末地与深层虚空专属，产出末地素材与空间类钓具
+void_relic_cube:
+  material: BARREL
+  nick: <gradient:#8A2BE2:#4B0082>虚空遗物立方</gradient>
+  display:
+    name: <gradient:#8A2BE2:#4B0082><b>虚空遗物立方</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 一个棱角不合常理的立方体，表面浮着缓缓游动的紫黑色纹路，'
+      - '<gray> - 凑近时能听见空间被轻轻撕开的沙沙声。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：随机获得末地素材 / 虚空饵料 / 空间类钓具'
+      - '<gray> - 极小概率开出 潜影壳 / 龙息'
+      - ''
+      - '<#FFAA00>右键点击即可开启'
+  custom-model-data: 50608
+  show-in-fishfinder: false
+  disable-stat: true
+  to-inventory: true
+  price:
+    base: 400
+  events:
+    interact:
+      reward_hook_void:
+        type: give-item
+        chance: 0.08
+        value:
+          item: 'CustomFishing:void_hook'
+          amount: 1
+          to-inventory: true
+      # 沉没虚空钓钩：同上，作为虚空池的低阶补偿钩
+      reward_hook_sunken_void:
+        type: give-item
+        chance: 0.3
+        value:
+          item: 'CustomFishing:sunken_void_hook'
+          amount: 1
+          to-inventory: true
+      reward_bait_ender:
+        type: give-item
+        chance: 0.35
+        value:
+          item: 'CustomFishing:ender_essence_bait'
+          amount: 1~2
+          to-inventory: true
+      reward_ender_pearl:
+        type: give-item
+        chance: 0.45
+        value:
+          item: ENDER_PEARL
+          amount: 2~5
+          to-inventory: true
+      reward_chorus_fruit:
+        type: give-item
+        chance: 0.4
+        value:
+          item: CHORUS_FRUIT
+          amount: 2~6
+          to-inventory: true
+      reward_popped_chorus_fruit:
+        type: give-item
+        chance: 0.25
+        value:
+          item: POPPED_CHORUS_FRUIT
+          amount: 1~3
+          to-inventory: true
+      reward_ender_eye:
+        type: give-item
+        chance: 0.1
+        value:
+          item: ENDER_EYE
+          amount: 1
+          to-inventory: true
+      reward_shulker_shell:
+        type: give-item
+        chance: 0.06
+        value:
+          item: SHULKER_SHELL
+          amount: 1
+          to-inventory: true
+      reward_dragon_breath:
+        type: give-item
+        chance: 0.08
+        value:
+          item: DRAGON_BREATH
+          amount: 1~2
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:block.barrel.open
+          source: block
+          volume: 0.9
+          pitch: 1.3
