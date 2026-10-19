@@ -123,6 +123,14 @@ mystic_bait_pouch:
           item: 'CustomFishing:magnetic_bait'
           amount: 2
           to-inventory: true
+      # 荒野狂暴诱饵：与磁力诱饵同概率同数量（40% / 2 个）
+      reward_bonus_wild:
+        type: give-item
+        chance: 0.4
+        value:
+          item: 'CustomFishing:wild_bait'
+          amount: 2
+          to-inventory: true
       reward_bonus_2:
         type: give-item
         chance: 0.25

@@ -14,19 +14,16 @@ weekend_competition:
   goal: CATCH_AMOUNT
 
   # Optional
-  # 1-7
+  # 1-7 (周日 = 7)
   start-weekday:
-    - 6
     - 7
 
   # Optional
   start-time:
-    - '9:30'
-    - '14:30'
-    - '20:00'
+    - '10:00'
 
-  # Seconds
-  duration: 300
+  # Seconds (43200 = 12 小时，即 10:00 开始、22:00 结束)
+  duration: 43200
 
   # Min players to start the competition
   min-players: 2
@@ -41,9 +38,9 @@ weekend_competition:
     color: WHITE
     overlay: PROGRESS
     text:
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{seconds}s</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 20 # in ticks
     switch-interval: 200 # in ticks
     only-show-to-participants: true
@@ -51,9 +48,9 @@ weekend_competition:
   actionbar:
     enable: false
     text:
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{seconds}s</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 5 # in ticks
     switch-interval: 200 # in ticks
     only-show-to-participants: true
@@ -116,40 +113,48 @@ weekend_competition:
       command_action:
         type: command
         value:
-          - 'money give {player} 200'
+          - 'money give {player} 515'
+      # 冠军额外奖励：海神潮汐钓竿
+      rod_action:
+        type: give-item
+        value:
+          item: 'CustomFishing:neptune_rod'
+          amount: 1
+          to-inventory: true
       messages_action:
         type: message
         value:
-          - '<#FFD700>【冠军】恭喜荣获第一名！奖励 200 憨币！'
+          - '<#FFD700>【冠军】恭喜荣获第一名！奖励 515 憨币 + 海神潮汐钓竿！'
     2:
       command_action:
         type: command
         value:
-          - 'money give {player} 100'
+          - 'money give {player} 255'
       messages_action:
         type: message
         value:
-          - '<#E0FFFF>【亚军】恭喜荣获第二名！奖励 100 憨币！'
+          - '<#E0FFFF>【亚军】恭喜荣获第二名！奖励 255 憨币！'
     3:
       command_action:
         type: command
         value:
-          - 'money give {player} 100'
+          - 'money give {player} 155'
       messages_action:
         type: message
         value:
-          - '<#FFA500>【季军】恭喜荣获第三名！奖励 100 憨币！'
+          - '<#FFA500>【季军】恭喜荣获第三名！奖励 155 憨币！'
+    # 第 4 名及以后不再发奖。
+    # 注意：Competition.java 用 `if (i < rewardsMap.size())` 判定名次档位，
+    # 本表子键数量必须为 4（1/2/3 + 本键），否则第 3 名会被归入"参与奖"分支而拿不到 155。
+    # 因此保留此键，用 chance: 0 让它永不触发。
     participation:
-      command_action:
-        type: command
-        value:
-          - 'money give {player} 10'
-      messages_action:
+      no_reward:
         type: message
+        chance: 0
         value:
-          - '<#98FB98>感谢参与周末钓鱼大赛！奖励 10 憨币！'
+          - ''
 
-# 每日海王巨物杯 (比拼单条鱼的最大体长)
+# 海王巨物杯 (周一至周六，比拼单条鱼的最大体长)
 daily_max_size_derby:
   goal: MAX_SIZE
   start-weekday:
@@ -159,19 +164,17 @@ daily_max_size_derby:
     - 4
     - 5
     - 6
-    - 7
   start-time:
-    - '12:30'
-    - '18:30'
-    - '21:30'
-  duration: 360
+    - '10:00'
+  # Seconds (43200 = 12 小时，即 10:00 开始、22:00 结束)
+  duration: 43200
   min-players: 1
   bossbar:
     enable: true
     color: BLUE
     overlay: PROGRESS
     text:
-      - '<gray>[<#00FFFF>🦈<gray>] <gradient:#00BFFF:#1E90FF>海王巨物赛 <gray>| <white>倒计时: <#FFD700>{seconds}s</#FFD700> <gray>| <white>榜首: <#7FFFD4>{1_player} ({1_score}cm)</#7FFFD4>'
+      - '<gray>[<#00FFFF>🦈<gray>] <gradient:#00BFFF:#1E90FF>海王巨物赛 <gray>| <white>倒计时: <#FFD700>{hour}{minute}{second}</#FFD700> <gray>| <white>榜首: <#7FFFD4>{1_player} ({1_score}cm)</#7FFFD4>'
       - '<gray>[<#00FFFF>🦈<gray>] <gradient:#00BFFF:#1E90FF>海王巨物赛 <gray>| <white>你的排名: <#FFA500>#{rank}</#FFA500> <gray>| <white>个人纪录: <#E6E6FA>{score_formatted}cm</#E6E6FA>'
     refresh-rate: 20
     switch-interval: 160
@@ -211,35 +214,36 @@ daily_max_size_derby:
       command_action:
         type: command
         value:
-          - 'money give {player} 500'
+          - 'money give {player} 515'
       messages_action:
         type: message
         value:
-          - '<#FFD700>【巨物霸主】恭喜你夺得第一名！获得 500 憨币与海王殊荣！'
+          - '<#FFD700>【巨物霸主】恭喜你夺得第一名！获得 515 憨币与海王殊荣！'
     2:
       command_action:
         type: command
         value:
-          - 'money give {player} 250'
+          - 'money give {player} 255'
       messages_action:
         type: message
         value:
-          - '<#E0FFFF>【屈居第二】恭喜获得亚军！获得 250 憨币！'
+          - '<#E0FFFF>【屈居第二】恭喜获得亚军！获得 255 憨币！'
     3:
       command_action:
         type: command
         value:
-          - 'money give {player} 150'
+          - 'money give {player} 155'
       messages_action:
         type: message
         value:
-          - '<#FFA500>【登上领奖台】恭喜获得季军！获得 150 憨币！'
+          - '<#FFA500>【登上领奖台】恭喜获得季军！获得 155 憨币！'
+    # 第 4 名及以后不再发奖。
+    # 注意：Competition.java 用 `if (i < rewardsMap.size())` 判定名次档位，
+    # 本表子键数量必须为 4（1/2/3 + 本键），否则第 3 名会被归入"参与奖"分支而拿不到 155。
+    # 因此保留此键，用 chance: 0 让它永不触发。
     participation:
-      command_action:
-        type: command
-        value:
-          - 'money give {player} 20'
-      messages_action:
+      no_reward:
         type: message
+        chance: 0
         value:
-          - '<#98FB98>感谢参与海王争霸赛！奖励 20 憨币！'
+          - ''
