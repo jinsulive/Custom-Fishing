@@ -7,27 +7,162 @@
 delicate_hook:
   material: SHEARS
   display:
-    name: '<b><#1E90FF>Delicate hook'
+    name: '<b><#1E90FF>精制钓钩'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - An embodiment of craftsmanship and allure, the hook'
-      - '<gray> - is not your average piece of tackle. Polished to'
-      - '<gray> - perfection and intricately designed, it gleams in the'
-      - '<gray> - water, irresistibly drawing high-quality fish closer.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 凝聚精湛工艺与魅力的钓钩，绝非寻常钓具可比。'
+      - '<gray> - 精心抛光雕琢，在水中闪耀微光，'
+      - '<gray> - 能够不可抗拒地吸引高品质大鱼靠近。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increase the chance of getting high quality fish'
+      - '<#FFD700>特性:'
+      - '<gray> - 提高获得高品质鱼类的概率'
   max-durability: 16
   custom-model-data: 50000
   # {dur} / {max}
   lore-on-rod:
     - ''
-    - '<#7FFFAA>Equipped hook:'
-    - '<gray> - Delicate hook: <white>{dur}</white> times left'
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 精制钓钩: 剩余 <white>{dur}</white> 次'
   effects:
     effect_1:
       type: group-mod
       value:
         - silver_star:+1
         - golden_star:+1
+
+void_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#9370DB:#4B0082>虚空折跃钓钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 淬炼了末影珍珠核心的特殊空间鱼钩，'
+      - '<gray> - 安装在任何钓竿上都能赋予其在虚空垂钓的非凡能力。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在虚空 (Void) 中垂钓'
+      - '<gray> - 虚空战利品吸引率大幅提升'
+  max-durability: 32
+  custom-model-data: 50011
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 虚空折跃钓钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: void-fishing
+    effect_2:
+      type: group-mod
+      value:
+        - void:+6
+
+obsidian_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#FF4500:#8B0000>耐火黑曜重钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 纯黑曜石精工打磨的耐火倒刺钩，'
+      - '<gray> - 装配后可耐受数千度熔岩，使任何普通钓竿化为熔岩钓竿。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在岩浆 (Lava) 中垂钓'
+      - '<gray> - 熔岩鱼类吸引率提升'
+  max-durability: 48
+  custom-model-data: 50012
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 耐火黑曜重钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: lava-fishing
+    effect_2:
+      type: group-mod
+      value:
+        - lava:+6
+
+magnetic_gold_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#FFD700:#FFA500>聚财镀金磁钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 带有微弱金精磁力的珍贵钓钩，'
+      - '<gray> - 特别吸引身负贵金属与高星级的顶级鱼类。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 黄金之星品质概率显著增加'
+      - '<gray> - 幸运战利品概率上升'
+  max-durability: 24
+  custom-model-data: 50013
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 聚财镀金磁钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: group-mod
+      value:
+        - golden_star:+4
+        - lucky:+5
+
+feather_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#E0FFFF:#F0FFFF>轻灵羽丝钓钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 绑有轻柔飞羽的轻型倒钩，入水无声无息，'
+      - '<gray> - 能大幅减轻鱼儿咬钩后的挣扎反抗烈度。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 垂钓小游戏难度大幅降低 (-15)'
+      - '<gray> - 搏斗游戏时间 +4 秒'
+  max-durability: 32
+  custom-model-data: 50014
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 轻灵羽丝钓钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: difficulty
+      value: -15
+    effect_2:
+      type: game-time
+      value: 4
+
+abyssal_heavy_sink_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#1E90FF:#00008B>深渊重铅沉钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 沉重致密的重铅特制鱼钩，能够穿透湍急洋流迅速沉底，'
+      - '<gray> - 专门捕捞栖息在深不见底海沟中的庞然大物。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 显著提升深海生物与巨物咬钩率'
+      - '<gray> - 鱼类体长增加 15%'
+  max-durability: 32
+  custom-model-data: 50015
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 深渊重铅沉钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: size-multiplier
+      value: 1.15
+    effect_2:
+      type: group-mod
+      value:
+        - deep_ocean:+6
+        - titan:+4

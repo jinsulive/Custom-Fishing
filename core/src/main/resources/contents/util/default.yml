@@ -7,16 +7,13 @@
 fishfinder:
   material: PAPER
   display:
-    name: '<b><#1E90FF>Fish Finder'
+    name: '<b><#1E90FF>探鱼雷达仪'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Compact yet powerful, it scans the waters'
-      - '<gray> - with precision, revealing the variety of'
-      - '<gray> - fish species lurking below the surface.'
-      - '<gray> - Whether you''re in uncharted territories or'
-      - '<gray> - familiar waters, this device ensures you''re'
-      - '<gray> - always informed about your aquatic neighbors.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 小巧而功能强劲的水下声呐探测仪，'
+      - '<gray> - 能精准扫描当前水体，探测水面下方潜藏的鱼类物种。'
+      - '<gray> - 无论在未知秘境还是熟悉水域，都能为你提供水产图鉴情报。'
       - ''
   custom-model-data: 50000
   events:
@@ -34,7 +31,7 @@ fishfinder:
                 action_1:
                   type: message
                   value:
-                    - 'Slow down! You are using the fish finder too frequently.'
+                    - '<red>请稍候！使用探鱼雷达仪过于频繁（冷却 3 秒）。</red>'
           actions:
             action_1:
               type: fish-finder

@@ -1,116 +1,383 @@
-# https://mo-mi.gitbook.io/xiaomomi-plugins/customfishing/plugin-wiki/customfishing/weight-system-must-read#configure-loot-conditions.yml-and-game-conditions.yml
+# ==============================================================================
+#            CustomFishing 战利品掉落生态条件配置 (Loot Conditions)
+#    规则：普通钓竿只能钓普通原版鱼；唯有手持 CraftEngine 特殊钓竿方可钓起特殊鱼与宝藏
+# ==============================================================================
 
+# ------------------------------------------------------------------------------
+# 水域战利品 (主世界淡水与大洋)
+# ------------------------------------------------------------------------------
 water_loots:
   conditions:
-    # The loot must be in water.
     in-water: true
-    # the overworld
     environment:
       - normal
-    # The magical_rod can only catch enchanted books, and only when using a book as bait.
     '!rod':
       - magical_rod
+      - 'mgtown:magical_rod'
   list:
-    - 'rubbish:+10'
+    # 普通钓竿在水域中仅能获得原版普通鱼与少量基础水生杂物
+    - 'rubbish:+8'
     - 'seagrass:+5'
-    - 'vanilla:+100'
+    - 'vanilla:+60'
   sub-groups:
-    saltwater_loots:
+
+    # ==========================================================================
+    # 特殊水产宝库：必须手持 CraftEngine 特殊钓竿 (!rod: FISHING_ROD)
+    # 普通钓竿将被完全隔离在此分支之外，杜绝普通钓竿钓起特殊鱼
+    # ==========================================================================
+    special_water_loots:
       conditions:
-        biome:
-          - minecraft:ocean
-          - minecraft:deep_ocean
-          - minecraft:cold_ocean
-          - minecraft:deep_cold_ocean
-          - minecraft:frozen_ocean
-          - minecraft:deep_frozen_ocean
-          - minecraft:lukewarm_ocean
-          - minecraft:deep_lukewarm_ocean
-          - minecraft:warm_ocean
+        '!rod':
+          - FISHING_ROD
       list:
-        # decrease the chance of getting rubbish when fishing in ocean
-        - 'rubbish:-8'
-        - 'apple_crate:+2'
-        - 'carrot_crate:+2'
-        - 'kelp:+25'
-        - 'seagrass:+5'
-        # Set the same weight for all fish in ocean groups. The & symbol indicates the fish must be in both groups.
-        - 'group_for_each:ocean&no_star:+15'
-        - 'group_for_each:ocean&silver_star:+3'
-        - 'group_for_each:ocean&golden_star:+1'
-    freshwater_loots:
-      conditions:
-        '!biome':
-          - minecraft:ocean
-          - minecraft:deep_ocean
-          - minecraft:cold_ocean
-          - minecraft:deep_cold_ocean
-          - minecraft:frozen_ocean
-          - minecraft:deep_frozen_ocean
-          - minecraft:lukewarm_ocean
-          - minecraft:deep_lukewarm_ocean
-          - minecraft:warm_ocean
-      list:
-        - 'rainbow_fish:+5'
-        - 'stick:+15'
-        # Set the same weight for all fish in river groups. The & symbol indicates the fish must be in both groups.
-        - 'group_for_each:river&no_star:+15'
-        - 'group_for_each:river&silver_star:+3'
-        - 'group_for_each:river&golden_star:+1'
-      # For freshwater fish, further subdivide by biome and add loot for swamps and caves.
+        - 'tackle_crate:+3'
+        - 'sunken_hook_pouch:+2'
+        - 'mystic_bait_pouch:+3'
       sub-groups:
-        swamp_fish:
+
+        # 1. 咸水大洋生态系 (Saltwater & Oceans)
+        saltwater_loots:
           conditions:
             biome:
-              - minecraft:swamp
-              - minecraft:mangrove_swamp
+              - minecraft:ocean
+              - minecraft:deep_ocean
+              - minecraft:cold_ocean
+              - minecraft:deep_cold_ocean
+              - minecraft:frozen_ocean
+              - minecraft:deep_frozen_ocean
+              - minecraft:lukewarm_ocean
+              - minecraft:deep_lukewarm_ocean
+              - minecraft:warm_ocean
           list:
-            - 'group_for_each:swamp&no_star:+15'
-            - 'group_for_each:swamp&silver_star:+3'
-            - 'group_for_each:swamp&golden_star:+1'
-        cave_fish:
-          conditions:
-            ypos:
-              - -64~0
-          list:
-            - 'group_for_each:cave&no_star:+9'
-            - 'group_for_each:cave&silver_star:+3'
-            - 'group_for_each:cave&golden_star:+1'
+            - 'rubbish:-6'
+            - 'apple_crate:+2'
+            - 'carrot_crate:+2'
+            - 'kelp:+20'
+            - 'seagrass:+5'
+            - 'group_for_each:ocean&no_star:+14'
+            - 'group_for_each:ocean&silver_star:+4'
+            - 'group_for_each:ocean&golden_star:+1'
+          sub-groups:
+            # 暖水珊瑚礁海洋
+            coral_warm_ocean:
+              conditions:
+                biome:
+                  - minecraft:warm_ocean
+                  - minecraft:lukewarm_ocean
+                  - minecraft:deep_lukewarm_ocean
+              list:
+                - 'group_for_each:coral&no_star:+16'
+                - 'group_for_each:coral&silver_star:+5'
+                - 'group_for_each:coral&golden_star:+2'
 
+            # 极寒冷海与冰钓生态
+            frozen_polar_ocean:
+              conditions:
+                biome:
+                  - minecraft:frozen_ocean
+                  - minecraft:deep_frozen_ocean
+                  - minecraft:cold_ocean
+                  - minecraft:deep_cold_ocean
+              list:
+                - 'group_for_each:frozen&no_star:+16'
+                - 'group_for_each:frozen&silver_star:+5'
+                - 'group_for_each:frozen&golden_star:+2'
+              sub-groups:
+                # 极光夜景专属神鱼
+                aurora_night:
+                  conditions:
+                    time:
+                      - 14000~22000
+                  list:
+                    - 'group_for_each:aurora&no_star:+12'
+                    - 'group_for_each:aurora&silver_star:+4'
+                    - 'group_for_each:aurora&golden_star:+1'
+
+            # 乘船远洋出海与远洋巨兽 (需在船上垂钓)
+            pelagic_boat_fishing:
+              conditions:
+                in-boat: true
+              list:
+                - 'group_for_each:pelagic&no_star:+18'
+                - 'group_for_each:pelagic&silver_star:+6'
+                - 'group_for_each:pelagic&golden_star:+2'
+                - 'group_for_each:titan&no_star:+12'
+                - 'group_for_each:titan&silver_star:+4'
+                - 'group_for_each:titan&golden_star:+1'
+
+            # 满月银辉之夜 (银月魔鬼鱼)
+            moonlight_night:
+              conditions:
+                moon-phase:
+                  - FULL_MOON
+                time:
+                  - 14000~22000
+              list:
+                - 'group_for_each:moon&no_star:+20'
+                - 'group_for_each:moon&silver_star:+6'
+                - 'group_for_each:moon&golden_star:+2'
+
+            # 深海海底深渊 (Y < 30)
+            deep_abyss_sea:
+              conditions:
+                ypos:
+                  - -64~30
+              list:
+                - 'abyssal_treasure_chest:+2'
+                - 'group_for_each:deep_ocean&no_star:+16'
+                - 'group_for_each:deep_ocean&silver_star:+5'
+                - 'group_for_each:deep_ocean&golden_star:+2'
+                - 'group_for_each:ancient&no_star:+10'
+                - 'group_for_each:ancient&silver_star:+3'
+                - 'group_for_each:ancient&golden_star:+1'
+
+            # 暴风雨深海绝境传说 (幼年利维坦)
+            leviathan_storm:
+              conditions:
+                weather:
+                  - thunder
+                biome:
+                  - minecraft:deep_ocean
+                  - minecraft:deep_lukewarm_ocean
+                  - minecraft:deep_cold_ocean
+                in-boat: true
+              list:
+                - 'group_for_each:leviathan&no_star:+5'
+                - 'group_for_each:leviathan&silver_star:+2'
+                - 'group_for_each:leviathan&golden_star:+0.8'
+
+        # 2. 淡水内陆河流生态系 (Freshwater & Rivers)
+        freshwater_loots:
+          conditions:
+            '!biome':
+              - minecraft:ocean
+              - minecraft:deep_ocean
+              - minecraft:cold_ocean
+              - minecraft:deep_cold_ocean
+              - minecraft:frozen_ocean
+              - minecraft:deep_frozen_ocean
+              - minecraft:lukewarm_ocean
+              - minecraft:deep_lukewarm_ocean
+              - minecraft:warm_ocean
+          list:
+            - 'rainbow_fish:+4'
+            - 'stick:+10'
+            - 'group_for_each:river&no_star:+14'
+            - 'group_for_each:river&silver_star:+4'
+            - 'group_for_each:river&golden_star:+1'
+            - 'group_for_each:lucky&no_star:+4'
+            - 'group_for_each:lucky&silver_star:+1.5'
+            - 'group_for_each:lucky&golden_star:+0.5'
+          sub-groups:
+            # 樱花树林落樱水池
+            cherry_grove_loots:
+              conditions:
+                biome:
+                  - minecraft:cherry_grove
+              list:
+                - 'group_for_each:cherry&no_star:+25'
+                - 'group_for_each:cherry&silver_star:+8'
+                - 'group_for_each:cherry&golden_star:+3'
+
+            # 雷暴与大雨天湍急河流 (雷霆电鳗)
+            stormy_freshwater:
+              conditions:
+                weather:
+                  - rain
+                  - thunder
+              list:
+                - 'group_for_each:storm&no_star:+22'
+                - 'group_for_each:storm&silver_star:+7'
+                - 'group_for_each:storm&golden_star:+2.5'
+
+            # 丛林与竹林静谧小溪 (竹溪碧雀鳝)
+            jungle_bamboo_stream:
+              conditions:
+                biome:
+                  - minecraft:bamboo_jungle
+                  - minecraft:jungle
+                  - minecraft:sparse_jungle
+              list:
+                - 'group_for_each:jungle&no_star:+20'
+                - 'group_for_each:jungle&silver_star:+6'
+                - 'group_for_each:jungle&golden_star:+2'
+
+            # 高空云巅天池 (九天星穹苍龙鲤)
+            celestial_peak_pool:
+              conditions:
+                ypos:
+                  - 120~320
+                time:
+                  - 18000~23000
+              list:
+                - 'group_for_each:celestial&no_star:+5'
+                - 'group_for_each:celestial&silver_star:+2'
+                - 'group_for_each:celestial&golden_star:+0.8'
+
+            # 黑夜深水泥底 (幽灵鲇)
+            midnight_river:
+              conditions:
+                time:
+                  - 14000~22000
+              list:
+                - 'group_for_each:night&no_star:+16'
+                - 'group_for_each:night&silver_star:+5'
+                - 'group_for_each:night&golden_star:+1.5'
+
+            # 沼泽与红树林湿地
+            swamp_fish:
+              conditions:
+                biome:
+                  - minecraft:swamp
+                  - minecraft:mangrove_swamp
+              list:
+                - 'group_for_each:swamp&no_star:+16'
+                - 'group_for_each:swamp&silver_star:+4'
+                - 'group_for_each:swamp&golden_star:+1.5'
+                - 'group_for_each:predator&no_star:+12'
+                - 'group_for_each:predator&silver_star:+3'
+                - 'group_for_each:predator&golden_star:+1'
+                - 'group_for_each:mangrove&no_star:+14'
+                - 'group_for_each:mangrove&silver_star:+4'
+                - 'group_for_each:mangrove&golden_star:+1'
+                - 'group_for_each:alchemy&no_star:+12'
+                - 'group_for_each:alchemy&silver_star:+3'
+                - 'group_for_each:alchemy&golden_star:+1'
+
+            # 地下溶洞与暗河生态 (Y <= 0)
+            cave_fish:
+              conditions:
+                ypos:
+                  - -64~0
+              list:
+                - 'group_for_each:cave&no_star:+12'
+                - 'group_for_each:cave&silver_star:+4'
+                - 'group_for_each:cave&golden_star:+1'
+                - 'group_for_each:crystal&no_star:+10'
+                - 'group_for_each:crystal&silver_star:+3'
+                - 'group_for_each:crystal&golden_star:+1'
+                - 'group_for_each:dripstone&no_star:+10'
+                - 'group_for_each:dripstone&silver_star:+3'
+                - 'group_for_each:dripstone&golden_star:+1'
+              sub-groups:
+                # 深板岩层幽暗异变 (必须潜行垂钓方可捕获)
+                deep_sculk_waters:
+                  conditions:
+                    ypos:
+                      - -64~-20
+                    sneak: true
+                  list:
+                    - 'group_for_each:sculk&no_star:+18'
+                    - 'group_for_each:sculk&silver_star:+6'
+                    - 'group_for_each:sculk&golden_star:+2'
+
+# ------------------------------------------------------------------------------
+# 熔岩战利品 (主世界熔岩湖与下界熔岩海，仅限特殊耐火钓竿)
+# ------------------------------------------------------------------------------
 lava_loots:
   conditions:
     in-lava: true
+    '!rod':
+      - FISHING_ROD
   sub-groups:
     overworld_loots:
       conditions:
         environment:
           - normal
       list:
-        - 'cobblestone:+50'
-        - 'stone:+30'
-        - 'obsidian:+3'
-        - 'diamond:+1'
+        - 'cobblestone:+40'
+        - 'stone:+25'
+        - 'obsidian:+5'
+        - 'diamond:+2'
         - 'flint:+6'
+        - 'sunken_obsidian_hook:+2'
+        - 'group_for_each:obsidian&no_star:+18'
+        - 'group_for_each:obsidian&silver_star:+5'
+        - 'group_for_each:obsidian&golden_star:+1.5'
+
     nether_loots:
       conditions:
         environment:
           - nether
       list:
-        - 'netherrack:+20'
-        - 'nether_brick:+12'
+        - 'netherrack:+16'
+        - 'nether_brick:+10'
         - 'obsidian:+5'
-        - 'gold_ingot:+3'
-        - 'gold_nugget:+8'
+        - 'gold_ingot:+4'
+        - 'gold_nugget:+10'
         - 'magma_cube:+3'
+        - 'infernal_strongbox:+3'
+        - 'sunken_obsidian_hook:+2'
         - 'group_for_each:lava&no_star:+15'
-        - 'group_for_each:lava&silver_star:+3'
+        - 'group_for_each:lava&silver_star:+4'
         - 'group_for_each:lava&golden_star:+1'
+      sub-groups:
+        # 灵魂沙峡谷青炎池
+        soul_sand_valley_lava:
+          conditions:
+            biome:
+              - minecraft:soul_sand_valley
+          list:
+            - 'group_for_each:soul&no_star:+22'
+            - 'group_for_each:soul&silver_star:+7'
+            - 'group_for_each:soul&golden_star:+2.5'
 
-# Skeletons might appear if player holds the bone_rod
+        # 玄武岩三角洲极热熔泉 (玄武鎏金帝王鲤)
+        basalt_deltas_lava:
+          conditions:
+            biome:
+              - minecraft:basalt_deltas
+          list:
+            - 'group_for_each:basalt&no_star:+14'
+            - 'group_for_each:basalt&silver_star:+5'
+            - 'group_for_each:basalt&golden_star:+2'
+
+# ------------------------------------------------------------------------------
+# 虚空战利品 (末路之地虚空与世界最底层深渊，仅限特殊虚空钓竿)
+# ------------------------------------------------------------------------------
+void_loots:
+  conditions:
+    in-void: true
+    '!rod':
+      - FISHING_ROD
+  list:
+    - 'void_relic_cube:+2'
+    - 'sunken_void_hook:+2'
+    - 'group_for_each:void&no_star:+15'
+    - 'group_for_each:void&silver_star:+4'
+    - 'group_for_each:void&golden_star:+1'
+  sub-groups:
+    # 末地岛屿虚空
+    the_end_void:
+      conditions:
+        environment:
+          - the_end
+      list:
+        - 'group_for_each:nebula&no_star:+16'
+        - 'group_for_each:nebula&silver_star:+5'
+        - 'group_for_each:nebula&golden_star:+1.5'
+        - 'group_for_each:chorus&no_star:+16'
+        - 'group_for_each:chorus&silver_star:+5'
+        - 'group_for_each:chorus&golden_star:+1.5'
+
+    # 世界最底层深渊虚空 (Y < -55 极限时空奇点)
+    bottom_world_abyss:
+      conditions:
+        ypos:
+          - -128~-55
+      list:
+        - 'singularity_fish:+3'
+        - 'singularity_fish_silver_star:+1'
+        - 'singularity_fish_golden_star:+0.3'
+
+# ------------------------------------------------------------------------------
+# 特殊装备奇遇 (骷髅钓竿引怪)
+# ------------------------------------------------------------------------------
 skeletons:
   conditions:
     rod:
       - bone_rod
+      - 'mgtown:bone_rod'
   sub-groups:
     wither_skeletons:
       conditions:
@@ -120,7 +387,6 @@ skeletons:
     skeletons:
       conditions:
         in-water: true
-        # The chance to fish up a common skeleton is restricted to the night.
         time:
           - 14000~22000
       list:

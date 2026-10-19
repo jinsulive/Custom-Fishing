@@ -1,8 +1,11 @@
-# https://mo-mi.gitbook.io/xiaomomi-plugins/customfishing/plugin-wiki/customfishing/weight-system-must-read#configure-loot-conditions.yml-and-game-conditions.yml
+# ==============================================================================
+#            CustomFishing 钓鱼小游戏触发条件配置 (Game Conditions)
+#  将不同的搏斗机制 (精准点击/张力控制/急速收线/音游律动/长按跟随) 分配给不同生境鱼类
+# ==============================================================================
 
-# You can follow this format to assign exclusive games to specific fish.
-# Don't forget to add a group named 'special_game' to your loot. Otherwise, it might accidentally trigger common game types.
-# See the rainbowfish example in /contents/item/default.yml for how to do this.
+# ------------------------------------------------------------------------------
+# 1. 传说与神话鱼类专属巅峰挑战
+# ------------------------------------------------------------------------------
 rainbow_fish_games:
   conditions:
     loot:
@@ -16,17 +19,77 @@ rainbow_fish_games:
     - rainbow_6:+1
     - rainbow_7:+1
 
+leviathan_boss_games:
+  conditions:
+    loot:
+      - leviathan_young
+      - leviathan_young_silver_star
+      - leviathan_young_golden_star
+  list:
+    - tension_game_hard:+25
+    - click_game_hard:+15
+
+singularity_mythic_games:
+  conditions:
+    loot:
+      - singularity_fish
+      - singularity_fish_silver_star
+      - singularity_fish_golden_star
+  list:
+    - dance_game_hard:+30
+
+celestial_koi_games:
+  conditions:
+    loot:
+      - celestial_koi
+      - celestial_koi_silver_star
+      - celestial_koi_golden_star
+  list:
+    - dance_game_normal:+20
+    - dance_game_hard:+10
+
+# ------------------------------------------------------------------------------
+# 2. 虚空维度小游戏 (Void Fishing - 节奏音游与虚空漫步)
+# ------------------------------------------------------------------------------
+void_games:
+  conditions:
+    in-void: true
+    "!group":
+      - special_game
+  list:
+    - dance_game_easy:+15
+    - dance_game_normal:+8
+    - hold_game_normal:+5
+  sub-groups:
+    silver:
+      conditions:
+        group:
+          - silver_star
+      list:
+        - dance_game_easy:-10
+        - dance_game_normal:+15
+        - dance_game_hard:+6
+    golden:
+      conditions:
+        group:
+          - golden_star
+      list:
+        - dance_game_easy:-15
+        - dance_game_normal:-3
+        - dance_game_hard:+15
+
+# ------------------------------------------------------------------------------
+# 3. 熔岩生态小游戏 (Lava Fishing - 耐热耐力蓄力与狂暴点击)
+# ------------------------------------------------------------------------------
 lava_games:
   conditions:
-    # The game must be triggered while fishing in lava.
     in-lava: true
-    # Prevent the special fish from activating game types intended for common fish.
     "!group":
       - special_game
   list:
     - hold_game_easy:+15
-    - hold_game_normal:+5
-  # The game weight (and thus difficulty) is scaled based on the fish's quality and its assigned group, with rarer fish typically triggering more challenging games.
+    - hold_game_normal:+6
+    - click_game_easy:+8
   sub-groups:
     silver:
       conditions:
@@ -35,7 +98,8 @@ lava_games:
       list:
         - hold_game_easy:-10
         - hold_game_normal:+12
-        - hold_game_hard:+3
+        - hold_game_hard:+5
+        - click_game_normal:+8
     golden:
       conditions:
         group:
@@ -43,19 +107,22 @@ lava_games:
       list:
         - hold_game_easy:-15
         - hold_game_normal:-2
-        - hold_game_hard:+7
+        - hold_game_hard:+10
+        - click_game_hard:+10
 
+# ------------------------------------------------------------------------------
+# 4. 水域常规小游戏 (Water Fishing - 海洋张力与河流精准判定)
+# ------------------------------------------------------------------------------
 water_games:
   conditions:
-    # The game must be triggered while fishing in water.
     in-water: true
-    # Prevent the special fish from activating game types intended for common fish.
     "!group":
       - special_game
   list: []
   sub-groups:
+
+    # 4.1 咸水海洋 (张力拔河与急速收线)
     ocean_games:
-      # Use biome conditions to differentiate between freshwater and saltwater fish, applying distinct game types accordingly.
       conditions:
         biome:
           - minecraft:ocean
@@ -69,7 +136,8 @@ water_games:
           - minecraft:warm_ocean
       list:
         - tension_game_easy:+15
-        - tension_game_normal:+5
+        - tension_game_normal:+6
+        - click_game_easy:+8
       sub-groups:
         silver:
           conditions:
@@ -78,7 +146,8 @@ water_games:
           list:
             - tension_game_easy:-10
             - tension_game_normal:+12
-            - tension_game_hard:+3
+            - tension_game_hard:+4
+            - click_game_normal:+8
         golden:
           conditions:
             group:
@@ -86,9 +155,11 @@ water_games:
           list:
             - tension_game_easy:-15
             - tension_game_normal:-2
-            - tension_game_hard:+7
+            - tension_game_hard:+9
+            - click_game_hard:+9
+
+    # 4.2 淡水河流与内陆水体 (精准时机点击与节奏旋律)
     river_games:
-      # Use biome conditions to differentiate between freshwater and saltwater fish, applying distinct game types accordingly.
       conditions:
         '!biome':
           - minecraft:ocean
@@ -101,77 +172,74 @@ water_games:
           - minecraft:deep_lukewarm_ocean
           - minecraft:warm_ocean
       list:
-        - accurate_click_bar_1_easy:+15
-        - accurate_click_bar_1_normal:+5
-        - accurate_click_bar_2_easy:+15
-        - accurate_click_bar_2_normal:+5
-        - accurate_click_bar_3_easy:+15
-        - accurate_click_bar_3_normal:+5
-        - accurate_click_bar_4_easy:+15
-        - accurate_click_bar_4_normal:+5
-        - accurate_click_bar_5_easy:+15
-        - accurate_click_bar_5_normal:+5
-        - accurate_click_bar_6_easy:+15
-        - accurate_click_bar_6_normal:+5
-        - accurate_click_bar_7_easy:+15
-        - accurate_click_bar_7_normal:+5
-        - accurate_click_bar_8_easy:+15
-        - accurate_click_bar_8_normal:+5
-        - accurate_click_bar_9_easy:+15
-        - accurate_click_bar_9_normal:+5
+        - accurate_click_bar_1_easy:+12
+        - accurate_click_bar_2_easy:+12
+        - accurate_click_bar_3_easy:+12
+        - accurate_click_bar_4_easy:+12
+        - accurate_click_bar_5_easy:+12
+        - accurate_click_bar_6_easy:+12
+        - accurate_click_bar_7_easy:+12
+        - accurate_click_bar_8_easy:+12
+        - accurate_click_bar_9_easy:+12
+        - dance_game_easy:+10
+        - click_game_easy:+6
       sub-groups:
         silver:
           conditions:
             group:
               - silver_star
           list:
-            - accurate_click_bar_1_easy:-10
-            - accurate_click_bar_1_normal:+5
-            - accurate_click_bar_1_hard:+3
-            - accurate_click_bar_2_easy:-10
-            - accurate_click_bar_2_normal:+5
-            - accurate_click_bar_2_hard:+3
-            - accurate_click_bar_3_easy:-10
-            - accurate_click_bar_3_normal:+5
-            - accurate_click_bar_3_hard:+3
-            - accurate_click_bar_4_easy:-10
-            - accurate_click_bar_4_normal:+5
-            - accurate_click_bar_4_hard:+3
-            - accurate_click_bar_5_easy:-10
-            - accurate_click_bar_5_normal:+5
-            - accurate_click_bar_5_hard:+3
-            - accurate_click_bar_6_easy:-10
-            - accurate_click_bar_6_normal:+5
-            - accurate_click_bar_6_hard:+3
-            - accurate_click_bar_7_easy:-10
-            - accurate_click_bar_7_normal:+5
-            - accurate_click_bar_7_hard:+3
-            - accurate_click_bar_8_easy:-10
-            - accurate_click_bar_8_normal:+5
-            - accurate_click_bar_8_hard:+3
-            - accurate_click_bar_9_easy:-10
-            - accurate_click_bar_9_normal:+5
-            - accurate_click_bar_9_hard:+3
+            - accurate_click_bar_1_easy:-8
+            - accurate_click_bar_1_normal:+4
+            - accurate_click_bar_1_hard:+2
+            - accurate_click_bar_2_easy:-8
+            - accurate_click_bar_2_normal:+4
+            - accurate_click_bar_2_hard:+2
+            - accurate_click_bar_3_easy:-8
+            - accurate_click_bar_3_normal:+4
+            - accurate_click_bar_3_hard:+2
+            - accurate_click_bar_4_easy:-8
+            - accurate_click_bar_4_normal:+4
+            - accurate_click_bar_4_hard:+2
+            - accurate_click_bar_5_easy:-8
+            - accurate_click_bar_5_normal:+4
+            - accurate_click_bar_5_hard:+2
+            - accurate_click_bar_6_easy:-8
+            - accurate_click_bar_6_normal:+4
+            - accurate_click_bar_6_hard:+2
+            - accurate_click_bar_7_easy:-8
+            - accurate_click_bar_7_normal:+4
+            - accurate_click_bar_7_hard:+2
+            - accurate_click_bar_8_easy:-8
+            - accurate_click_bar_8_normal:+4
+            - accurate_click_bar_8_hard:+2
+            - accurate_click_bar_9_easy:-8
+            - accurate_click_bar_9_normal:+4
+            - accurate_click_bar_9_hard:+2
+            - dance_game_normal:+8
+            - click_game_normal:+6
         golden:
           conditions:
             group:
               - golden_star
           list:
-            - accurate_click_bar_1_easy:-15
-            - accurate_click_bar_1_hard:+7
-            - accurate_click_bar_2_easy:-15
-            - accurate_click_bar_2_hard:+7
-            - accurate_click_bar_3_easy:-15
-            - accurate_click_bar_3_hard:+7
-            - accurate_click_bar_4_easy:-15
-            - accurate_click_bar_4_hard:+7
-            - accurate_click_bar_5_easy:-15
-            - accurate_click_bar_5_hard:+7
-            - accurate_click_bar_6_easy:-15
-            - accurate_click_bar_6_hard:+7
-            - accurate_click_bar_7_easy:-15
-            - accurate_click_bar_7_hard:+7
-            - accurate_click_bar_8_easy:-15
-            - accurate_click_bar_8_hard:+7
-            - accurate_click_bar_9_easy:-15
-            - accurate_click_bar_9_hard:+7
+            - accurate_click_bar_1_easy:-12
+            - accurate_click_bar_1_hard:+5
+            - accurate_click_bar_2_easy:-12
+            - accurate_click_bar_2_hard:+5
+            - accurate_click_bar_3_easy:-12
+            - accurate_click_bar_3_hard:+5
+            - accurate_click_bar_4_easy:-12
+            - accurate_click_bar_4_hard:+5
+            - accurate_click_bar_5_easy:-12
+            - accurate_click_bar_5_hard:+5
+            - accurate_click_bar_6_easy:-12
+            - accurate_click_bar_6_hard:+5
+            - accurate_click_bar_7_easy:-12
+            - accurate_click_bar_7_hard:+5
+            - accurate_click_bar_8_easy:-12
+            - accurate_click_bar_8_hard:+5
+            - accurate_click_bar_9_easy:-12
+            - accurate_click_bar_9_hard:+5
+            - dance_game_hard:+10
+            - click_game_hard:+8

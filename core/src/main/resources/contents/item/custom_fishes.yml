@@ -1,0 +1,3520 @@
+# ==============================================================================
+#                 CustomFishing - 扩展鱼种大全 (36种全新特色鱼)
+#           包含淡水、深海、极寒冰钓、幽暗地底、沼泽、熔岩、虚空与传说神兽
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. 樱花大马哈鱼 (Cherry Salmon) - 樱花树林淡水，白天游弋的花香美鱼
+# ------------------------------------------------------------------------------
+cherry_salmon:
+  material: salmon
+  nick: <gradient:#FFB6C1:#FF69B4:#FFB6C1>樱花大马哈鱼</gradient>
+  display:
+    name: <gradient:#FFB6C1:#FF69B4:#FFB6C1><b>樱花大马哈鱼</b></gradient>
+    lore:
+      - '<gray>只在落樱飘零的溪流中游动的优雅鱼类，'
+      - '<gray>鳞片泛着柔和的粉红荧光，散发淡淡花香。'
+      - ''
+      - '<#87CEEB>生境: <white>樱花树林溪流 (白天)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50201
+  group:
+    - river
+    - cherry
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.experience_orb.pickup
+          source: player
+          volume: 0.8
+          pitch: 1.5
+      action_potion:
+        type: potion-effect
+        value:
+          type: REGENERATION
+          duration: 100
+          amplifier: 0
+  size: 20~45
+  price:
+    base: 5
+    bonus: 0.5
+
+cherry_salmon_silver_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#FFB6C1:#FF69B4:#FFB6C1>樱花大马哈鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FFB6C1:#FF69B4:#FFB6C1><b>樱花大马哈鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>花瓣般的粉色鳞片格外亮泽，肉质无比清香甜美。'
+      - ''
+      - '<#87CEEB>生境: <white>樱花树林溪流 (白天)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50202
+  group:
+    - river
+    - cherry
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_potion:
+        type: potion-effect
+        value:
+          type: REGENERATION
+          duration: 160
+          amplifier: 1
+  size: 40~75
+  price:
+    base: 65
+    bonus: 0.9
+
+cherry_salmon_golden_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#FFB6C1:#FF69B4:#FFB6C1>樱花大马哈鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FFB6C1:#FF69B4:#FFB6C1><b>樱花大马哈鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>沐浴满树樱雨而生的罕见灵鱼，全身有樱花符文浮现。'
+      - ''
+      - '<#87CEEB>生境: <white>樱花树林溪流 (白天)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50203
+  group:
+    - river
+    - cherry
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_potion:
+        type: potion-effect
+        value:
+          type: REGENERATION
+          duration: 240
+          amplifier: 1
+      action_broadcast:
+        type: message-nearby
+        value:
+          message:
+            - '<#FFB6C1>[水域祥瑞]</#FFB6C1> <white>{player}</white> 钓到了一条硕大的 <gradient:#FFB6C1:#FF69B4:#FFB6C1>樱花大马哈鱼 (黄金之星)</gradient>！'
+          range: 24
+  size: 70~110
+  price:
+    base: 110
+    bonus: 1.2
+
+# ------------------------------------------------------------------------------
+# 2. 雷霆电鳗 (Electric Eel) - 雷暴与雨天淡水河中暴起的狂暴电能
+# ------------------------------------------------------------------------------
+electric_eel:
+  material: cod
+  nick: <gradient:#00FFFF:#1E90FF:#FFFF00>雷霆电鳗</gradient>
+  display:
+    name: <gradient:#00FFFF:#1E90FF:#FFFF00><b>雷霆电鳗</b></gradient>
+    lore:
+      - '<gray>暴风雨天活跃于湍急河流中的带电鳗鱼，'
+      - '<gray>体内蓄积着高压电弧，触碰时会有轻微触电麻痹感。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水河流 (雷雨天活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50211
+  group:
+    - river
+    - storm
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.lightning_bolt.thunder
+          source: player
+          volume: 0.4
+          pitch: 1.8
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 100
+          amplifier: 0
+  size: 40~90
+  price:
+    base: 5
+    bonus: 0.5
+
+electric_eel_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00FFFF:#1E90FF:#FFFF00>雷霆电鳗</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00FFFF:#1E90FF:#FFFF00><b>雷霆电鳗</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>银色雷弧在它的脊背上不断跳跃，能量极度充盈。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水河流 (雷雨天活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50212
+  group:
+    - river
+    - storm
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.lightning_bolt.thunder
+          source: player
+          volume: 0.6
+          pitch: 1.6
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 200
+          amplifier: 1
+  size: 80~150
+  price:
+    base: 85
+    bonus: 1.0
+
+electric_eel_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00FFFF:#1E90FF:#FFFF00>雷霆电鳗</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00FFFF:#1E90FF:#FFFF00><b>雷霆电鳗</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>雷霆的化身！全身缠绕着耀眼的金白电光，释放出惊人的电压！'
+      - ''
+      - '<#87CEEB>生境: <white>淡水河流 (雷雨天活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50213
+  group:
+    - river
+    - storm
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.lightning_bolt.impact
+          source: player
+          volume: 0.8
+          pitch: 1.4
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 300
+          amplifier: 2
+  size: 140~220
+  price:
+    base: 150
+    bonus: 1.3
+
+# ------------------------------------------------------------------------------
+# 3. 祥瑞金锦鲤 (Golden Koi) - 带来极高好运与财运的淡水至宝
+# ------------------------------------------------------------------------------
+golden_koi:
+  material: tropical_fish
+  nick: <gradient:#FFD700:#FFA500:#FF4500>祥瑞金锦鲤</gradient>
+  display:
+    name: <gradient:#FFD700:#FFA500:#FF4500><b>祥瑞金锦鲤</b></gradient>
+    lore:
+      - '<gray>传说中能为捕获者带来无尽财富与幸运的锦鲤，'
+      - '<gray>金色鳞片光芒流转，宛如流动的黄金。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水溪流与湖泊'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50221
+  group:
+    - river
+    - lucky
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_potion:
+        type: potion-effect
+        value:
+          type: LUCK
+          duration: 600
+          amplifier: 0
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.amethyst_block.chime
+          source: player
+          volume: 1.0
+          pitch: 1.2
+  size: 25~50
+  price:
+    base: 5
+    bonus: 0.5
+
+golden_koi_silver_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#FFD700:#FFA500:#FF4500>祥瑞金锦鲤</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FFD700:#FFA500:#FF4500><b>祥瑞金锦鲤</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>银光与金辉交相辉映，散发着安抚心灵的祥和之气。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水溪流与湖泊'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50222
+  group:
+    - river
+    - lucky
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+      action_potion:
+        type: potion-effect
+        value:
+          type: LUCK
+          duration: 1200
+          amplifier: 1
+  size: 45~85
+  price:
+    base: 120
+    bonus: 1.4
+
+golden_koi_golden_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#FFD700:#FFA500:#FF4500>祥瑞金锦鲤</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FFD700:#FFA500:#FF4500><b>祥瑞金锦鲤</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>九天灵气所聚！捕获它的人将获得神明眷顾，万事亨通！'
+      - ''
+      - '<#87CEEB>生境: <white>淡水溪流与湖泊'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50223
+  group:
+    - river
+    - lucky
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_potion:
+        type: potion-effect
+        value:
+          type: LUCK
+          duration: 2400
+          amplifier: 2
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#FFD700>[财运亨通]</#FFD700> <white>{player}</white> 成功捕获了绝世珍品 <gradient:#FFD700:#FFA500:#FF4500>祥瑞金锦鲤 (黄金之星)</gradient>！'
+  size: 80~130
+  price:
+    base: 220
+    bonus: 1.8
+
+# ------------------------------------------------------------------------------
+# 4. 幽灵鲇 (Phantom Catfish) - 深夜游弋于水底淤泥的隐秘透明怪鱼
+# ------------------------------------------------------------------------------
+phantom_catfish:
+  material: cod
+  nick: <gradient:#483D8B:#6A5ACD:#9370DB>幽灵鲇</gradient>
+  display:
+    name: <gradient:#483D8B:#6A5ACD:#9370DB><b>幽灵鲇</b></gradient>
+    lore:
+      - '<gray>仅在深夜游荡于深水泥底的半透明怪鱼，'
+      - '<gray>肉质若隐若现，具有微弱的夜视荧光。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50231
+  group:
+    - river
+    - night
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+      action_potion:
+        type: potion-effect
+        value:
+          type: NIGHT_VISION
+          duration: 400
+          amplifier: 0
+  size: 35~70
+  price:
+    base: 5
+    bonus: 0.5
+
+phantom_catfish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#483D8B:#6A5ACD:#9370DB>幽灵鲇</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#483D8B:#6A5ACD:#9370DB><b>幽灵鲇</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>身形宛如一抹漂浮的夜雾，隐匿在河道深处。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50232
+  group:
+    - river
+    - night
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+      action_potion:
+        type: potion-effect
+        value:
+          type: NIGHT_VISION
+          duration: 800
+          amplifier: 0
+  size: 65~110
+  price:
+    base: 75
+    bonus: 1.0
+
+phantom_catfish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#483D8B:#6A5ACD:#9370DB>幽灵鲇</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#483D8B:#6A5ACD:#9370DB><b>幽灵鲇</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>仿佛穿梭阴阳两界的幽冥使者，全身泛着冰冷的紫罗兰磷光。'
+      - ''
+      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50233
+  group:
+    - river
+    - night
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 14
+      action_potion:
+        type: potion-effect
+        value:
+          type: NIGHT_VISION
+          duration: 1600
+          amplifier: 0
+  size: 100~160
+  price:
+    base: 130
+    bonus: 1.2
+
+# ------------------------------------------------------------------------------
+# 5. 苔原巨鲈 (Mossy Bass) - 繁茂洞穴与青苔水域的沉重霸主
+# ------------------------------------------------------------------------------
+mossy_bass:
+  material: cod
+  nick: <gradient:#2E8B57:#3CB371:#8FBC8F>苔原巨鲈</gradient>
+  display:
+    name: <gradient:#2E8B57:#3CB371:#8FBC8F><b>苔原巨鲈</b></gradient>
+    lore:
+      - '<gray>栖息在长满青苔的水域中，背鳍宛如覆盖着厚厚的灌木。'
+      - '<gray>体格健壮沉重，拥有极高的肉质品质。'
+      - ''
+      - '<#87CEEB>生境: <white>繁茂洞穴与平原河流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50241
+  group:
+    - river
+    - mossy
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+  size: 40~85
+  price:
+    base: 5
+    bonus: 0.5
+
+mossy_bass_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#2E8B57:#3CB371:#8FBC8F>苔原巨鲈</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#2E8B57:#3CB371:#8FBC8F><b>苔原巨鲈</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>背部青苔凝结出露珠般的翠绿光泽，力量十足。'
+      - ''
+      - '<#87CEEB>生境: <white>繁茂洞穴与平原河流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50242
+  group:
+    - river
+    - mossy
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+  size: 80~140
+  price:
+    base: 70
+    bonus: 0.85
+
+mossy_bass_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#2E8B57:#3CB371:#8FBC8F>苔原巨鲈</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#2E8B57:#3CB371:#8FBC8F><b>苔原巨鲈</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>古老水系中的绝对霸王，身披苍翠铠甲，重如巨石！'
+      - ''
+      - '<#87CEEB>生境: <white>繁茂洞穴与平原河流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50243
+  group:
+    - river
+    - mossy
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 13
+  size: 130~210
+  price:
+    base: 120
+    bonus: 1.1
+
+# ------------------------------------------------------------------------------
+# 6. 竹溪碧雀鳝 (Bamboo Stream Gar) - 隐匿于丛林竹溪中的青翠箭鱼
+# ------------------------------------------------------------------------------
+bamboo_stream_fish:
+  material: cod
+  nick: <gradient:#00FF7F:#2E8B57:#7FFF00>竹溪碧雀鳝</gradient>
+  display:
+    name: <gradient:#00FF7F:#2E8B57:#7FFF00><b>竹溪碧雀鳝</b></gradient>
+    lore:
+      - '<gray>身形修长如一根新竹，在竹林幽溪中迅疾穿梭，极难察觉。'
+      - ''
+      - '<#87CEEB>生境: <white>竹林与丛林溪流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50251
+  group:
+    - river
+    - jungle
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+  size: 30~60
+  price:
+    base: 5
+    bonus: 0.5
+
+bamboo_stream_fish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00FF7F:#2E8B57:#7FFF00>竹溪碧雀鳝</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00FF7F:#2E8B57:#7FFF00><b>竹溪碧雀鳝</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>青翠欲滴的体色仿佛翡翠打磨，游动迅猛如离弦之箭。'
+      - ''
+      - '<#87CEEB>生境: <white>竹林与丛林溪流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50252
+  group:
+    - river
+    - jungle
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+  size: 55~100
+  price:
+    base: 60
+    bonus: 0.9
+
+bamboo_stream_fish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00FF7F:#2E8B57:#7FFF00>竹溪碧雀鳝</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00FF7F:#2E8B57:#7FFF00><b>竹溪碧雀鳝</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>灵动非凡的竹溪鱼王，鳞片泛着翡翠金光。'
+      - ''
+      - '<#87CEEB>生境: <white>竹林与丛林溪流'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50253
+  group:
+    - river
+    - jungle
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+  size: 95~150
+  price:
+    base: 105
+    bonus: 1.15
+
+# ------------------------------------------------------------------------------
+# 7. 深渊灯笼鮟鱇 (Abyssal Angler) - 深邃海沟中闪烁诱人幽光的捕食者
+# ------------------------------------------------------------------------------
+abyssal_angler:
+  material: pufferfish
+  nick: <gradient:#000080:#1E90FF:#00FFFF>深渊灯笼鮟鱇</gradient>
+  display:
+    name: <gradient:#000080:#1E90FF:#00FFFF><b>深渊灯笼鮟鱇</b></gradient>
+    lore:
+      - '<gray>潜伏在漆黑大洋深渊的捕食者，头顶发光发亮的腺体'
+      - '<gray>在永夜海沟中散发着致命诱惑。'
+      - ''
+      - '<#87CEEB>生境: <white>深海 (Y < 30 海底)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50261
+  group:
+    - ocean
+    - deep_ocean
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_potion:
+        type: potion-effect
+        value:
+          type: GLOWING
+          duration: 200
+          amplifier: 0
+  size: 40~90
+  price:
+    base: 5
+    bonus: 0.5
+
+abyssal_angler_silver_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#000080:#1E90FF:#00FFFF>深渊灯笼鮟鱇</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#000080:#1E90FF:#00FFFF><b>深渊灯笼鮟鱇</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>头顶的光球亮如寒星，利齿间还留有未消化的深海生物。'
+      - ''
+      - '<#87CEEB>生境: <white>深海 (Y < 30 海底)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50262
+  group:
+    - ocean
+    - deep_ocean
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+      action_potion:
+        type: potion-effect
+        value:
+          type: GLOWING
+          duration: 400
+          amplifier: 0
+  size: 80~150
+  price:
+    base: 95
+    bonus: 1.1
+
+abyssal_angler_golden_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#000080:#1E90FF:#00FFFF>深渊灯笼鮟鱇</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#000080:#1E90FF:#00FFFF><b>深渊灯笼鮟鱇</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>深渊之底的恐怖巨兽！其头顶明灯如同海底太阳般耀眼！'
+      - ''
+      - '<#87CEEB>生境: <white>深海 (Y < 30 海底)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50263
+  group:
+    - ocean
+    - deep_ocean
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 16
+      action_potion:
+        type: potion-effect
+        value:
+          type: WATER_BREATHING
+          duration: 1200
+          amplifier: 0
+  size: 140~220
+  price:
+    base: 160
+    bonus: 1.4
+
+# ------------------------------------------------------------------------------
+# 8. 极速旗鱼 (Sailfish) - 大洋中时速过百公里的王者
+# ------------------------------------------------------------------------------
+sailfish:
+  material: cod
+  nick: <gradient:#4169E1:#00BFFF:#F0F8FF>极速旗鱼</gradient>
+  display:
+    name: <gradient:#4169E1:#00BFFF:#F0F8FF><b>极速旗鱼</b></gradient>
+    lore:
+      - '<gray>海洋中游速最快的捕食者，巨大的背鳍宛如战舰风帆，'
+      - '<gray>需要高超的张力控线技巧才能降服。'
+      - ''
+      - '<#87CEEB>生境: <white>辽阔大洋 (乘船出海更容易捕获)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50271
+  group:
+    - ocean
+    - pelagic
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+  size: 120~220
+  price:
+    base: 5
+    bonus: 0.5
+
+sailfish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#4169E1:#00BFFF:#F0F8FF>极速旗鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#4169E1:#00BFFF:#F0F8FF><b>极速旗鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>背鳍如纯银锻造的刀锋，冲破海浪时发出尖锐呼啸。'
+      - ''
+      - '<#87CEEB>生境: <white>辽阔大洋 (乘船出海更容易捕获)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50272
+  group:
+    - ocean
+    - pelagic
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+  size: 200~320
+  price:
+    base: 100
+    bonus: 0.95
+
+sailfish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#4169E1:#00BFFF:#F0F8FF>极速旗鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#4169E1:#00BFFF:#F0F8FF><b>极速旗鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>海洋速度的终极神话！它的每一次跳跃都会撕裂海浪！'
+      - ''
+      - '<#87CEEB>生境: <white>辽阔大洋 (乘船出海更容易捕获)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50273
+  group:
+    - ocean
+    - pelagic
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 18
+  size: 300~450
+  price:
+    base: 180
+    bonus: 1.25
+
+# ------------------------------------------------------------------------------
+# 9. 巨浪双髻鲨 (Hammerhead Shark) - 力量感十足的深海巡猎者
+# ------------------------------------------------------------------------------
+hammerhead_shark:
+  material: cod
+  nick: <gradient:#708090:#4682B4:#2F4F4F>巨浪双髻鲨</gradient>
+  display:
+    name: <gradient:#708090:#4682B4:#2F4F4F><b>巨浪双髻鲨</b></gradient>
+    lore:
+      - '<gray>头部呈独特的锤形，敏锐感知水流中的每一丝震颤。'
+      - '<gray>咬钩时力量庞大沉稳，极考验钓竿强度。'
+      - ''
+      - '<#87CEEB>生境: <white>温带与暖水大洋'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50281
+  group:
+    - ocean
+    - shark
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_potion:
+        type: potion-effect
+        value:
+          type: STRENGTH
+          duration: 300
+          amplifier: 0
+  size: 150~300
+  price:
+    base: 5
+    bonus: 0.5
+
+hammerhead_shark_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#708090:#4682B4:#2F4F4F>巨浪双髻鲨</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#708090:#4682B4:#2F4F4F><b>巨浪双髻鲨</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>灰银色钢甲般的粗糙皮层，凶猛且极具压迫感。'
+      - ''
+      - '<#87CEEB>生境: <white>温带与暖水大洋'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50282
+  group:
+    - ocean
+    - shark
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_potion:
+        type: potion-effect
+        value:
+          type: STRENGTH
+          duration: 600
+          amplifier: 1
+  size: 280~450
+  price:
+    base: 120
+    bonus: 0.85
+
+hammerhead_shark_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#708090:#4682B4:#2F4F4F>巨浪双髻鲨</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#708090:#4682B4:#2F4F4F><b>巨浪双髻鲨</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>掀起滔天骇浪的大洋暴君！体型几乎超越了普通捕鱼船！'
+      - ''
+      - '<#87CEEB>生境: <white>温带与暖水大洋'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50283
+  group:
+    - ocean
+    - shark
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_potion:
+        type: potion-effect
+        value:
+          type: STRENGTH
+          duration: 1200
+          amplifier: 1
+  size: 420~650
+  price:
+    base: 210
+    bonus: 1.1
+
+# ------------------------------------------------------------------------------
+# 10. 银月魔鬼鱼 (Moonlight Manta) - 满月之夜伴着银辉浮上海面的幻兽
+# ------------------------------------------------------------------------------
+moonlight_manta:
+  material: cod
+  nick: <gradient:#E6E6FA:#B0C4DE:#FFFFFF>银月魔鬼鱼</gradient>
+  display:
+    name: <gradient:#E6E6FA:#B0C4DE:#FFFFFF><b>银月魔鬼鱼</b></gradient>
+    lore:
+      - '<gray>在满月银光洒满海面时浮上水面的幻之蝠鲼，'
+      - '<gray>双翼平滑如云，游动间似在星海中漫游。'
+      - ''
+      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50291
+  group:
+    - ocean
+    - moon
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 400
+          amplifier: 0
+  size: 100~200
+  price:
+    base: 5
+    bonus: 0.5
+
+moonlight_manta_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#E6E6FA:#B0C4DE:#FFFFFF>银月魔鬼鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#E6E6FA:#B0C4DE:#FFFFFF><b>银月魔鬼鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>银色符文在它的翼膜上流动，带给人飘渺轻灵的宁静感。'
+      - ''
+      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50292
+  group:
+    - ocean
+    - moon
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 11
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 800
+          amplifier: 0
+  size: 180~320
+  price:
+    base: 115
+    bonus: 1.1
+
+moonlight_manta_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#E6E6FA:#B0C4DE:#FFFFFF>银月魔鬼鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#E6E6FA:#B0C4DE:#FFFFFF><b>银月魔鬼鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>月之精魄的眷属，振翅宛如月华流泻，倾倒众生。'
+      - ''
+      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50293
+  group:
+    - ocean
+    - moon
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 1600
+          amplifier: 0
+  size: 300~480
+  price:
+    base: 200
+    bonus: 1.4
+
+# ------------------------------------------------------------------------------
+# 11. 荧光水母 (Bioluminescent Jelly) - 夜色中浮动在暖洋的微光梦境
+# ------------------------------------------------------------------------------
+bioluminescent_jelly:
+  material: pufferfish
+  nick: <gradient:#00FFFF:#7B68EE:#FF00FF>荧光水母</gradient>
+  display:
+    name: <gradient:#00FFFF:#7B68EE:#FF00FF><b>荧光水母</b></gradient>
+    lore:
+      - '<gray>如伞盖般在温暖海浪中舒展脉动，'
+      - '<gray>通体流淌着梦幻般的青紫荧光。'
+      - ''
+      - '<#87CEEB>生境: <white>暖水与温带海洋 (夜间)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50301
+  group:
+    - ocean
+    - jelly
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+      action_potion:
+        type: potion-effect
+        value:
+          type: DOLPHINS_GRACE
+          duration: 200
+          amplifier: 0
+  size: 15~40
+  price:
+    base: 5
+    bonus: 0.5
+
+bioluminescent_jelly_silver_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#00FFFF:#7B68EE:#FF00FF>荧光水母</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00FFFF:#7B68EE:#FF00FF><b>荧光水母</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>晶莹剔透的胶质躯体中，封存着微小的海洋发光孢子。'
+      - ''
+      - '<#87CEEB>生境: <white>暖水与温带海洋 (夜间)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50302
+  group:
+    - ocean
+    - jelly
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_potion:
+        type: potion-effect
+        value:
+          type: DOLPHINS_GRACE
+          duration: 400
+          amplifier: 0
+  size: 35~70
+  price:
+    base: 68
+    bonus: 1.05
+
+bioluminescent_jelly_golden_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#00FFFF:#7B68EE:#FF00FF>荧光水母</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00FFFF:#7B68EE:#FF00FF><b>荧光水母</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>宛如一颗璀璨夺目的海底霓虹宝石，照亮整个港湾。'
+      - ''
+      - '<#87CEEB>生境: <white>暖水与温带海洋 (夜间)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50303
+  group:
+    - ocean
+    - jelly
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_potion:
+        type: potion-effect
+        value:
+          type: DOLPHINS_GRACE
+          duration: 800
+          amplifier: 1
+  size: 65~110
+  price:
+    base: 120
+    bonus: 1.3
+
+# ------------------------------------------------------------------------------
+# 12. 大王酸浆乌贼 (Colossal Squid) - 深海巨兽，触手上长有锋利旋转利爪
+# ------------------------------------------------------------------------------
+colossal_squid:
+  material: ink_sac
+  nick: <gradient:#8B0000:#DC143C:#FF4500>大王酸浆乌贼</gradient>
+  display:
+    name: <gradient:#8B0000:#DC143C:#FF4500><b>大王酸浆乌贼</b></gradient>
+    lore:
+      - '<gray>深海千米之下的恐怖霸主，触手末端长有倒钩与吸盘，'
+      - '<gray>体长可达数米，需要乘船出远海才能寻觅其踪迹。'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50311
+  group:
+    - ocean
+    - titan
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+      action_exp:
+        type: exp
+        value: 20
+  size: 300~550
+  price:
+    base: 5
+    bonus: 0.5
+
+colossal_squid_silver_star:
+  show-in-fishfinder: false
+  material: ink_sac
+  nick: <gradient:#8B0000:#DC143C:#FF4500>大王酸浆乌贼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#8B0000:#DC143C:#FF4500><b>大王酸浆乌贼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>狰狞的暗红巨目有餐盘大小，触须粗如水桶。'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50312
+  group:
+    - ocean
+    - titan
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+      action_exp:
+        type: exp
+        value: 45
+  size: 500~800
+  price:
+    base: 160
+    bonus: 0.8
+
+colossal_squid_golden_star:
+  show-in-fishfinder: false
+  material: ink_sac
+  nick: <gradient:#8B0000:#DC143C:#FF4500>大王酸浆乌贼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#8B0000:#DC143C:#FF4500><b>大王酸浆乌贼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>远洋水手口口相传的灭世海妖！能够轻易将小型帆船拖入海底！'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50313
+  group:
+    - ocean
+    - titan
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 25
+      action_exp:
+        type: exp
+        value: 100
+      action_broadcast:
+        type: message-nearby
+        value:
+          message:
+            - '<#DC143C>[巨怪出没]</#DC143C> <white>{player}</white> 在远洋征服了体长达 <#FFA500>{size_formatted}cm</#FFA500> 的 <gradient:#8B0000:#DC143C:#FF4500>大王酸浆乌贼</gradient>！'
+          range: 36
+  size: 750~1200
+  price:
+    base: 280
+    bonus: 1.05
+
+# ------------------------------------------------------------------------------
+# 13. 红宝石小丑鱼 (Clownfish Ruby) - 暖洋珊瑚礁中灵动耀眼的瑰宝
+# ------------------------------------------------------------------------------
+clownfish_ruby:
+  material: tropical_fish
+  nick: <gradient:#FF0000:#FF6347:#FFFFFF>红宝石小丑鱼</gradient>
+  display:
+    name: <gradient:#FF0000:#FF6347:#FFFFFF><b>红宝石小丑鱼</b></gradient>
+    lore:
+      - '<gray>栖息于五彩斑斓的珊瑚礁丛中，红白交织的条纹格外鲜明，'
+      - '<gray>受到各大水族玩家的狂热追捧。'
+      - ''
+      - '<#87CEEB>生境: <white>暖水海洋与珊瑚礁 (Warm Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50321
+  group:
+    - ocean
+    - coral
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 3
+  size: 8~18
+  price:
+    base: 5
+    bonus: 0.5
+
+clownfish_ruby_silver_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#FF0000:#FF6347:#FFFFFF>红宝石小丑鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FF0000:#FF6347:#FFFFFF><b>红宝石小丑鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>鳞片呈现出红宝石般纯净透亮的质感，灵动非凡。'
+      - ''
+      - '<#87CEEB>生境: <white>暖水海洋与珊瑚礁 (Warm Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50322
+  group:
+    - ocean
+    - coral
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+  size: 16~28
+  price:
+    base: 60
+    bonus: 1.8
+
+clownfish_ruby_golden_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#FF0000:#FF6347:#FFFFFF>红宝石小丑鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FF0000:#FF6347:#FFFFFF><b>红宝石小丑鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>万中无一的纯血种，被誉为珊瑚王国的微型帝王！'
+      - ''
+      - '<#87CEEB>生境: <white>暖水海洋与珊瑚礁 (Warm Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50323
+  group:
+    - ocean
+    - coral
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+  size: 26~42
+  price:
+    base: 110
+    bonus: 2.2
+
+# ------------------------------------------------------------------------------
+# 14. 远古腔棘鱼 (Ancient Coelacanth) - 深海岩洞中亿万年不灭的生命奇迹
+# ------------------------------------------------------------------------------
+ancient_coelacanth:
+  material: cod
+  nick: <gradient:#2F4F4F:#008080:#5F9EA0>远古腔棘鱼</gradient>
+  display:
+    name: <gradient:#2F4F4F:#008080:#5F9EA0><b>远古腔棘鱼</b></gradient>
+    lore:
+      - '<gray>穿越亿万年岁月仍保留原始形态的远古活化石，'
+      - '<gray>四肢般的鳍部见证着生命演化的最初步伐。'
+      - ''
+      - '<#87CEEB>生境: <white>深海岩洞与海沟 (雨天更易出现)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50331
+  group:
+    - ocean
+    - ancient
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_exp:
+        type: exp
+        value: 15
+  size: 80~140
+  price:
+    base: 5
+    bonus: 0.5
+
+ancient_coelacanth_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#2F4F4F:#008080:#5F9EA0>远古腔棘鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#2F4F4F:#008080:#5F9EA0><b>远古腔棘鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>重厚的硬鳞甲上刻印着远古海洋的岩石纹路。'
+      - ''
+      - '<#87CEEB>生境: <white>深海岩洞与海沟 (雨天更易出现)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50332
+  group:
+    - ocean
+    - ancient
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_exp:
+        type: exp
+        value: 30
+  size: 130~200
+  price:
+    base: 130
+    bonus: 1.1
+
+ancient_coelacanth_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#2F4F4F:#008080:#5F9EA0>远古腔棘鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#2F4F4F:#008080:#5F9EA0><b>远古腔棘鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>沉睡古海之灵的守护者，体内蕴含不可思议的生命韧性。'
+      - ''
+      - '<#87CEEB>生境: <white>深海岩洞与海沟 (雨天更易出现)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50333
+  group:
+    - ocean
+    - ancient
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_exp:
+        type: exp
+        value: 70
+  size: 190~280
+  price:
+    base: 230
+    bonus: 1.35
+
+# ------------------------------------------------------------------------------
+# 15. 极地霜花鳟 (Frost Trout) - 冰封水面之下的耐寒结晶鱼
+# ------------------------------------------------------------------------------
+frost_trout:
+  material: salmon
+  nick: <gradient:#AFEEEE:#00CED1:#E0FFFF>极地霜花鳟</gradient>
+  display:
+    name: <gradient:#AFEEEE:#00CED1:#E0FFFF><b>极地霜花鳟</b></gradient>
+    lore:
+      - '<gray>在零下结冰的寒洋中穿梭自如，'
+      - '<gray>鳞片表面结着细小的冰晶花，触感冰凉沁骨。'
+      - ''
+      - '<#87CEEB>生境: <white>冻洋与极寒冰钓 (Ice Fishing)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50341
+  group:
+    - ocean
+    - frozen
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.glass.break
+          source: player
+          volume: 0.6
+          pitch: 1.8
+  size: 25~55
+  price:
+    base: 5
+    bonus: 0.5
+
+frost_trout_silver_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#AFEEEE:#00CED1:#E0FFFF>极地霜花鳟</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#AFEEEE:#00CED1:#E0FFFF><b>极地霜花鳟</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>霜晶如银粉般散落，肉质经过天然冰鲜，入口即化。'
+      - ''
+      - '<#87CEEB>生境: <white>冻洋与极寒冰钓 (Ice Fishing)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50342
+  group:
+    - ocean
+    - frozen
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+  size: 50~90
+  price:
+    base: 80
+    bonus: 1.0
+
+frost_trout_golden_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#AFEEEE:#00CED1:#E0FFFF>极地霜花鳟</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#AFEEEE:#00CED1:#E0FFFF><b>极地霜花鳟</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>凝结极地万年寒冰灵气的神物，通体如冰雕般晶莹剔透。'
+      - ''
+      - '<#87CEEB>生境: <white>冻洋与极寒冰钓 (Ice Fishing)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50343
+  group:
+    - ocean
+    - frozen
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+  size: 85~140
+  price:
+    base: 145
+    bonus: 1.25
+
+# ------------------------------------------------------------------------------
+# 16. 冰川帝王巨蟹 (Glacial Crab) - 极寒海底的重装甲顶级海产
+# ------------------------------------------------------------------------------
+glacial_crab:
+  material: nautilus_shell
+  nick: <gradient:#4682B4:#87CEEB:#FFFFFF>冰川帝王巨蟹</gradient>
+  display:
+    name: <gradient:#4682B4:#87CEEB:#FFFFFF><b>冰川帝王巨蟹</b></gradient>
+    lore:
+      - '<gray>冰封海面下深水底层的无敌重甲巨怪，'
+      - '<gray>巨钳能轻易夹碎坚冰，是全大陆最珍贵昂贵的美味。'
+      - ''
+      - '<#87CEEB>生境: <white>深层冻洋与浮冰群系'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50351
+  group:
+    - ocean
+    - frozen
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+  size: 50~100
+  price:
+    base: 5
+    bonus: 0.5
+
+glacial_crab_silver_star:
+  show-in-fishfinder: false
+  material: nautilus_shell
+  nick: <gradient:#4682B4:#87CEEB:#FFFFFF>冰川帝王巨蟹</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#4682B4:#87CEEB:#FFFFFF><b>冰川帝王巨蟹</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>甲壳上凝结着永不消融的玄冰利刃，威风凛凛。'
+      - ''
+      - '<#87CEEB>生境: <white>深层冻洋与浮冰群系'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50352
+  group:
+    - ocean
+    - frozen
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+  size: 90~160
+  price:
+    base: 150
+    bonus: 1.1
+
+glacial_crab_golden_star:
+  show-in-fishfinder: false
+  material: nautilus_shell
+  nick: <gradient:#4682B4:#87CEEB:#FFFFFF>冰川帝王巨蟹</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#4682B4:#87CEEB:#FFFFFF><b>冰川帝王巨蟹</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>冰川深渊中的帝皇！两柄巨钳重达百斤，价值连城！'
+      - ''
+      - '<#87CEEB>生境: <white>深层冻洋与浮冰群系'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50353
+  group:
+    - ocean
+    - frozen
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+  size: 150~230
+  price:
+    base: 260
+    bonus: 1.35
+
+# ------------------------------------------------------------------------------
+# 17. 极光幻彩极鳍鱼 (Aurora Fin) - 只有在极夜微光闪烁时跃出冰面的灵鱼
+# ------------------------------------------------------------------------------
+aurora_fin:
+  material: tropical_fish
+  nick: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493>极光幻彩极鳍鱼</gradient>
+  display:
+    name: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493><b>极光幻彩极鳍鱼</b></gradient>
+    lore:
+      - '<gray>沐浴在极光下的梦幻生灵，其背鳍随着视线变换而折射彩虹流光。'
+      - ''
+      - '<#87CEEB>生境: <white>寒带冻洋夜晚 (极光天象)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50361
+  group:
+    - ocean
+    - frozen
+    - aurora
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.player.levelup
+          source: player
+          volume: 0.8
+          pitch: 1.6
+  size: 20~50
+  price:
+    base: 5
+    bonus: 0.5
+
+aurora_fin_silver_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493>极光幻彩极鳍鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493><b>极光幻彩极鳍鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>宛如从夜空撕下一片绚丽极光裹在鱼身，瑰丽难言。'
+      - ''
+      - '<#87CEEB>生境: <white>寒带冻洋夜晚 (极光天象)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50362
+  group:
+    - ocean
+    - frozen
+    - aurora
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+  size: 45~85
+  price:
+    base: 125
+    bonus: 1.3
+
+aurora_fin_golden_star:
+  show-in-fishfinder: false
+  material: tropical_fish
+  nick: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493>极光幻彩极鳍鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493><b>极光幻彩极鳍鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>天地同辉的自然奇观！捕获它时天际仿佛有彩虹盛放！'
+      - ''
+      - '<#87CEEB>生境: <white>寒带冻洋夜晚 (极光天象)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50363
+  group:
+    - ocean
+    - frozen
+    - aurora
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 18
+      action_broadcast:
+        type: message-nearby
+        value:
+          message:
+            - '<#00FFFF>[极光照耀]</#00FFFF> <white>{player}</white> 捕获了绚丽的 <gradient:#00FA9A:#00FFFF:#DA70D6:#FF1493>极光幻彩极鳍鱼 (黄金之星)</gradient>！'
+          range: 32
+  size: 80~130
+  price:
+    base: 220
+    bonus: 1.6
+
+# ------------------------------------------------------------------------------
+# 18. 北极红点鲑 (Arctic Char) - 雪山冰湖的高冷佳肴
+# ------------------------------------------------------------------------------
+arctic_char:
+  material: salmon
+  nick: <gradient:#FF6347:#FFA07A:#F0FFFF>北极红点鲑</gradient>
+  display:
+    name: <gradient:#FF6347:#FFA07A:#F0FFFF><b>北极红点鲑</b></gradient>
+    lore:
+      - '<gray>生活在冰雪覆盖的高山湖泊与冻土河流中，'
+      - '<gray>体侧布满如朱砂般的鲜红斑点，肉质富含油脂与热量。'
+      - ''
+      - '<#87CEEB>生境: <white>积雪群系与冻结冰河'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50371
+  group:
+    - river
+    - frozen
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+      action_food:
+        type: saturation
+        value: 2
+  size: 30~65
+  price:
+    base: 5
+    bonus: 0.5
+
+arctic_char_silver_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#FF6347:#FFA07A:#F0FFFF>北极红点鲑</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FF6347:#FFA07A:#F0FFFF><b>北极红点鲑</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>红斑如玛瑙般剔透，是极地探险家梦寐以求的能量源泉。'
+      - ''
+      - '<#87CEEB>生境: <white>积雪群系与冻结冰河'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50372
+  group:
+    - river
+    - frozen
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_food:
+        type: saturation
+        value: 4
+  size: 60~110
+  price:
+    base: 72
+    bonus: 0.95
+
+arctic_char_golden_star:
+  show-in-fishfinder: false
+  material: salmon
+  nick: <gradient:#FF6347:#FFA07A:#F0FFFF>北极红点鲑</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FF6347:#FFA07A:#F0FFFF><b>北极红点鲑</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>历经极地暴风雪洗礼的雪山鲑鱼王，味道冠绝群鲜。'
+      - ''
+      - '<#87CEEB>生境: <white>积雪群系与冻结冰河'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50373
+  group:
+    - river
+    - frozen
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_food:
+        type: saturation
+        value: 8
+  size: 100~160
+  price:
+    base: 130
+    bonus: 1.2
+
+# ------------------------------------------------------------------------------
+# 19. 无目洞穴脂鲤 (Blind Cave Fish) - Y<0 深层溶洞暗河中的听觉大师
+# ------------------------------------------------------------------------------
+blind_cave_fish:
+  material: cod
+  nick: <gradient:#DCDCDC:#C0C0C0:#A9A9A9>无目洞穴脂鲤</gradient>
+  display:
+    name: <gradient:#DCDCDC:#C0C0C0:#A9A9A9><b>无目洞穴脂鲤</b></gradient>
+    lore:
+      - '<gray>在不见天日的地下暗河中繁衍无数世代，双眼已彻底退化，'
+      - '<gray>但侧线器官能够精确探测水中最轻微的分子震动。'
+      - ''
+      - '<#87CEEB>生境: <white>深层洞穴暗河 (Y < 0)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50381
+  group:
+    - cave
+    - deep_cave
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+  size: 15~35
+  price:
+    base: 5
+    bonus: 0.5
+
+blind_cave_fish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#DCDCDC:#C0C0C0:#A9A9A9>无目洞穴脂鲤</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#DCDCDC:#C0C0C0:#A9A9A9><b>无目洞穴脂鲤</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>苍白的半透明鱼身隐隐透出骨骼结构，纯净无暇。'
+      - ''
+      - '<#87CEEB>生境: <white>深层洞穴暗河 (Y < 0)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50382
+  group:
+    - cave
+    - deep_cave
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 9
+  size: 30~60
+  price:
+    base: 85
+    bonus: 1.1
+
+blind_cave_fish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#DCDCDC:#C0C0C0:#A9A9A9>无目洞穴脂鲤</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#DCDCDC:#C0C0C0:#A9A9A9><b>无目洞穴脂鲤</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>古老地心的盲眼智者，全身泛着白金般的高贵荧光。'
+      - ''
+      - '<#87CEEB>生境: <white>深层洞穴暗河 (Y < 0)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50383
+  group:
+    - cave
+    - deep_cave
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+  size: 55~95
+  price:
+    base: 150
+    bonus: 1.35
+
+# ------------------------------------------------------------------------------
+# 20. 幽匿刺脊鱼 (Sculk Spine Fish) - 深暗之域潜行垂钓的异变魔物
+# ------------------------------------------------------------------------------
+sculk_spine_fish:
+  material: cod
+  nick: <gradient:#008B8B:#00FFFF:#001122>幽匿刺脊鱼</gradient>
+  display:
+    name: <gradient:#008B8B:#00FFFF:#001122><b>幽匿刺脊鱼</b></gradient>
+    lore:
+      - '<gray>受到幽匿物质侵蚀共生的深渊异种，背脊上长满振动触角。'
+      - '<gray>只有保持极度的静止与潜行（Sneak）才可能引其咬钩。'
+      - ''
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50391
+  group:
+    - cave
+    - sculk
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.sculk_sensor.clicking
+          source: player
+          volume: 0.8
+          pitch: 1.2
+      action_exp:
+        type: exp
+        value: 25
+  size: 35~75
+  price:
+    base: 5
+    bonus: 0.5
+
+sculk_spine_fish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#008B8B:#00FFFF:#001122>幽匿刺脊鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#008B8B:#00FFFF:#001122><b>幽匿刺脊鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>幽匿触须散发着摄人心魄的青蓝光芒，吸收着周围的声音。'
+      - ''
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50392
+  group:
+    - cave
+    - sculk
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.sculk_shrieker.shriek
+          source: player
+          volume: 0.5
+          pitch: 1.5
+      action_exp:
+        type: exp
+        value: 50
+  size: 70~120
+  price:
+    base: 130
+    bonus: 1.3
+
+sculk_spine_fish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#008B8B:#00FFFF:#001122>幽匿刺脊鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#008B8B:#00FFFF:#001122><b>幽匿刺脊鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>幽暗深渊的主宰之眼！蕴含着纯粹的幽匿原核与古老声波！'
+      - ''
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50393
+  group:
+    - cave
+    - sculk
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 22
+      action_exp:
+        type: exp
+        value: 120
+  size: 110~180
+  price:
+    base: 240
+    bonus: 1.6
+
+# ------------------------------------------------------------------------------
+# 21. 紫晶簇孔雀鱼 (Crystal Guppy) - 紫晶洞泉水孕育出的清脆灵物
+# ------------------------------------------------------------------------------
+crystal_guppy:
+  material: amethyst_shard
+  nick: <gradient:#9932CC:#BA55D3:#E6E6FA>紫晶簇孔雀鱼</gradient>
+  display:
+    name: <gradient:#9932CC:#BA55D3:#E6E6FA><b>紫晶簇孔雀鱼</b></gradient>
+    lore:
+      - '<gray>诞生在紫水晶簇交织的溶洞清泉中，全身如晶体般清脆透亮，'
+      - '<gray>游动时会发出若有若无的水晶风铃清音。'
+      - ''
+      - '<#87CEEB>生境: <white>溶洞水池与紫晶洞'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50401
+  group:
+    - cave
+    - crystal
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.amethyst_cluster.hit
+          source: player
+          volume: 0.9
+          pitch: 1.4
+  size: 10~25
+  price:
+    base: 5
+    bonus: 0.5
+
+crystal_guppy_silver_star:
+  show-in-fishfinder: false
+  material: amethyst_shard
+  nick: <gradient:#9932CC:#BA55D3:#E6E6FA>紫晶簇孔雀鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#9932CC:#BA55D3:#E6E6FA><b>紫晶簇孔雀鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>尾鳍展开宛如一朵晶莹盛开的紫罗兰花，美不胜收。'
+      - ''
+      - '<#87CEEB>生境: <white>溶洞水池与紫晶洞'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50402
+  group:
+    - cave
+    - crystal
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 9
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.amethyst_block.chime
+          source: player
+          volume: 1.0
+          pitch: 1.6
+  size: 20~40
+  price:
+    base: 95
+    bonus: 1.55
+
+crystal_guppy_golden_star:
+  show-in-fishfinder: false
+  material: amethyst_shard
+  nick: <gradient:#9932CC:#BA55D3:#E6E6FA>紫晶簇孔雀鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#9932CC:#BA55D3:#E6E6FA><b>紫晶簇孔雀鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>大自然精雕细琢的水晶奇迹，散发着安抚心灵的能量共鸣。'
+      - ''
+      - '<#87CEEB>生境: <white>溶洞水池与紫晶洞'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50403
+  group:
+    - cave
+    - crystal
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 16
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.amethyst_block.resonate
+          source: player
+          volume: 1.0
+          pitch: 1.2
+  size: 35~60
+  price:
+    base: 170
+    bonus: 1.9
+
+# ------------------------------------------------------------------------------
+# 22. 滴石针鳞鲇 (Dripstone Catfish) - 滴石林深潭中如钟乳石般坚硬的鲇鱼
+# ------------------------------------------------------------------------------
+dripstone_catfish:
+  material: cod
+  nick: <gradient:#8B7355:#CD853F:#D2B48C>滴石针鳞鲇</gradient>
+  display:
+    name: <gradient:#8B7355:#CD853F:#D2B48C><b>滴石针鳞鲇</b></gradient>
+    lore:
+      - '<gray>生活在滴石洞窟水潭深处，背部长满尖锐如钟乳石倒刺的鳞甲，'
+      - '<gray>防御力极强，性格沉稳凶悍。'
+      - ''
+      - '<#87CEEB>生境: <white>滴石洞窟水潭 (Dripstone Caves)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50411
+  group:
+    - cave
+    - dripstone
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+  size: 40~80
+  price:
+    base: 5
+    bonus: 0.5
+
+dripstone_catfish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B7355:#CD853F:#D2B48C>滴石针鳞鲇</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#8B7355:#CD853F:#D2B48C><b>滴石针鳞鲇</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>粗糙的石质外壳闪烁着矿石粉末，分量极重。'
+      - ''
+      - '<#87CEEB>生境: <white>滴石洞窟水潭 (Dripstone Caves)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50412
+  group:
+    - cave
+    - dripstone
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 9
+  size: 75~130
+  price:
+    base: 80
+    bonus: 0.95
+
+dripstone_catfish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B7355:#CD853F:#D2B48C>滴石针鳞鲇</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#8B7355:#CD853F:#D2B48C><b>滴石针鳞鲇</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>地下溶洞数百年沉淀的石肤巨怪，力大无穷！'
+      - ''
+      - '<#87CEEB>生境: <white>滴石洞窟水潭 (Dripstone Caves)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50413
+  group:
+    - cave
+    - dripstone
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+  size: 120~190
+  price:
+    base: 140
+    bonus: 1.2
+
+# ------------------------------------------------------------------------------
+# 23. 远古鳄雀鳝 (Alligator Gar) - 沼泽泥沼中的暴虐巨兽
+# ------------------------------------------------------------------------------
+alligator_gar:
+  material: cod
+  nick: <gradient:#556B2F:#6B8E23:#8FBC8F>远古鳄雀鳝</gradient>
+  display:
+    name: <gradient:#556B2F:#6B8E23:#8FBC8F><b>远古鳄雀鳝</b></gradient>
+    lore:
+      - '<gray>淡水河流与湿地中的顶级冷血掠食者，头部酷似短吻鳄，'
+      - '<gray>满口错落交织的锋利獠牙，咬合力足以断金碎骨。'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽与红树林沼泽 (Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50421
+  group:
+    - swamp
+    - predator
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+  size: 120~220
+  price:
+    base: 5
+    bonus: 0.5
+
+alligator_gar_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#556B2F:#6B8E23:#8FBC8F>远古鳄雀鳝</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#556B2F:#6B8E23:#8FBC8F><b>远古鳄雀鳝</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>坚如菱形钢板的鱼鳞泛着森冷灰绿光泽，沉重威严。'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽与红树林沼泽 (Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50422
+  group:
+    - swamp
+    - predator
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 11
+  size: 200~320
+  price:
+    base: 105
+    bonus: 0.9
+
+alligator_gar_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#556B2F:#6B8E23:#8FBC8F>远古鳄雀鳝</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#556B2F:#6B8E23:#8FBC8F><b>远古鳄雀鳝</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>沼泽水系的无可争议君王！长达三四米的庞大水下战舰！'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽与红树林沼泽 (Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50423
+  group:
+    - swamp
+    - predator
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+  size: 300~450
+  price:
+    base: 190
+    bonus: 1.15
+
+# ------------------------------------------------------------------------------
+# 24. 泥沼潜伏肺鱼 (Muddy Lungfish) - 红树林泥泞中的生命奇迹
+# ------------------------------------------------------------------------------
+muddy_lungfish:
+  material: cod
+  nick: <gradient:#8B5A2B:#CD853F:#A0522D>泥沼潜伏肺鱼</gradient>
+  display:
+    name: <gradient:#8B5A2B:#CD853F:#A0522D><b>泥沼潜伏肺鱼</b></gradient>
+    lore:
+      - '<gray>拥有原始肺部呼吸构造的奇特古老鱼类，'
+      - '<gray>即使在严重干涸的红树林淤泥中也能深埋休眠数月。'
+      - ''
+      - '<#87CEEB>生境: <white>红树林沼泽 (Mangrove Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50431
+  group:
+    - swamp
+    - mangrove
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 4
+  size: 30~60
+  price:
+    base: 5
+    bonus: 0.5
+
+muddy_lungfish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B5A2B:#CD853F:#A0522D>泥沼潜伏肺鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#8B5A2B:#CD853F:#A0522D><b>泥沼潜伏肺鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>厚实的黏液外膜散发温润光泽，生命力极度顽强。'
+      - ''
+      - '<#87CEEB>生境: <white>红树林沼泽 (Mangrove Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50432
+  group:
+    - swamp
+    - mangrove
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+  size: 55~100
+  price:
+    base: 65
+    bonus: 0.9
+
+muddy_lungfish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B5A2B:#CD853F:#A0522D>泥沼潜伏肺鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#8B5A2B:#CD853F:#A0522D><b>泥沼潜伏肺鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>见证沧海桑田的泥潭不朽者，蕴含不可思议的生命奥秘。'
+      - ''
+      - '<#87CEEB>生境: <white>红树林沼泽 (Mangrove Swamp)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50433
+  group:
+    - swamp
+    - mangrove
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 13
+  size: 90~150
+  price:
+    base: 115
+    bonus: 1.15
+
+# ------------------------------------------------------------------------------
+# 25. 女巫密酿躄鱼 (Witch's Brew Frogfish) - 沼泽药水废水浸泡出的诡异魔物
+# ------------------------------------------------------------------------------
+witch_brew_frogfish:
+  material: pufferfish
+  nick: <gradient:#800080:#9400D3:#32CD32>女巫密酿躄鱼</gradient>
+  display:
+    name: <gradient:#800080:#9400D3:#32CD32><b>女巫密酿躄鱼</b></gradient>
+    lore:
+      - '<gray>长年在沼泽女巫小屋附近的药渣废水中浸润生长，'
+      - '<gray>身上长满五颜六色的炼金药泡，能引发奇妙的药剂反应。'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽水域 (夜间更活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50441
+  group:
+    - swamp
+    - alchemy
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 5
+      action_potion:
+        type: potion-effect
+        value:
+          type: INVISIBILITY
+          duration: 300
+          amplifier: 0
+  size: 20~45
+  price:
+    base: 5
+    bonus: 0.5
+
+witch_brew_frogfish_silver_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#800080:#9400D3:#32CD32>女巫密酿躄鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#800080:#9400D3:#32CD32><b>女巫密酿躄鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>药泡中不断翻滚着神秘的紫绿烟雾，蕴含深厚魔力。'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽水域 (夜间更活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50442
+  group:
+    - swamp
+    - alchemy
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 9
+      action_potion:
+        type: potion-effect
+        value:
+          type: INVISIBILITY
+          duration: 600
+          amplifier: 0
+  size: 40~75
+  price:
+    base: 90
+    bonus: 1.3
+
+witch_brew_frogfish_golden_star:
+  show-in-fishfinder: false
+  material: pufferfish
+  nick: <gradient:#800080:#9400D3:#32CD32>女巫密酿躄鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#800080:#9400D3:#32CD32><b>女巫密酿躄鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>女巫密宗的终极药灵！其体表分泌物是顶级炼金绝品！'
+      - ''
+      - '<#87CEEB>生境: <white>沼泽水域 (夜间更活跃)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50443
+  group:
+    - swamp
+    - alchemy
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 16
+      action_potion:
+        type: potion-effect
+        value:
+          type: INVISIBILITY
+          duration: 1200
+          amplifier: 0
+  size: 70~110
+  price:
+    base: 160
+    bonus: 1.6
+
+# ------------------------------------------------------------------------------
+# 26. 黑曜熔鳞翻车鱼 (Obsidian Sunfish) - 岩浆中浮游的重型黑曜护甲巨鱼
+# ------------------------------------------------------------------------------
+obsidian_sunfish:
+  material: cod
+  nick: <gradient:#1C1C1C:#4F4F4F:#FF4500>黑曜熔鳞翻车鱼</gradient>
+  display:
+    name: <gradient:#1C1C1C:#4F4F4F:#FF4500><b>黑曜熔鳞翻车鱼</b></gradient>
+    lore:
+      - '<gray>在灼热岩浆中缓缓浮动的厚重巨鱼，鳞片由高纯度黑曜石结晶构成，'
+      - '<gray>坚韧不可摧毁，散发着炽热地心余温。'
+      - ''
+      - '<#87CEEB>生境: <white>下界与主界熔岩湖 (需耐火钓具)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50451
+  group:
+    - lava
+    - obsidian
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 600
+          amplifier: 0
+  size: 80~160
+  price:
+    base: 5
+    bonus: 0.5
+
+obsidian_sunfish_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#1C1C1C:#4F4F4F:#FF4500>黑曜熔鳞翻车鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#1C1C1C:#4F4F4F:#FF4500><b>黑曜熔鳞翻车鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>暗黑铠甲缝隙中流淌着如血般的鲜红岩浆纹路。'
+      - ''
+      - '<#87CEEB>生境: <white>下界与主界熔岩湖 (需耐火钓具)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50452
+  group:
+    - lava
+    - obsidian
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 11
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 1200
+          amplifier: 0
+  size: 140~240
+  price:
+    base: 115
+    bonus: 1.05
+
+obsidian_sunfish_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#1C1C1C:#4F4F4F:#FF4500>黑曜熔鳞翻车鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#1C1C1C:#4F4F4F:#FF4500><b>黑曜熔鳞翻车鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>地狱深渊熔火淬炼出的绝对防御之兽！重如陨铁！'
+      - ''
+      - '<#87CEEB>生境: <white>下界与主界熔岩湖 (需耐火钓具)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50453
+  group:
+    - lava
+    - obsidian
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 2400
+          amplifier: 0
+  size: 220~350
+  price:
+    base: 210
+    bonus: 1.35
+
+# ------------------------------------------------------------------------------
+# 27. 烈焰流火鳐 (Magma Ray) - 拍动炽热双翼在岩浆海滑翔的火鸟灵鳐
+# ------------------------------------------------------------------------------
+magma_ray:
+  material: cod
+  nick: <gradient:#FF4500:#FF8C00:#FFD700>烈焰流火鳐</gradient>
+  display:
+    name: <gradient:#FF4500:#FF8C00:#FFD700><b>烈焰流火鳐</b></gradient>
+    lore:
+      - '<gray>在下界无边岩浆海中翻腾飞翔的炽烈生物，'
+      - '<gray>双翼拍击时会溅射出滚烫的火星与岩浆泡。'
+      - ''
+      - '<#87CEEB>生境: <white>下界岩浆海 (Nether Lava Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50461
+  group:
+    - lava
+    - nether
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.blaze.shoot
+          source: player
+          volume: 0.7
+          pitch: 1.2
+  size: 60~120
+  price:
+    base: 5
+    bonus: 0.5
+
+magma_ray_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#FF4500:#FF8C00:#FFD700>烈焰流火鳐</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FF4500:#FF8C00:#FFD700><b>烈焰流火鳐</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>尾针上凝结着炽白的烈焰核心，极度狂躁耀眼。'
+      - ''
+      - '<#87CEEB>生境: <white>下界岩浆海 (Nether Lava Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50462
+  group:
+    - lava
+    - nether
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+  size: 110~190
+  price:
+    base: 105
+    bonus: 1.1
+
+magma_ray_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#FF4500:#FF8C00:#FFD700>烈焰流火鳐</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FF4500:#FF8C00:#FFD700><b>烈焰流火鳐</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>宛如地狱浴火重生的火凤凰！双翼展开如漫天流火！'
+      - ''
+      - '<#87CEEB>生境: <white>下界岩浆海 (Nether Lava Ocean)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50463
+  group:
+    - lava
+    - nether
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 18
+  size: 180~280
+  price:
+    base: 190
+    bonus: 1.4
+
+# ------------------------------------------------------------------------------
+# 28. 幽魂青炎鳗 (Soul Lava Eel) - 灵魂沙峡谷中吸食亡灵的青焰异种
+# ------------------------------------------------------------------------------
+soul_lava_eel:
+  material: cod
+  nick: <gradient:#00BFFF:#1E90FF:#00FFFF>幽魂青炎鳗</gradient>
+  display:
+    name: <gradient:#00BFFF:#1E90FF:#00FFFF><b>幽魂青炎鳗</b></gradient>
+    lore:
+      - '<gray>出没于灵魂沙峡谷的幽蓝熔岩之中，以迷途亡魂与怨念为食，'
+      - '<gray>身上燃烧着永不熄灭的青色灵魂之火。'
+      - ''
+      - '<#87CEEB>生境: <white>灵魂沙峡谷岩浆池 (Soul Sand Valley)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50471
+  group:
+    - lava
+    - soul
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:particle.soul_escape
+          source: player
+          volume: 0.8
+          pitch: 1.0
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 300
+          amplifier: 1
+  size: 50~100
+  price:
+    base: 5
+    bonus: 0.5
+
+soul_lava_eel_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00BFFF:#1E90FF:#00FFFF>幽魂青炎鳗</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00BFFF:#1E90FF:#00FFFF><b>幽魂青炎鳗</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>青蓝幽火凝聚成鬼魅般的面孔，散发出逼人骨髓的异界寒意。'
+      - ''
+      - '<#87CEEB>生境: <white>灵魂沙峡谷岩浆池 (Soul Sand Valley)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50472
+  group:
+    - lava
+    - soul
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 11
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 600
+          amplifier: 1
+  size: 90~160
+  price:
+    base: 110
+    bonus: 1.15
+
+soul_lava_eel_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#00BFFF:#1E90FF:#00FFFF>幽魂青炎鳗</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00BFFF:#1E90FF:#00FFFF><b>幽魂青炎鳗</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>灵魂之谷的万魂统领！捕获它时幽魂尖啸声回荡在地狱穹顶！'
+      - ''
+      - '<#87CEEB>生境: <white>灵魂沙峡谷岩浆池 (Soul Sand Valley)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50473
+  group:
+    - lava
+    - soul
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 19
+      action_potion:
+        type: potion-effect
+        value:
+          type: SPEED
+          duration: 1200
+          amplifier: 2
+  size: 150~240
+  price:
+    base: 200
+    bonus: 1.45
+
+# ------------------------------------------------------------------------------
+# 29. 绯红巨颚暴龙鱼 (Crimson Jaw) - 绯红森林熔岩畔的狂暴撕咬者
+# ------------------------------------------------------------------------------
+crimson_jaw:
+  material: cod
+  nick: <gradient:#8B0000:#B22222:#FF0000>绯红巨颚暴龙鱼</gradient>
+  display:
+    name: <gradient:#8B0000:#B22222:#FF0000><b>绯红巨颚暴龙鱼</b></gradient>
+    lore:
+      - '<gray>受绯红森林真菌孢子感染突变的熔岩猛兽，'
+      - '<gray>巨口能瞬间咬碎玄武岩，对一切鲜活气息充满狂热攻击欲。'
+      - ''
+      - '<#87CEEB>生境: <white>绯红森林熔岩湖 (Crimson Forest)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50481
+  group:
+    - lava
+    - nether
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+  size: 90~180
+  price:
+    base: 5
+    bonus: 0.5
+
+crimson_jaw_silver_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B0000:#B22222:#FF0000>绯红巨颚暴龙鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#8B0000:#B22222:#FF0000><b>绯红巨颚暴龙鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>血红獠牙上滴落着滚烫的消化酸液，令人不寒而栗。'
+      - ''
+      - '<#87CEEB>生境: <white>绯红森林熔岩湖 (Crimson Forest)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50482
+  group:
+    - lava
+    - nether
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 11
+  size: 160~270
+  price:
+    base: 100
+    bonus: 0.95
+
+crimson_jaw_golden_star:
+  show-in-fishfinder: false
+  material: cod
+  nick: <gradient:#8B0000:#B22222:#FF0000>绯红巨颚暴龙鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#8B0000:#B22222:#FF0000><b>绯红巨颚暴龙鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>真菌母巢培育出的血腥领主，足以生吞成年炽足兽！'
+      - ''
+      - '<#87CEEB>生境: <white>绯红森林熔岩湖 (Crimson Forest)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50483
+  group:
+    - lava
+    - nether
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 19
+  size: 250~400
+  price:
+    base: 185
+    bonus: 1.25
+
+# ------------------------------------------------------------------------------
+# 30. 玄武鎏金帝王鲤 (Nether Gilded Carp) - 玄武岩三角洲极高温热泉中的熔岩黄金神鱼
+# ------------------------------------------------------------------------------
+nether_gilded_carp:
+  material: gold_nugget
+  nick: <gradient:#FFD700:#FFA500:#B8860B:#FF4500>玄武鎏金帝王鲤</gradient>
+  display:
+    name: <gradient:#FFD700:#FFA500:#B8860B:#FF4500><b>玄武鎏金帝王鲤</b></gradient>
+    lore:
+      - '<gray>在玄武岩三角洲极度沸腾的熔岩深渊中淬炼凝聚而成的神鱼，'
+      - '<gray>全身流淌着液态纯金，价值连城，万载难逢。'
+      - ''
+      - '<#87CEEB>生境: <white>玄武岩三角洲熔岩泉 (Basalt Deltas)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50491
+  group:
+    - lava
+    - basalt
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 1200
+          amplifier: 0
+  size: 35~70
+  price:
+    base: 5
+    bonus: 0.5
+
+nether_gilded_carp_silver_star:
+  show-in-fishfinder: false
+  material: gold_nugget
+  nick: <gradient:#FFD700:#FFA500:#B8860B:#FF4500>玄武鎏金帝王鲤</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#FFD700:#FFA500:#B8860B:#FF4500><b>玄武鎏金帝王鲤</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>鎏金纹路间跳动着纯净的岩浆火精，富贵奢华至极。'
+      - ''
+      - '<#87CEEB>生境: <white>玄武岩三角洲熔岩泉 (Basalt Deltas)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50492
+  group:
+    - lava
+    - basalt
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 15
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 2400
+          amplifier: 0
+  size: 65~120
+  price:
+    base: 180
+    bonus: 1.8
+
+nether_gilded_carp_golden_star:
+  show-in-fishfinder: false
+  material: gold_nugget
+  nick: <gradient:#FFD700:#FFA500:#B8860B:#FF4500>玄武鎏金帝王鲤</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#FFD700:#FFA500:#B8860B:#FF4500><b>玄武鎏金帝王鲤</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>地底火脉孕育的皇者！通体纯金雕铸，见证者皆为天选！'
+      - ''
+      - '<#87CEEB>生境: <white>玄武岩三角洲熔岩泉 (Basalt Deltas)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50493
+  group:
+    - lava
+    - basalt
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 25
+      action_potion:
+        type: potion-effect
+        value:
+          type: FIRE_RESISTANCE
+          duration: 3600
+          amplifier: 0
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#FFD700>[熔岩奇迹]</#FFD700> <white>{player}</white> 在地狱沸腾火海中钓起了传说中的 <gradient:#FFD700:#FFA500:#B8860B:#FF4500>玄武鎏金帝王鲤 (黄金之星)</gradient>！'
+  size: 110~180
+  price:
+    base: 350
+    bonus: 2.2
+
+# ------------------------------------------------------------------------------
+# 31. 虚空漂流鳐 (Void Ray) - 穿梭于末地无垠虚空的幽冥巨怪
+# ------------------------------------------------------------------------------
+void_ray:
+  material: phantom_membrane
+  nick: <gradient:#191970:#4B0082:#8A2BE2>虚空漂流鳐</gradient>
+  display:
+    name: <gradient:#191970:#4B0082:#8A2BE2><b>虚空漂流鳐</b></gradient>
+    lore:
+      - '<gray>在末地岛屿之间的无底虚空中平稳滑翔的异界巨灵，'
+      - '<gray>宽大的羽翼吞噬一切光线，只有末影火花在其边缘闪烁。'
+      - ''
+      - '<#87CEEB>生境: <white>末路之地虚空 (需虚空钓竿)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50501
+  group:
+    - void
+    - the_end
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 8
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 600
+          amplifier: 0
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.enderman.teleport
+          source: player
+          volume: 0.8
+          pitch: 0.8
+  size: 150~280
+  price:
+    base: 5
+    bonus: 0.5
+
+void_ray_silver_star:
+  show-in-fishfinder: false
+  material: phantom_membrane
+  nick: <gradient:#191970:#4B0082:#8A2BE2>虚空漂流鳐</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#191970:#4B0082:#8A2BE2><b>虚空漂流鳐</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>漆黑如墨的虚空之躯上浮现出繁复的末影星阵。'
+      - ''
+      - '<#87CEEB>生境: <white>末路之地虚空 (需虚空钓竿)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50502
+  group:
+    - void
+    - the_end
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 14
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 1200
+          amplifier: 0
+  size: 260~400
+  price:
+    base: 140
+    bonus: 1.15
+
+void_ray_golden_star:
+  show-in-fishfinder: false
+  material: phantom_membrane
+  nick: <gradient:#191970:#4B0082:#8A2BE2>虚空漂流鳐</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#191970:#4B0082:#8A2BE2><b>虚空漂流鳐</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>遨游于虚无维度的远古星鳐！振翅间便能撕裂空间屏障！'
+      - ''
+      - '<#87CEEB>生境: <white>末路之地虚空 (需虚空钓竿)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50503
+  group:
+    - void
+    - the_end
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 22
+      action_potion:
+        type: potion-effect
+        value:
+          type: SLOW_FALLING
+          duration: 2400
+          amplifier: 0
+  size: 380~550
+  price:
+    base: 240
+    bonus: 1.45
+
+# ------------------------------------------------------------------------------
+# 32. 紫颂星体乌贼 (Chorus Squid) - 啃食紫颂花微粒而发生空间跃迁的奇异生命
+# ------------------------------------------------------------------------------
+chorus_squid:
+  material: chorus_fruit
+  nick: <gradient:#DA70D6:#BA55D3:#8A2BE2>紫颂星体乌贼</gradient>
+  display:
+    name: <gradient:#DA70D6:#BA55D3:#8A2BE2><b>紫颂星体乌贼</b></gradient>
+    lore:
+      - '<gray>以末地外岛紫颂花粉尘为食的浮空触须乌贼，'
+      - '<gray>受到惊扰时会瞬间在虚空中进行短距离相位折跃。'
+      - ''
+      - '<#87CEEB>生境: <white>末地外岛与虚空 (The End Void)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50511
+  group:
+    - void
+    - chorus
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 7
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:item.chorus_fruit.teleport
+          source: player
+          volume: 0.8
+          pitch: 1.2
+  size: 40~80
+  price:
+    base: 5
+    bonus: 0.5
+
+chorus_squid_silver_star:
+  show-in-fishfinder: false
+  material: chorus_fruit
+  nick: <gradient:#DA70D6:#BA55D3:#8A2BE2>紫颂星体乌贼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#DA70D6:#BA55D3:#8A2BE2><b>紫颂星体乌贼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>触须晶化如紫颂花苞，散发着诱人而神秘的空间芬芳。'
+      - ''
+      - '<#87CEEB>生境: <white>末地外岛与虚空 (The End Void)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50512
+  group:
+    - void
+    - chorus
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 12
+  size: 75~130
+  price:
+    base: 120
+    bonus: 1.25
+
+chorus_squid_golden_star:
+  show-in-fishfinder: false
+  material: chorus_fruit
+  nick: <gradient:#DA70D6:#BA55D3:#8A2BE2>紫颂星体乌贼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#DA70D6:#BA55D3:#8A2BE2><b>紫颂星体乌贼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>完全掌握折跃维度的空间幻兽！身体呈现高维投影状！'
+      - ''
+      - '<#87CEEB>生境: <white>末地外岛与虚空 (The End Void)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50513
+  group:
+    - void
+    - chorus
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+  size: 120~190
+  price:
+    base: 210
+    bonus: 1.55
+
+# ------------------------------------------------------------------------------
+# 33. 奇点坍缩星核鱼 (Singularity Fish) - 世界底层极限虚空中诞生的终极神话
+# ------------------------------------------------------------------------------
+singularity_fish:
+  material: nether_star
+  nick: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF>奇点坍缩星核鱼</gradient>
+  display:
+    name: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF><b>奇点坍缩星核鱼</b></gradient>
+    lore:
+      - '<gray>于世界最深处世界底层的极限虚空边缘凝结而成，'
+      - '<gray>核心引力强横无匹，周围光线与空间均因其发生扭曲。'
+      - ''
+      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>神话 ★★★★★'
+  custom-model-data: 50521
+  group:
+    - void
+    - mythic
+    - special_game
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 30
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:ui.toast.challenge_complete
+          source: player
+          volume: 1.0
+          pitch: 1.0
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#9400D3>◤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◥'
+          - '  <#FFD700>【宇宙奇迹】</#FFD700> <white>{player}</white> 突破空间界限，'
+          - '  成功从极限虚空之中钓起了至高神话 <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF>奇点坍缩星核鱼</gradient>！'
+          - '<#9400D3>◣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◢'
+  size: 50~120
+  price:
+    base: 350
+    bonus: 2.5
+
+singularity_fish_silver_star:
+  show-in-fishfinder: false
+  material: nether_star
+  nick: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF>奇点坍缩星核鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF><b>奇点坍缩星核鱼</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>星核脉冲不断释放出毁灭与重生的时空潮汐。'
+      - ''
+      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银神话 ★★★★★'
+  custom-model-data: 50522
+  group:
+    - void
+    - mythic
+    - special_game
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 50
+  size: 100~200
+  price:
+    base: 500
+    bonus: 3.2
+
+singularity_fish_golden_star:
+  show-in-fishfinder: false
+  material: nether_star
+  nick: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF>奇点坍缩星核鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF><b>奇点坍缩星核鱼</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>万象归一的时空之眼！拥有改写维度现实的不可思议神力！'
+      - ''
+      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金神话 ★★★★★'
+  custom-model-data: 50523
+  group:
+    - void
+    - mythic
+    - special_game
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 100
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#FFD700>◤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◥'
+          - '  <#FFD700>【神迹现世】</#FFD700> 终极传奇降临！<white>{player}</white> 捕获了'
+          - '  宇宙唯一的至尊 <gradient:#4B0082:#9400D3:#FF00FF:#FFFFFF>奇点坍缩星核鱼 (黄金之星)</gradient>！'
+          - '<#FFD700>◣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◢'
+  size: 180~320
+  price:
+    base: 888
+    bonus: 4.5
+
+# ------------------------------------------------------------------------------
+# 34. 星云游荡水母 (Nebula Drifter) - 末地星空深处的绚丽幻彩星母
+# ------------------------------------------------------------------------------
+nebula_drifter:
+  material: amethyst_shard
+  nick: <gradient:#9370DB:#87CEFA:#FFB6C1>星云游荡水母</gradient>
+  display:
+    name: <gradient:#9370DB:#87CEFA:#FFB6C1><b>星云游荡水母</b></gradient>
+    lore:
+      - '<gray>体内封存着微缩星云的灵动浮游生物，'
+      - '<gray>伴着虚空季风在群星与末影之间缓缓漂浮。'
+      - ''
+      - '<#87CEEB>生境: <white>末地虚空与浮岛边缘'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>普通 ★☆☆'
+  custom-model-data: 50531
+  group:
+    - void
+    - nebula
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 6
+  size: 25~50
+  price:
+    base: 5
+    bonus: 0.5
+
+nebula_drifter_silver_star:
+  show-in-fishfinder: false
+  material: amethyst_shard
+  nick: <gradient:#9370DB:#87CEFA:#FFB6C1>星云游荡水母</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#9370DB:#87CEFA:#FFB6C1><b>星云游荡水母</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>微型星尘在其透明伞盖内盘旋成漩涡星系，如梦似幻。'
+      - ''
+      - '<#87CEEB>生境: <white>末地虚空与浮岛边缘'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
+  custom-model-data: 50532
+  group:
+    - void
+    - nebula
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 10
+  size: 45~85
+  price:
+    base: 105
+    bonus: 1.15
+
+nebula_drifter_golden_star:
+  show-in-fishfinder: false
+  material: amethyst_shard
+  nick: <gradient:#9370DB:#87CEFA:#FFB6C1>星云游荡水母</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#9370DB:#87CEFA:#FFB6C1><b>星云游荡水母</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>宛如一颗漂浮的初生恒星，释放出璀璨星芒与纯净生机。'
+      - ''
+      - '<#87CEEB>生境: <white>末地虚空与浮岛边缘'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金 ★★★'
+  custom-model-data: 50533
+  group:
+    - void
+    - nebula
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 18
+  size: 80~140
+  price:
+    base: 180
+    bonus: 1.45
+
+# ------------------------------------------------------------------------------
+# 35. 幼年利维坦 (Leviathan Calf) - 暴风雨深夜深海激战的传说海怪
+# ------------------------------------------------------------------------------
+leviathan_young:
+  material: heart_of_the_sea
+  nick: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF>幼年利维坦</gradient>
+  display:
+    name: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF><b>幼年利维坦</b></gradient>
+    lore:
+      - '<gray>远古神话巨海兽利维坦的幼崽！即便是幼年之躯，'
+      - '<gray>也已具备掀翻巨浪、引动海洋风暴的恐怖权能！'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋暴风雨夜晚 (极高难度)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>传说 ★★★★☆'
+  custom-model-data: 50541
+  group:
+    - ocean
+    - leviathan
+    - special_game
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_exp:
+        type: exp
+        value: 150
+      action_potion:
+        type: potion-effect
+        value:
+          type: CONDUIT_POWER
+          duration: 1200
+          amplifier: 0
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:entity.elder_guardian.curse
+          source: player
+          volume: 1.0
+          pitch: 0.9
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#00BFFF>【深海巨啸】</#00BFFF> <white>{player}</white> 在狂风暴雨的深海中搏斗并征服了 <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF>幼年利维坦</gradient>！'
+  size: 350~650
+  price:
+    base: 300
+    bonus: 1.2
+
+leviathan_young_silver_star:
+  show-in-fishfinder: false
+  material: heart_of_the_sea
+  nick: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF>幼年利维坦</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF><b>幼年利维坦</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>全身披挂着深蓝潮汐硬甲，眼中燃烧着征服大洋的霸气。'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋暴风雨夜晚 (极高难度)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银传说 ★★★★☆'
+  custom-model-data: 50542
+  group:
+    - ocean
+    - leviathan
+    - special_game
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 35
+      action_exp:
+        type: exp
+        value: 250
+  size: 600~950
+  price:
+    base: 450
+    bonus: 1.5
+
+leviathan_young_golden_star:
+  show-in-fishfinder: false
+  material: heart_of_the_sea
+  nick: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF>幼年利维坦</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF><b>幼年利维坦</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>潮汐与风暴的真正主宰！体长逼近千米巨鲸的无双海兽！'
+      - ''
+      - '<#87CEEB>生境: <white>深海远洋暴风雨夜晚 (极高难度)'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金传说 ★★★★★'
+  custom-model-data: 50543
+  group:
+    - ocean
+    - leviathan
+    - special_game
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 60
+      action_exp:
+        type: exp
+        value: 500
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#FFD700>◤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◥'
+          - '  <#00FFFF>【海神降世】</#00FFFF> 勇者 <white>{player}</white> 战胜了浩瀚洋流，'
+          - '  成功钓起了长达 <#FFA500>{size_formatted}cm</#FFA500> 的 <gradient:#00008B:#0000CD:#00BFFF:#FFFFFF>幼年利维坦 (黄金之星)</gradient>！'
+          - '<#FFD700>◣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◢'
+  size: 900~1500
+  price:
+    base: 777
+    bonus: 2.0
+
+# ------------------------------------------------------------------------------
+# 36. 九天星穹苍龙鲤 (Celestial Koi) - 苍穹与水域交汇处的无上天界灵鲤
+# ------------------------------------------------------------------------------
+celestial_koi:
+  material: prismarine_crystals
+  nick: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700>九天星穹苍龙鲤</gradient>
+  display:
+    name: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700><b>九天星穹苍龙鲤</b></gradient>
+    lore:
+      - '<gray>应天道运势而生的天界灵鲤，鳞如皓月，目若明星。'
+      - '<gray>只在至高云巅水池或受海神图腾祝福的水域中悄然游弋。'
+      - ''
+      - '<#87CEEB>生境: <white>高空云巅水池 (Y > 120) 或图腾庇护水域'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <white>神话 ★★★★★'
+  custom-model-data: 50551
+  group:
+    - river
+    - celestial
+    - special_game
+    - no_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 20
+      action_potion:
+        type: potion-effect
+        value:
+          type: HERO_OF_THE_VILLAGE
+          duration: 3600
+          amplifier: 1
+      action_sound:
+        type: sound
+        value:
+          key: minecraft:block.beacon.activate
+          source: player
+          volume: 1.0
+          pitch: 1.2
+  size: 60~120
+  price:
+    base: 300
+    bonus: 2
+
+celestial_koi_silver_star:
+  show-in-fishfinder: false
+  material: prismarine_crystals
+  nick: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700>九天星穹苍龙鲤</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+  display:
+    name: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700><b>九天星穹苍龙鲤</b></gradient> <#F5F5F5>(白银之星)</#F5F5F5>
+    lore:
+      - '<gray>游动时周身环绕着纯白仙气与星辉，凡尘难见一瞬。'
+      - ''
+      - '<#87CEEB>生境: <white>高空云巅水池 (Y > 120) 或图腾庇护水域'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#E0FFFF>白银神话 ★★★★★'
+  custom-model-data: 50552
+  group:
+    - river
+    - celestial
+    - special_game
+    - silver_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 35
+  size: 110~200
+  price:
+    base: 450
+    bonus: 2.8
+
+celestial_koi_golden_star:
+  show-in-fishfinder: false
+  material: prismarine_crystals
+  nick: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700>九天星穹苍龙鲤</gradient> <#FFD700>(黄金之星)</#FFD700>
+  display:
+    name: <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700><b>九天星穹苍龙鲤</b></gradient> <#FFD700>(黄金之星)</#FFD700>
+    lore:
+      - '<gray>即将跃过龙门化为真龙的天命之鱼！天地瑞气集于一身！'
+      - ''
+      - '<#87CEEB>生境: <white>高空云巅水池 (Y > 120) 或图腾庇护水域'
+      - '<#FFD700>体长: <white>{size_formatted} cm'
+      - '<#98FB98>品质: <#FFD700>黄金神话 ★★★★★'
+  custom-model-data: 50553
+  group:
+    - river
+    - celestial
+    - special_game
+    - golden_star
+  events:
+    success:
+      action_mending:
+        type: mending
+        value: 60
+      action_broadcast:
+        type: broadcast
+        value:
+          - '<#FFD700>◤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◥'
+          - '  <#FFFACD>【龙跃九天】</#FFFACD> 祥云普照！<white>{player}</white> 捕获了'
+          - '  传世神鱼 <gradient:#E0FFFF:#87CEEB:#FFFACD:#FFD700>九天星穹苍龙鲤 (黄金之星)</gradient>！'
+          - '<#FFD700>◣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◢'
+  size: 190~300
+  price:
+    base: 777
+    bonus: 3.8

@@ -1,14 +1,10 @@
-# Note: These are the default configurations of the plugin
-# and do not necessarily mean that players can have a good
-# gaming experience. We hope that you will create
-# customized configurations based on your own ideas,
-# allowing players to experience the uniqueness of your server.
-
-# The concepts of categories and groups are different.
-# Categories are only used to classify fish based on certain rules,
-# which only affect the return value of placeholder and do not affect any gameplay
+# ==============================================================================
+#             CustomFishing 鱼类图鉴与占位符分类 (Category Settings)
+#    分类仅用于 PAPI 占位符统计 (如 %customfishing_catches_normal_fish%)
+# ==============================================================================
 
 normal_fish:
+  # 原版默认鱼
   - tuna_fish
   - pike_fish
   - gold_fish
@@ -23,6 +19,45 @@ normal_fish:
   - salmon_void_fish
   - woodskip_fish
   - sturgeon_fish
+  - blue_jellyfish
+  - pink_jellyfish
+  # 新增特色鱼
+  - cherry_salmon
+  - electric_eel
+  - golden_koi
+  - phantom_catfish
+  - mossy_bass
+  - bamboo_stream_fish
+  - abyssal_angler
+  - sailfish
+  - hammerhead_shark
+  - moonlight_manta
+  - bioluminescent_jelly
+  - colossal_squid
+  - clownfish_ruby
+  - ancient_coelacanth
+  - frost_trout
+  - glacial_crab
+  - aurora_fin
+  - arctic_char
+  - blind_cave_fish
+  - sculk_spine_fish
+  - crystal_guppy
+  - dripstone_catfish
+  - alligator_gar
+  - muddy_lungfish
+  - witch_brew_frogfish
+  - obsidian_sunfish
+  - magma_ray
+  - soul_lava_eel
+  - crimson_jaw
+  - nether_gilded_carp
+  - void_ray
+  - chorus_squid
+  - singularity_fish
+  - nebula_drifter
+  - leviathan_young
+  - celestial_koi
 
 sliver_star_fish:
   - tuna_fish_silver_star
@@ -39,6 +74,44 @@ sliver_star_fish:
   - salmon_void_fish_silver_star
   - woodskip_fish_silver_star
   - sturgeon_fish_silver_star
+  - blue_jellyfish_silver_star
+  - pink_jellyfish_silver_star
+  - cherry_salmon_silver_star
+  - electric_eel_silver_star
+  - golden_koi_silver_star
+  - phantom_catfish_silver_star
+  - mossy_bass_silver_star
+  - bamboo_stream_fish_silver_star
+  - abyssal_angler_silver_star
+  - sailfish_silver_star
+  - hammerhead_shark_silver_star
+  - moonlight_manta_silver_star
+  - bioluminescent_jelly_silver_star
+  - colossal_squid_silver_star
+  - clownfish_ruby_silver_star
+  - ancient_coelacanth_silver_star
+  - frost_trout_silver_star
+  - glacial_crab_silver_star
+  - aurora_fin_silver_star
+  - arctic_char_silver_star
+  - blind_cave_fish_silver_star
+  - sculk_spine_fish_silver_star
+  - crystal_guppy_silver_star
+  - dripstone_catfish_silver_star
+  - alligator_gar_silver_star
+  - muddy_lungfish_silver_star
+  - witch_brew_frogfish_silver_star
+  - obsidian_sunfish_silver_star
+  - magma_ray_silver_star
+  - soul_lava_eel_silver_star
+  - crimson_jaw_silver_star
+  - nether_gilded_carp_silver_star
+  - void_ray_silver_star
+  - chorus_squid_silver_star
+  - singularity_fish_silver_star
+  - nebula_drifter_silver_star
+  - leviathan_young_silver_star
+  - celestial_koi_silver_star
 
 golden_star_fish:
   - tuna_fish_golden_star
@@ -55,6 +128,44 @@ golden_star_fish:
   - salmon_void_fish_golden_star
   - woodskip_fish_golden_star
   - sturgeon_fish_golden_star
+  - blue_jellyfish_golden_star
+  - pink_jellyfish_golden_star
+  - cherry_salmon_golden_star
+  - electric_eel_golden_star
+  - golden_koi_golden_star
+  - phantom_catfish_golden_star
+  - mossy_bass_golden_star
+  - bamboo_stream_fish_golden_star
+  - abyssal_angler_golden_star
+  - sailfish_golden_star
+  - hammerhead_shark_golden_star
+  - moonlight_manta_golden_star
+  - bioluminescent_jelly_golden_star
+  - colossal_squid_golden_star
+  - clownfish_ruby_golden_star
+  - ancient_coelacanth_golden_star
+  - frost_trout_golden_star
+  - glacial_crab_golden_star
+  - aurora_fin_golden_star
+  - arctic_char_golden_star
+  - blind_cave_fish_golden_star
+  - sculk_spine_fish_golden_star
+  - crystal_guppy_golden_star
+  - dripstone_catfish_golden_star
+  - alligator_gar_golden_star
+  - muddy_lungfish_golden_star
+  - witch_brew_frogfish_golden_star
+  - obsidian_sunfish_golden_star
+  - magma_ray_golden_star
+  - soul_lava_eel_golden_star
+  - crimson_jaw_golden_star
+  - nether_gilded_carp_golden_star
+  - void_ray_golden_star
+  - chorus_squid_golden_star
+  - singularity_fish_golden_star
+  - nebula_drifter_golden_star
+  - leviathan_young_golden_star
+  - celestial_koi_golden_star
 
 river_fish:
   - gold_fish
@@ -71,13 +182,37 @@ river_fish:
   - carp_fish_golden_star
   - cat_fish
   - cat_fish_silver_star
-  - cat_fish_silver_star
+  - cat_fish_golden_star
   - woodskip_fish
   - woodskip_fish_silver_star
   - woodskip_fish_golden_star
   - sturgeon_fish
   - sturgeon_fish_silver_star
   - sturgeon_fish_golden_star
+  - cherry_salmon
+  - cherry_salmon_silver_star
+  - cherry_salmon_golden_star
+  - electric_eel
+  - electric_eel_silver_star
+  - electric_eel_golden_star
+  - golden_koi
+  - golden_koi_silver_star
+  - golden_koi_golden_star
+  - phantom_catfish
+  - phantom_catfish_silver_star
+  - phantom_catfish_golden_star
+  - mossy_bass
+  - mossy_bass_silver_star
+  - mossy_bass_golden_star
+  - bamboo_stream_fish
+  - bamboo_stream_fish_silver_star
+  - bamboo_stream_fish_golden_star
+  - arctic_char
+  - arctic_char_silver_star
+  - arctic_char_golden_star
+  - celestial_koi
+  - celestial_koi_silver_star
+  - celestial_koi_golden_star
 
 ocean_fish:
   - tuna_fish
@@ -104,3 +239,109 @@ ocean_fish:
   - pink_jellyfish
   - pink_jellyfish_silver_star
   - pink_jellyfish_golden_star
+  - abyssal_angler
+  - abyssal_angler_silver_star
+  - abyssal_angler_golden_star
+  - sailfish
+  - sailfish_silver_star
+  - sailfish_golden_star
+  - hammerhead_shark
+  - hammerhead_shark_silver_star
+  - hammerhead_shark_golden_star
+  - moonlight_manta
+  - moonlight_manta_silver_star
+  - moonlight_manta_golden_star
+  - bioluminescent_jelly
+  - bioluminescent_jelly_silver_star
+  - bioluminescent_jelly_golden_star
+  - colossal_squid
+  - colossal_squid_silver_star
+  - colossal_squid_golden_star
+  - clownfish_ruby
+  - clownfish_ruby_silver_star
+  - clownfish_ruby_golden_star
+  - ancient_coelacanth
+  - ancient_coelacanth_silver_star
+  - ancient_coelacanth_golden_star
+  - frost_trout
+  - frost_trout_silver_star
+  - frost_trout_golden_star
+  - glacial_crab
+  - glacial_crab_silver_star
+  - glacial_crab_golden_star
+  - aurora_fin
+  - aurora_fin_silver_star
+  - aurora_fin_golden_star
+  - leviathan_young
+  - leviathan_young_silver_star
+  - leviathan_young_golden_star
+
+cave_fish:
+  - blind_cave_fish
+  - blind_cave_fish_silver_star
+  - blind_cave_fish_golden_star
+  - sculk_spine_fish
+  - sculk_spine_fish_silver_star
+  - sculk_spine_fish_golden_star
+  - crystal_guppy
+  - crystal_guppy_silver_star
+  - crystal_guppy_golden_star
+  - dripstone_catfish
+  - dripstone_catfish_silver_star
+  - dripstone_catfish_golden_star
+
+swamp_fish:
+  - alligator_gar
+  - alligator_gar_silver_star
+  - alligator_gar_golden_star
+  - muddy_lungfish
+  - muddy_lungfish_silver_star
+  - muddy_lungfish_golden_star
+  - witch_brew_frogfish
+  - witch_brew_frogfish_silver_star
+  - witch_brew_frogfish_golden_star
+
+lava_fish:
+  - obsidian_sunfish
+  - obsidian_sunfish_silver_star
+  - obsidian_sunfish_golden_star
+  - magma_ray
+  - magma_ray_silver_star
+  - magma_ray_golden_star
+  - soul_lava_eel
+  - soul_lava_eel_silver_star
+  - soul_lava_eel_golden_star
+  - crimson_jaw
+  - crimson_jaw_silver_star
+  - crimson_jaw_golden_star
+  - nether_gilded_carp
+  - nether_gilded_carp_silver_star
+  - nether_gilded_carp_golden_star
+
+void_fish:
+  - salmon_void_fish
+  - salmon_void_fish_silver_star
+  - salmon_void_fish_golden_star
+  - void_ray
+  - void_ray_silver_star
+  - void_ray_golden_star
+  - chorus_squid
+  - chorus_squid_silver_star
+  - chorus_squid_golden_star
+  - singularity_fish
+  - singularity_fish_silver_star
+  - singularity_fish_golden_star
+  - nebula_drifter
+  - nebula_drifter_silver_star
+  - nebula_drifter_golden_star
+
+mythic_fish:
+  - singularity_fish
+  - singularity_fish_silver_star
+  - singularity_fish_golden_star
+  - leviathan_young
+  - leviathan_young_silver_star
+  - leviathan_young_golden_star
+  - celestial_koi
+  - celestial_koi_silver_star
+  - celestial_koi_golden_star

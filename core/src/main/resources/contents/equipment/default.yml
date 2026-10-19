@@ -1,15 +1,15 @@
 angler_helmet:
   material: IRON_HELMET
   display:
-    name: "<b><#A0D2DB>Angler's Helmet</b>"
+    name: "<b><#A0D2DB>垂钓者便帽</b>"
     lore:
       - ''
-      - '<#7FFFD4>Description:'
-      - '<gray> - A sturdy helmet that slightly increases concentration when fishing.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 坚固透气的遮阳头盔，能让钓手在长时间垂钓时保持高度专注。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Slightly reduces fishing difficulty.'
-  custom-model-data: 50010 # Example
+      - '<#FFD700>特性:'
+      - '<gray> - 略微降低钓鱼难度 (-2)'
+  custom-model-data: 50010
   effects:
     effect_1:
       type: difficulty
@@ -18,14 +18,14 @@ angler_helmet:
 deep_sea_chestplate:
   material: DIAMOND_CHESTPLATE
   display:
-    name: "<b><#3A6EA5>Deep Sea Chestplate</b>"
+    name: "<b><#3A6EA5>深海重装胸甲</b>"
     lore:
       - ''
-      - '<#7FFFD4>Description:'
-      - '<gray> - Reinforced chestplate that helps attract larger fish.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 强化加固的深海抗压胸甲，厚重沉稳，更容易引来大体型巨鱼。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increases the chance of catching silver star fish.'
+      - '<#FFD700>特性:'
+      - '<gray> - 提高获得白银之星品质鱼类的几率'
   custom-model-data: 50011
   effects:
     effect_1:
@@ -36,33 +36,102 @@ deep_sea_chestplate:
 swift_leggings:
   material: LEATHER_LEGGINGS
   display:
-    name: "<b><#C0C0C0>Swift Leggings</b>"
+    name: "<b><#C0C0C0>迅捷涉水护腿</b>"
     lore:
       - ''
-      - '<#7FFFD4>Description:'
-      - '<gray> - Lightweight leggings that help reduce the waiting time for a fish to bite.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 轻便柔软的涉水皮护腿，动作灵敏，略微缩短鱼儿咬钩等待时间。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Slightly reduces waiting time.'
-  custom-model-data: 50012 # Example
+      - '<#FFD700>特性:'
+      - '<gray> - 咬钩等待时间 -2%'
+  custom-model-data: 50012
   effects:
     effect_1:
       type: wait-time-multiplier
-      value: 0.98 # Reduces by 2%
+      value: 0.98
 
 sturdy_boots:
   material: GOLDEN_BOOTS
   display:
-    name: "<b><#FFD700>Sturdy Boots</b>"
+    name: "<b><#FFD700>稳固防滑战靴</b>"
     lore:
       - ''
-      - '<#7FFFD4>Description:'
-      - '<gray> - Boots that help you stand firmer, making the game a little easier.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 抓地力极佳的黄金战靴，让钓手下盘稳如泰山，使博弈更轻松。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Slightly reduces game time (making it easier).'
-  custom-model-data: 50013 # Example
+      - '<#FFD700>特性:'
+      - '<gray> - 略微缩短小游戏时间 (减少 0.5 秒)'
+  custom-model-data: 50013
   effects:
     effect_1:
       type: game-time
-      value: -0.5 # Reduces game time by 0.5 seconds
+      value: -0.5
+
+void_walker_boots:
+  material: NETHERITE_BOOTS
+  display:
+    name: "<b><gradient:#8A2BE2:#4B0082>虚空漫步战靴</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 踏立于世界最底部虚空边缘的坚实防护，'
+      - '<gray> - 稳定心神，让虚空垂钓变得更加专注迅速。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 虚空垂钓咬钩等待时间 -15%'
+  custom-model-data: 50041
+  effects:
+    effect_1:
+      type: conditional
+      conditions:
+        in-void: true
+      effects:
+        effect_1:
+          type: wait-time-multiplier
+          value: 0.85
+
+flame_resistant_apron:
+  material: CHAINMAIL_CHESTPLATE
+  display:
+    name: "<b><gradient:#FF4500:#8B0000>熔火工匠胸甲</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 涂抹了厚重耐火泥浆的重装胸甲，'
+      - '<gray> - 能从容抵御炽热熔岩浪花飞溅，从容收线。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 熔岩垂钓小游戏难度大幅降低 (-8)'
+  custom-model-data: 50042
+  effects:
+    effect_1:
+      type: conditional
+      conditions:
+        in-lava: true
+      effects:
+        effect_1:
+          type: difficulty
+          value: -8
+
+poseidon_crown:
+  material: DIAMOND_HELMET
+  display:
+    name: "<b><gradient:#00BFFF:#1E90FF:#FFD700>波塞冬之冠</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 蕴藏着海皇威严的璀璨冠冕，'
+      - '<gray> - 佩戴者将受万千洋流的无上崇敬与丰厚赐福。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 获得双倍渔获概率 +15%'
+      - '<gray> - 黄金之星品质概率微量提升'
+  custom-model-data: 50043
+  effects:
+    effect_1:
+      type: multiple-loot
+      value: 0.15
+    effect_2:
+      type: group-mod
+      value:
+        - golden_star:+2

@@ -34,16 +34,16 @@ weekend_competition:
     broadcast:
       type: broadcast
       value:
-        - 'The number of players is not enough for the fishing competition to be started as scheduled.'
+        - '<red>[钓鱼竞赛]</red> 参与人数不足，本场周末钓鱼比赛已取消。'
 
   bossbar:
     enable: true
     color: WHITE
     overlay: PROGRESS
     text:
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{seconds}s <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Your Rank: <#E6E6FA>{rank} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>No.1 Player: <#E6E6FA>{1_player}'
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{minute}{second} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Your Score: <#E6E6FA>{score_formatted} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>No.1 Score: <#E6E6FA>{1_score}'
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{minute}{second} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Winning condition: <#E6E6FA>{goal}'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{seconds}s</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 20 # in ticks
     switch-interval: 200 # in ticks
     only-show-to-participants: true
@@ -51,9 +51,9 @@ weekend_competition:
   actionbar:
     enable: false
     text:
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{seconds}s <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Your Rank: <#E6E6FA>{rank} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>No.1 Player: <#E6E6FA>{1_player}'
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{minute}{second} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Your Score: <#E6E6FA>{score_formatted} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>No.1 Score: <#E6E6FA>{1_score}'
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>Time Left: <#E6E6FA>{minute}{second} <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>Winning condition: <#E6E6FA>{goal}'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{seconds}s</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 5 # in ticks
     switch-interval: 200 # in ticks
     only-show-to-participants: true
@@ -64,9 +64,9 @@ weekend_competition:
     text:
       - '<#D4F2E7>◤─────────────────────────◥'
       - ''
-      - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF>Fishing Competition'
+      - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF>周末钓鱼大赛'
       - ''
-      - '     <#E1FFFF>Current Ranking:</#E1FFFF>'
+      - '     <#E1FFFF>当前排行榜:</#E1FFFF>'
       - '              <#E1FFFF>No.①: {1_player} - {1_score}'
       - '              <#E1FFFF>No.②: {2_player} - {2_score}'
       - '              <#E1FFFF>No.③: {3_player} - {3_score}'
@@ -80,11 +80,11 @@ weekend_competition:
       value:
         - '<#D4F2E7>◤─────────────────────────◥'
         - ''
-        - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF>Fishing Competition'
+        - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF><b>周末钓鱼大赛</b></gradient>'
         - ''
-        - '      <#E1FFFF>Objectives:'
+        - '      <#E1FFFF>获胜目标:'
         - '         <#B0C4DE>{goal}'
-        - '           <#B0C4DE>Start fishing to participate!'
+        - '           <#B0C4DE>甩起鱼竿即可参与竞逐！'
         - ''
         - '<#D4F2E7>◣─────────────────────────◢'
   end-actions:
@@ -93,9 +93,9 @@ weekend_competition:
       value:
         - '<#D4F2E7>◤─────────────────────────◥'
         - ''
-        - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF>Fishing Competition'
+        - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF><b>周末钓鱼大赛 颁奖</b></gradient>'
         - ''
-        - '      <#E1FFFF>Results:'
+        - '      <#E1FFFF>比赛结果:'
         - '              <gradient:#FFF8DC:#FFD700:#FFF8DC>No.①: {1_player} - {1_score}'
         - '              <gradient:#F5FFFA:#F5F5F5:#F5FFFA>No.②: {2_player} - {2_score}'
         - '              <gradient:#D2B48C:#CD853F:#D2B48C>No.③: {3_player} - {3_score}'
@@ -105,7 +105,7 @@ weekend_competition:
     message:
       type: message
       value:
-        - 'You have joined the competition. Good luck!'
+        - '<#87CEFA>[钓鱼大赛]</#87CEFA> <gray>你已加入周末钓鱼大赛，祝你好运！'
 
   # Requirements for participating the competition
   participate-requirements: {}
@@ -120,7 +120,7 @@ weekend_competition:
       messages_action:
         type: message
         value:
-          - '<#FF4500>[1st] Congratulations! You got the first prize!'
+          - '<#FFD700>【冠军】恭喜荣获第一名！奖励 200 憨币！'
     2:
       command_action:
         type: command
@@ -129,7 +129,7 @@ weekend_competition:
       messages_action:
         type: message
         value:
-          - '<#FF4500>[2nd] Just miss the opportunity, try next time!'
+          - '<#E0FFFF>【亚军】恭喜荣获第二名！奖励 100 憨币！'
     3:
       command_action:
         type: command
@@ -138,7 +138,7 @@ weekend_competition:
       messages_action:
         type: message
         value:
-          - '<#FF4500>[3rd] Just miss the opportunity, try next time!'
+          - '<#FFA500>【季军】恭喜荣获第三名！奖励 100 憨币！'
     participation:
       command_action:
         type: command
@@ -147,4 +147,99 @@ weekend_competition:
       messages_action:
         type: message
         value:
-          - '<#FF4500>Thanks for participation!'
+          - '<#98FB98>感谢参与周末钓鱼大赛！奖励 10 憨币！'
+
+# 每日海王巨物杯 (比拼单条鱼的最大体长)
+daily_max_size_derby:
+  goal: MAX_SIZE
+  start-weekday:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+  start-time:
+    - '12:30'
+    - '18:30'
+    - '21:30'
+  duration: 360
+  min-players: 1
+  bossbar:
+    enable: true
+    color: BLUE
+    overlay: PROGRESS
+    text:
+      - '<gray>[<#00FFFF>🦈<gray>] <gradient:#00BFFF:#1E90FF>海王巨物赛 <gray>| <white>倒计时: <#FFD700>{seconds}s</#FFD700> <gray>| <white>榜首: <#7FFFD4>{1_player} ({1_score}cm)</#7FFFD4>'
+      - '<gray>[<#00FFFF>🦈<gray>] <gradient:#00BFFF:#1E90FF>海王巨物赛 <gray>| <white>你的排名: <#FFA500>#{rank}</#FFA500> <gray>| <white>个人纪录: <#E6E6FA>{score_formatted}cm</#E6E6FA>'
+    refresh-rate: 20
+    switch-interval: 160
+    only-show-to-participants: true
+  start-actions:
+    broadcast:
+      type: broadcast
+      value:
+        - '<#00BFFF>◤──────────────────────────────────────◥'
+        - ''
+        - '       <gray>[<#00FFFF>🦈<gray>]  <gradient:#00BFFF:#1E90FF:#00BFFF><b>【每日海王巨物争霸赛】</b></gradient>'
+        - ''
+        - '    <#E1FFFF>获胜目标: <#FFD700>捕获单条体长最长的巨鱼！'
+        - '    <#E1FFFF>带上你的大体长钓竿与诱饵，出海猎巨物吧！'
+        - ''
+        - '<#00BFFF>◣──────────────────────────────────────◢'
+  end-actions:
+    broadcast:
+      type: broadcast
+      value:
+        - '<#00BFFF>◤──────────────────────────────────────◥'
+        - ''
+        - '       <gray>[<#00FFFF>🦈<gray>]  <gradient:#00BFFF:#1E90FF:#00BFFF><b>【海王巨物争霸赛 颁奖典礼】</b></gradient>'
+        - ''
+        - '      <gradient:#FFF8DC:#FFD700:#FFF8DC>冠 军: {1_player} - 体长: {1_score}cm'
+        - '      <gradient:#F5FFFA:#F5F5F5:#F5FFFA>亚 军: {2_player} - 体长: {2_score}cm'
+        - '      <gradient:#D2B48C:#CD853F:#D2B48C>季 军: {3_player} - 体长: {3_score}cm'
+        - ''
+        - '<#00BFFF>◣──────────────────────────────────────◢'
+  participate-actions:
+    message:
+      type: message
+      value:
+        - '<#00BFFF>[海王争霸]</#00BFFF> <gray>你已加入海王巨物争霸赛，祝你钓起绝世海怪！'
+  rewards:
+    1:
+      command_action:
+        type: command
+        value:
+          - 'money give {player} 500'
+      messages_action:
+        type: message
+        value:
+          - '<#FFD700>【巨物霸主】恭喜你夺得第一名！获得 500 憨币与海王殊荣！'
+    2:
+      command_action:
+        type: command
+        value:
+          - 'money give {player} 250'
+      messages_action:
+        type: message
+        value:
+          - '<#E0FFFF>【屈居第二】恭喜获得亚军！获得 250 憨币！'
+    3:
+      command_action:
+        type: command
+        value:
+          - 'money give {player} 150'
+      messages_action:
+        type: message
+        value:
+          - '<#FFA500>【登上领奖台】恭喜获得季军！获得 150 憨币！'
+    participation:
+      command_action:
+        type: command
+        value:
+          - 'money give {player} 20'
+      messages_action:
+        type: message
+        value:
+          - '<#98FB98>感谢参与海王争霸赛！奖励 20 憨币！'

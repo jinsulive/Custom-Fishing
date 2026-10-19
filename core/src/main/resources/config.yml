@@ -1,118 +1,122 @@
-# Do not change this
-config-version: '${config_version}'
-# Debug mode toggle
+# 请勿更改此项
+config-version: "41"
+# 调试模式开关
 debug: false
-# Enable BStats metrics
+# 启用 BStats 指标
 metrics: true
-# Enable automatic update checks
+# 启用自动更新检查
 update-checker: true
-# Force locale setting, e.g., zh_cn
-force-locale: ''
-# Mechanic settings
+# 强制语言设置，例如 zh_cn
+force-locale: "zh_cn"
+# 机制设置
 mechanics:
-  # Specifies the conditions required for the plugin mechanics to function
-  # The type is !world, meaning the plugin will not operate in the world named 'blacklist_world'
+  # 指定插件机制运作所需的条件
+  # 类型为 !world，表示插件不会在名为 'blacklist_world' 的世界中运作
   mechanic-requirements:
     world_requirement:
-      type: '!world'
+      type: "!world"
       value:
-        - blacklist_world
-  # If you want to allow some players to skip the game, set skip requirements here
+      - "blacklist_world"
+    rod_requirement:
+      type: "!rod"
+      value:
+      - "FISHING_ROD"
+  # 如果你希望允许某些玩家跳过游戏，可在此设置跳过要求
   skip-game-requirements:
     or_requirement:
       type: "||"
       value:
         bedrock_requirement:
-          type: 'is-bedrock-player'
+          type: "is-bedrock-player"
           value: true
-  # Conditions for enabling auto-fishing
+  # 启用自动钓鱼的条件
   auto-fishing-requirements:
     impossible_requirement:
-      type: 'impossible'
-  # Configures global effects, useful for applying certain effects to all players under specific conditions
+      type: "impossible"
+  # 配置全局效果，用于在特定条件下对所有玩家施加某些效果
   global-effects:
     effect_1:
-      type: conditional
+      type: "conditional"
       conditions:
         competition:
           ongoing: true
           id:
-            - weekend_competition
+          - "weekend_competition"
       effects:
         effect_1:
-          type: wait-time-multiplier
+          type: "wait-time-multiplier"
           value: 0.85
-  # Configures global events for hooks, bait, rods, and loot, reducing redundant lines
+  # 配置钩子、鱼饵、鱼竿和战利品的全局事件，以减少重复行
   global-events:
     hook: {}
     bait: {}
     loot:
       new_size_record:
         conditional_size_record_action:
-          type: conditional
+          type: "conditional"
           value:
             conditions:
               has-stats: true
             actions:
               actionbar_action:
-                type: actionbar
-                value: '<#FFD700>[New Record]</#FFD700> <#FFFFF0>You caught a(n) {nick} measuring <#FFA500>{size_formatted}cm</#FFA500> long!</#FFFFF0> <#C0C0C0>(Previous record: {previous_record_formatted}cm)</#C0C0C0>'
+                type: "actionbar"
+                value: "<#FFD700>[新纪录]</#FFD700> <#FFFFF0>你钓到了一条 {nick}，长度为 <#FFA500>{size_formatted}cm</#FFA500>！</#FFFFF0> <#C0C0C0>(此前纪录：{previous_record_formatted}cm)</#C0C0C0>"
               sound_action:
-                type: sound
+                type: "sound"
                 value:
                   key: "minecraft:block.note_block.cow_bell"
-                  source: 'player'
+                  source: "player"
                   volume: 1
                   pitch: 1
               delayed_sound:
-                type: delay
+                type: "delay"
                 value:
                   delay: 2
                   actions:
                     sound_action:
-                      type: sound
+                      type: "sound"
                       value:
                         key: "minecraft:block.note_block.bell"
-                        source: 'player'
+                        source: "player"
                         volume: 1
                         pitch: 1
       success:
         conditional_size_info_action:
-          type: conditional
+          type: "conditional"
           value:
             conditions:
               has-size: true
               has-stats: true
             actions:
               actionbar_action:
-                type: actionbar
-                value: '<gray>You caught a(n) {nick} measuring <#F5F5F5>{size_formatted}cm</#F5F5F5> long!</gray> <#C0C0C0>(Best record: {record_formatted}cm)</#C0C0C0>'
+                type: "actionbar"
+                value: "<gray>你钓到了一条 {nick}，长度为 <#F5F5F5>{size_formatted}cm</#F5F5F5>！</gray> <#C0C0C0>(最佳纪录：{record_formatted}cm)</#C0C0C0>"
         title_action:
-          type: random-title
+          type: "random-title"
           value:
             titles:
-              - '<green>GG!</green>'
-              - '<green>Good Job!</green>'
+            - "<green>太棒了！</green>"
+            - "<green>干得好！</green>"
             subtitles:
-              - 'You caught a(n) {nick}'
-              - 'Whoa! Nice catch!'
-              - 'Oh {nick}, here we go!'
-              - 'Let''s see what it is!'
+            - "你钓到了一条 {nick}"
+            - "哇！钓得不错！"
+            - "哦 {nick}，来吧！"
+            - "看看是什么！"
             fade-in: 20
             stay: 30
             fade-out: 10
           chance: 1.0
       failure:
         title_action:
-          type: random-title
+          type: "random-title"
           value:
             titles:
-              - '<red>Stay focused!</red>'
-              - '<red>What a pity!</red>'
-              - '<red>Try again next time!</red>'
-              - '<red>Bad luck!</red>'
+            - "<red>保持专注！</red>"
+            - "<red>真可惜！</red>"
+            - "<red>下次再试！</red>"
+            - "<red>运气不好！</red>"
             subtitles:
-              - 'The fish got away...'
+            - "鱼跑掉了..."
             fade-in: 20
             stay: 30
             fade-out: 10
@@ -120,368 +124,368 @@ mechanics:
     rod:
       land:
         priority_action:
-          type: priority
+          type: "priority"
           value:
             priority_1:
               conditions:
                 in-lava: true
               actions:
                 fake_item_action:
-                  type: fake-item
+                  type: "fake-item"
                   value:
                     duration: 35
-                    position: other
-                    item: lava_effect
+                    position: "other"
+                    item: "lava_effect"
                     use-item-display: true
             priority_2:
               conditions:
                 in-water: true
               actions:
                 fake_item_action:
-                  type: fake-item
+                  type: "fake-item"
                   value:
                     duration: 35
-                    position: other
-                    item: water_effect
+                    position: "other"
+                    item: "water_effect"
                     use-item-display: true
-  # Global properties to help reduce redundant lines
+  # 全局属性，帮助减少重复行
   global-loot-property:
     show-in-fishfinder: true
     disable-stat: false
     disable-game: false
     instant-game: false
-  # The fishing bag is where players store bait, utilities, hooks, and rods (loot is optional)
+  # 钓鱼袋是玩家存储鱼饵、工具、钩子和鱼竿的地方（战利品可选）
   fishing-bag:
     enable: true
-    # Title of the fishing bag container
-    bag-title: '<blue>{player}''s Fishing Bag</blue>'
-    # Other whitelist items
+    # 钓鱼袋容器标题
+    bag-title: "<blue>{player} 的钓鱼袋</blue>"
+    # 其他白名单物品
     whitelist-items:
-      - fishing_rod
-    # Specify the items that can be stored in the bag
+    - "fishing_rod"
+    # 指定可存放在袋中的物品
     can-store-loot: false
     can-store-rod: true
     can-store-bait: true
     can-store-hook: true
     can-store-util: true
-    # Requirements for automatic loot collection into the bag
+    # 自动将战利品收集到袋中的要求
     collect-requirements:
-      permission: fishingbag.collectloot
-    # Actions triggered when fishing loot is automatically collected into the bag
+      permission: "fishingbag.collectloot"
+    # 钓鱼战利品自动收集到袋中时触发的动作
     collect-actions:
       sound_action:
-        type: sound
+        type: "sound"
         value:
           key: "minecraft:item.armor.equip_leather"
-          source: 'player'
+          source: "player"
           volume: 1
           pitch: 1
       hologram_action:
-        type: hologram
+        type: "hologram"
         value:
           duration: 40
-          text: '{nick} <#B0E0E6><b>has been stored in the bag</#B0E0E6>'
-          position: other
+          text: "{nick} <#B0E0E6><b>已被存入钓鱼袋</#B0E0E6>"
+          position: "other"
           y: 1
-    # Actions triggered when the fishing bag is full
+    # 钓鱼袋已满时触发的动作
     full-actions:
       conditional_action:
-        type: conditional
+        type: "conditional"
         value:
           conditions:
             condition_1:
-              type: cooldown
+              type: "cooldown"
               value:
-                key: fishing_bag_full_notice
+                key: "fishing_bag_full_notice"
                 time: 60000
           actions:
             message_action:
-              type: message
-              value: "<#EEE8AA>[Fishing Bag]</#EEE8AA> Your fishing bag is full."
+              type: "message"
+              value: "<#EEE8AA>[钓鱼袋]</#EEE8AA> 你的钓鱼袋已满。"
   market:
-    # Title for the market GUI
-    title: '<gradient:#A52A2A:#800000:#A52A2A>Fish Market</gradient>'
-    # Enable limitations
+    # 市场 GUI 标题
+    title: "<gradient:#A52A2A:#800000:#A52A2A>鱼市场</gradient>"
+    # 启用限制
     limitation:
       enable: true
-      earnings: '10000' # Expressions can be used here
-    # You can use expressions here if you want some players to earn more from selling fish
+      earnings: "5000" # 此处可使用表达式
+    # 如果你希望某些玩家卖鱼获得更多收益，可在此使用表达式
     earnings-multiplier: 1
-    # Layout for the market menu
+    # 市场菜单布局
     layout:
-      - 'AAAAAAAAC'
-      - 'AIIIIIIIA'
-      - 'AIIIIIIIA'
-      - 'AIIIIIIIA'
-      - 'AAAABAAAA'
-    # Price formula for custom fishing loot
-    price-formula: '{base} + {bonus} * {size}'
-    # Requirements for players to sell fish in bundles
+    - "AAAAAAAAC"
+    - "AIIIIIIIA"
+    - "AIIIIIIIA"
+    - "AIIIIIIIA"
+    - "AAAABAAAA"
+    # 自定义钓鱼战利品的价格公式
+    price-formula: "{base} * 0.2 + {bonus} * {size} * 0.1"
+    # 玩家批量出售鱼的要求
     allow-bundle-requirements:
       impossible_requirement:
-        type: 'impossible'
-    # Requirements for players to sell fish in shulker boxes
+        type: "impossible"
+    # 玩家用潜影盒出售鱼的要求
     allow-shulker-box-requirements:
       impossible_requirement:
-        type: 'impossible'
-    # Prices for vanilla and other plugin items with CustomModelData
+        type: "impossible"
+    # 原版及其他带 CustomModelData 的插件物品价格
     item-price:
-      # Vanilla items
-      COD: 10
-      PUFFERFISH: 10
-      SALMON: 10
-      TROPICAL_FISH: 10
-      # PAPER (CustomModelData: 999)
-      PAPER:999: 5
-    # Slots to place items in
+      # 原版物品
+      COD: 0
+      PUFFERFISH: 0
+      SALMON: 0
+      TROPICAL_FISH: 0
+      # PAPER（CustomModelData: 999）
+      PAPER:999: 0
+    # 放置物品的槽位
     item-slot:
-      symbol: 'I'
-      allow-items-with-no-price: true
-    # Icon allowing players to sell all fish from their inventory and fishing bag
-    # Enable it by placing the symbol in the layout
+      symbol: "I"
+      allow-items-with-no-price: false
+    # 允许玩家出售背包和钓鱼袋中所有鱼的图标
+    # 在布局中放置该符号即可启用
     sell-all-icons:
-      symbol: 'S'
-      # Determines whether fish in the fishing bag should also be sold
+      symbol: "S"
+      # 决定是否也出售钓鱼袋中的鱼
       fishingbag: true
       allow-icon:
-        material: IRON_BLOCK
+        material: "IRON_BLOCK"
         display:
-          name: '<#00CED1><b>● <!b>Sell the fish'
+          name: "<#00CED1><b>● <!b>出售鱼"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:#48D1CC:#E6E6FA>You will earn <green>{money_formatted} coins</green> from the fish in your inventory and bag</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:#48D1CC:#E6E6FA>你将获得 <green>{money_formatted} 憨币</green>，来自背包和钓鱼袋中的鱼</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:block.amethyst_block.place'
-              source: 'player'
+              key: "minecraft:block.amethyst_block.place"
+              source: "player"
               volume: 1
               pitch: 1
           message_action:
-            type: message
-            value: 'You earned {money_formatted} coins from the fish! You can still earn {rest_formatted} more coins from the market today.'
-          # Requires Vault and an economy plugin
+            type: "message"
+            value: "你从鱼中获得了 {money_formatted} 憨币！今天你还可以从市场赚取 {rest_formatted} 憨币。"
+          # 需要 Vault 和经济插件
           money_action:
-            type: give-money
-            value: '{money}'
-          # Uncomment the command_action if needed
-          # command_action:
-          #   type: command
-          #   value: 'money give {player} {money}'
+            type: "give-money"
+            value: "{money}"
+      # 如需要，取消注释 command_action
+      # command_action:
+      #   type: command
+      #   value: 'money give {player} {money}'
       deny-icon:
-        material: REDSTONE_BLOCK
+        material: "REDSTONE_BLOCK"
         display:
-          name: '<red><b>● <!b>Trade Denied'
+          name: "<red><b>● <!b>交易被拒绝"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:red:#E6E6FA>No items available to sell!</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:red:#E6E6FA>没有可出售的物品！</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:entity.villager.no'
-              source: 'player'
+              key: "minecraft:entity.villager.no"
+              source: "player"
               volume: 1
               pitch: 1
       limit-icon:
-        material: REDSTONE_BLOCK
+        material: "REDSTONE_BLOCK"
         display:
-          name: '<red><b>● <!b>Trade Denied'
+          name: "<red><b>● <!b>交易被拒绝"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:red:#E6E6FA>The total value exceeds the daily limit for earnings!</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:red:#E6E6FA>总价值超过每日收益上限！</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:block.anvil.land'
-              source: 'player'
+              key: "minecraft:block.anvil.land"
+              source: "player"
               volume: 1
               pitch: 1
-    # Sell icon for individual transactions
+    # 单次交易的出售图标
     sell-icons:
-      symbol: 'B'
+      symbol: "B"
       allow-icon:
-        material: IRON_BLOCK
+        material: "IRON_BLOCK"
         display:
-          name: '<#00CED1><b>● <!b>Sell the fish'
+          name: "<#00CED1><b>● <!b>出售鱼"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:#48D1CC:#E6E6FA>You will earn <green>{money_formatted} coins</green> from the fish</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:#48D1CC:#E6E6FA>你将获得 <green>{money_formatted} 憨币</green>，来自这些鱼</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:block.amethyst_block.place'
-              source: 'player'
+              key: "minecraft:block.amethyst_block.place"
+              source: "player"
               volume: 1
               pitch: 1
           message_action:
-            type: message
-            value: 'You earned {money_formatted} coins from the fish! You can still earn {rest_formatted} more coins from the market today.'
+            type: "message"
+            value: "你从鱼中获得了 {money_formatted} 憨币！今天你还可以从市场赚取 {rest_formatted} 憨币。"
           money_action:
-            type: give-money
-            value: '{money}'
-          # Uncomment the command_action if needed
-          # command_action:
-          #   type: command
-          #   value: 'money give {player} {money}'
+            type: "give-money"
+            value: "{money}"
+      # 如需要，取消注释 command_action
+      # command_action:
+      #   type: command
+      #   value: 'money give {player} {money}'
       deny-icon:
-        material: REDSTONE_BLOCK
+        material: "REDSTONE_BLOCK"
         display:
-          name: '<red><b>● <!b>Trade Denied'
+          name: "<red><b>● <!b>交易被拒绝"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:red:#E6E6FA>No items available to sell!</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:red:#E6E6FA>没有可出售的物品！</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:entity.villager.no'
-              source: 'player'
+              key: "minecraft:entity.villager.no"
+              source: "player"
               volume: 1
               pitch: 1
       limit-icon:
-        material: REDSTONE_BLOCK
+        material: "REDSTONE_BLOCK"
         display:
-          name: '<red><b>● <!b>Trade Denied'
+          name: "<red><b>● <!b>交易被拒绝"
           lore:
-            - '<font:uniform><gradient:#E6E6FA:red:#E6E6FA>The total value exceeds the daily limit for earnings!</gradient></font>'
+          - "<font:uniform><gradient:#E6E6FA:red:#E6E6FA>总价值超过每日收益上限！</gradient></font>"
         action:
           sound_action:
-            type: sound
+            type: "sound"
             value:
-              key: 'minecraft:block.anvil.land'
-              source: 'player'
+              key: "minecraft:block.anvil.land"
+              source: "player"
               volume: 1
               pitch: 1
-    # Decorative icons for visual enhancement
+    # 用于视觉增强的装饰性图标
     decorative-icons:
       glass-pane:
-        symbol: 'A'
-        material: BLACK_STAINED_GLASS_PANE
+        symbol: "A"
+        material: "BLACK_STAINED_GLASS_PANE"
         display:
-          name: ' '
+          name: " "
         components:
           minecraft:hide_tooltip: {}
       close-icon:
-        symbol: 'C'
-        material: RED_STAINED_GLASS_PANE
+        symbol: "C"
+        material: "RED_STAINED_GLASS_PANE"
         display:
-          name: '<red>Close'
-        # Add actions on click
+          name: "<red>关闭"
+        # 点击时添加动作
         action:
           action_1:
-            type: close-inv
-  # This section is only effective if "override-vanilla" is set to true
-  # Meaning vanilla mechanics, such as lure enchantment, will no longer apply
-  # You must configure their effects in CustomFishing instead
+            type: "close-inv"
+  # 本节仅在 "override-vanilla" 设为 true 时生效
+  # 这意味着原版机制（例如诱饵附魔）将不再适用
+  # 你必须改为在 CustomFishing 中配置它们的效果
   fishing-wait-time:
-    # Toggle to override vanilla fishing wait times
+    # 切换是否覆盖原版钓鱼等待时间
     override-vanilla: false
-    # By default, the plugin will pick a random value from the maximum and minimum time for waiting time
+    # 默认情况下，插件会在最短和最长等待时间之间随机取值
     min-wait-time: 100
     max-wait-time: 600
-    # The minimum and maximum waiting time after applying the effects
+    # 应用效果后的最短和最长等待时间
     final-min-wait-time: 50
     final-max-wait-time: 1200
-  # Lava fishing settings
+  # 岩浆钓鱼设置
   lava-fishing:
     enable: true
-    ## By default, the plugin will pick a random value from the maximum and minimum time for waiting time
+    ## 默认情况下，插件会在最短和最长等待时间之间随机取值
     min-wait-time: 100
     max-wait-time: 600
-    # The minimum and maximum waiting time after applying the effects
+    # 应用效果后的最短和最长等待时间
     final-min-wait-time: 50
     final-max-wait-time: 1200
-  # Void fishing settings
+  # 虚空钓鱼设置
   void-fishing:
     enable: true
-    # By default, the plugin will pick a random value from the maximum and minimum time for waiting time
+    # 默认情况下，插件会在最短和最长等待时间之间随机取值
     min-wait-time: 100
     max-wait-time: 600
-    # The minimum and maximum waiting time after applying the effects
+    # 应用效果后的最短和最长等待时间
     final-min-wait-time: 50
     final-max-wait-time: 1200
-    # The minimum height difference between the player and the hook required to start void fishing
+    # 开始虚空钓鱼所需的玩家与钩子之间的最小高度差
     min-height-difference: 2
-    # The maximum distance between the hook and the bottom of the world required for void fishing
+    # 虚空钓鱼所需的钩子与世界底部之间的最大距离
     max-distance-from-bottom: 16
-  # Size configuration
+  # 尺寸配置
   size:
-    # Prevent certain effects from breaking the size limits
+    # 防止某些效果突破尺寸限制
     restricted-size-range: true
-  # Competition settings
+  # 比赛设置
   competition:
-    # Use Redis for cross-server data synchronization
+    # 使用 Redis 进行跨服数据同步
     redis-ranking: false
-    # Server group for competition
-    server-group: default
-    # Increase this value to allow more placeholders like {4_player} and {5_score}
+    # 比赛服务器组
+    server-group: "default"
+    # 增大此值可允许更多占位符，例如 {4_player} 和 {5_score}
     placeholder-limit: 3
-  # If multiple loots are obtained during fishing, should they spawn simultaneously or with a delay (in ticks) between each?
+  # 如果钓鱼时获得多个战利品，它们应同时生成，还是每个之间延迟（以刻为单位）生成？
   multiple-loot-spawn-delay: 4
-  # Totem settings
+  # 图腾设置
   totem:
-    # Allow multiple totem types to be active simultaneously
+    # 允许同时激活多种图腾类型
     allow-multiple-type: true
-    # Allow totems of the same type to stack their effects
+    # 允许同类型图腾叠加效果
     allow-same-type: false
-  # Enable fake bait casting animations
+  # 启用假鱼饵抛竿动画
   bait-animation: true
-# Other settings
+# 其他设置
 other-settings:
-  # Whether to additionally trigger a PlayerFishEvent from Bukkit when fishing succeeds—this may improve compatibility with certain plugins, but could also lead to issues.
+  # 钓鱼成功时是否额外触发 Bukkit 的 PlayerFishEvent——这可能改善与某些插件的兼容性，但也可能导致问题。
   trigger-fish-event: false
-  # Fire FishingLootSpawnEvent for vanilla catches when mechanic-requirements were not met at casting.
-  # Enables integrations such as libreforge's catch_fish outside CustomFishing mechanics.
-  # Loot IDs use the caught material's namespaced key (e.g. minecraft:cod).
+  # 当抛竿时未满足 mechanic-requirements 时，为原版捕获触发 FishingLootSpawnEvent。
+  # 启用诸如 libreforge 的 catch_fish 在 CustomFishing 机制之外的集成。
+  # 战利品 ID 使用所捕获材料的命名空间键（例如 minecraft:cod）。
   trigger-loot-spawn-event-when-requirements-not-met: false
-  # Anti-auto-fishing mod toggle
+  # 反自动钓鱼模组开关
   anti-auto-fishing-mod: false
-  # Recommended to use MiniMessage format. If you prefer using legacy color codes "&", enable the support below.
-  # Disabling this improves performance
+  # 推荐使用 MiniMessage 格式。如果你更想使用旧式颜色代码 "&"，请启用下方支持。
+  # 禁用此项可提升性能
   legacy-color-code-support: true
-  # Priority of fishing-related events: MONITOR HIGHEST HIGH NORMAL LOW LOWEST
-  event-priority: NORMAL
-  # Saves cached data to file periodically to minimize data loss in case of server crashes
-  # Set to -1 to disable
+  # 钓鱼相关事件的优先级：MONITOR HIGHEST HIGH NORMAL LOW LOWEST
+  event-priority: "NORMAL"
+  # 定期将缓存数据保存到文件，以尽量减少服务器崩溃时的数据丢失
+  # 设为 -1 可禁用
   data-saving-interval: 600
-  # Log the time spent saving data
+  # 记录保存数据所花费的时间
   log-data-saving: true
-  # Lock player data if they are connected to a database-backed server
-  # You may disable this to improve performance if you can ensure low database latency
+  # 如果玩家连接到由数据库支持的服务器，则锁定玩家数据
+  # 如果你能确保数据库延迟很低，可以禁用此项以提升性能
   lock-data: true
-  # Requires PlaceholderAPI for these placeholders
+  # 这些占位符需要 PlaceholderAPI
   placeholder-register:
-    # Requires server expansion
-    '{date}': '%server_time_yyyy-MM-dd-HH:mm:ss%'
-    # Requires player expansion
-    '{yaw}': '%player_yaw%'
-  # CustomFishing supports items/blocks from other plugins
-  # Items with matching IDs will inherit effects. Check the wiki for examples
+    # 需要 server 扩展
+    '{date}': "%server_time_yyyy-MM-dd-HH:mm:ss%"
+    # 需要 player 扩展
+    '{yaw}': "%player_yaw%"
+  # CustomFishing 支持其他插件的物品/方块
+  # ID 匹配的物品将继承效果。请查看 wiki 获取示例
   item-detection-order:
-    - CustomFishing
-    - vanilla
+  - "CustomFishing"
+  - "vanilla"
   block-detection-order:
-    - vanilla
-  # Custom durability display format
+  - "vanilla"
+  # 自定义耐久度显示格式
   custom-durability-format:
-    - ''
-    - '<gray>Durability</gray><white>: {dur} <gray>/</gray> {max}</white>'
-  # Offset characters
-  # Do not edit unless you know what you are doing
+  - ""
+  - "<gray>耐久度</gray><white>: {dur} <gray>/</gray> {max}</white>"
+  # 偏移字符
+  # 除非你知道自己在做什么，否则请勿编辑
   offset-characters:
-    font: customfishing:offset_chars
-    '1': 
-    '2': 
-    '4': 
-    '8': 
-    '16': 
-    '32': 
-    '64': 
-    '128': 
-    '-1': 
-    '-2': 
-    '-4': 
-    '-8': 
-    '-16': 
-    '-32': 
-    '-64': 
-    '-128': 
+    font: "customfishing:offset_chars"
+    '1': ""
+    '2': ""
+    '4': ""
+    '8': ""
+    '16': ""
+    '32': ""
+    '64': ""
+    '128': ""
+    '-1': ""
+    '-2': ""
+    '-4': ""
+    '-8': ""
+    '-16': ""
+    '-32': ""
+    '-64': ""
+    '-128': ""

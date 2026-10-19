@@ -1,17 +1,17 @@
-# Note: These are the default configurations of the plugin
-# and do not necessarily mean that players can have a good
-# gaming experience. We hope that you will create
-# customized configurations based on your own ideas,
-# allowing players to experience the uniqueness of your server.
+# 注意：这些是插件的默认配置
+# 并不一定意味着玩家能获得良好的
+# 游戏体验。我们希望你能根据自己的想法
+# 创建自定义配置，
+# 让玩家体验到你服务器的独特性。
 
 ######################################
-#           Accurate Click           #
-#  You need to concentrate and reel  #
-#    in at the most critical time    #
+#           精准点击 (Accurate Click)          #
+#  你需要集中注意力，在最关键的      #
+#    时刻收线                        #
 ######################################
 rainbow_1:
   game-type: accurate_click
-  title: '<#fd4036>RED!'
+  title: '<#fd4036>红色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -32,7 +32,7 @@ rainbow_1:
     7: 0
 rainbow_2:
   game-type: accurate_click
-  title: '<#ffa449>ORANGE!'
+  title: '<#ffa449>橙色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -53,7 +53,7 @@ rainbow_2:
     7: 0
 rainbow_3:
   game-type: accurate_click
-  title: '<#ffca4c>YELLOW!'
+  title: '<#ffca4c>黄色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -74,7 +74,7 @@ rainbow_3:
     7: 0
 rainbow_4:
   game-type: accurate_click
-  title: '<#34f250>GREEN!'
+  title: '<#34f250>绿色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -95,7 +95,7 @@ rainbow_4:
     7: 0
 rainbow_5:
   game-type: accurate_click
-  title: '<#34f2d5>AQUA!'
+  title: '<#34f2d5>青色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -116,7 +116,7 @@ rainbow_5:
     7: 0
 rainbow_6:
   game-type: accurate_click
-  title: '<#5284da>BLUE!'
+  title: '<#5284da>蓝色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -137,7 +137,7 @@ rainbow_6:
     7: 0
 rainbow_7:
   game-type: accurate_click
-  title: '<#c96cff>PURPLE!'
+  title: '<#c96cff>紫色！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀋'
@@ -161,9 +161,9 @@ accurate_click_bar_1_easy:
   difficulty: 15~30
   time: 15
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀂'
@@ -191,9 +191,9 @@ accurate_click_bar_1_normal:
   difficulty: 30~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀂'
@@ -221,9 +221,9 @@ accurate_click_bar_1_hard:
   difficulty: 60~90
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀂'
@@ -251,9 +251,9 @@ accurate_click_bar_2_easy:
   difficulty: 15~30
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀃'
@@ -281,9 +281,9 @@ accurate_click_bar_2_normal:
   difficulty: 30~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀃'
@@ -311,9 +311,9 @@ accurate_click_bar_2_hard:
   difficulty: 60~90
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀃'
@@ -341,9 +341,9 @@ accurate_click_bar_3_easy:
   difficulty: 15~30
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀄'
@@ -371,9 +371,9 @@ accurate_click_bar_3_normal:
   difficulty: 30~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀄'
@@ -401,9 +401,9 @@ accurate_click_bar_3_hard:
   difficulty: 60~90
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀄'
@@ -431,9 +431,9 @@ accurate_click_bar_4_easy:
   difficulty: 10~25
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀅'
@@ -472,9 +472,9 @@ accurate_click_bar_4_normal:
   difficulty: 25~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀅'
@@ -513,9 +513,9 @@ accurate_click_bar_4_hard:
   difficulty: 40~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀅'
@@ -554,9 +554,9 @@ accurate_click_bar_5_easy:
   difficulty: 10~25
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀆'
@@ -595,9 +595,9 @@ accurate_click_bar_5_normal:
   difficulty: 25~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀆'
@@ -636,9 +636,9 @@ accurate_click_bar_5_hard:
   difficulty: 40~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀆'
@@ -677,9 +677,9 @@ accurate_click_bar_6_easy:
   difficulty: 10~25
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀇'
@@ -718,9 +718,9 @@ accurate_click_bar_6_normal:
   difficulty: 25~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀇'
@@ -759,9 +759,9 @@ accurate_click_bar_6_hard:
   difficulty: 40~60
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀇'
@@ -800,9 +800,9 @@ accurate_click_bar_7_easy:
   difficulty: 10~20
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀈'
@@ -863,9 +863,9 @@ accurate_click_bar_7_normal:
   difficulty: 20~30
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀈'
@@ -926,9 +926,9 @@ accurate_click_bar_7_hard:
   difficulty: 30~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀈'
@@ -989,9 +989,9 @@ accurate_click_bar_8_easy:
   difficulty: 10~20
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀉'
@@ -1052,9 +1052,9 @@ accurate_click_bar_8_normal:
   difficulty: 20~30
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀉'
@@ -1115,9 +1115,9 @@ accurate_click_bar_8_hard:
   difficulty: 30~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀉'
@@ -1178,9 +1178,9 @@ accurate_click_bar_9_easy:
   difficulty: 10~20
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀊'
@@ -1241,9 +1241,9 @@ accurate_click_bar_9_normal:
   difficulty: 20~30
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀊'
@@ -1304,9 +1304,9 @@ accurate_click_bar_9_hard:
   difficulty: 30~40
   time: 30
   title:
-    - 'So close, stay cool!'
-    - 'The fish is hooked, focus on it!'
-    - 'Sturdy on! Victory is almost ours!'
+    - '就差一点，保持冷静！'
+    - '鱼上钩了，集中注意力！'
+    - '稳住！胜利几乎属于我们了！'
   subtitle:
     font: 'customfishing:default'
     bar: '뀊'
@@ -1364,17 +1364,17 @@ accurate_click_bar_9_hard:
     44: 1
 
 ######################################
-#                Hold                #
-#   You need to control the fish in  #
-#    a certain area for some time    #
+#                保持 (Hold)                #
+#   你需要将鱼控制在指定区域内  #
+#    持续一段时间                    #
 ######################################
 hold_game_easy:
   game-type: hold
   difficulty: 15~35
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
   subtitle:
     font: 'customfishing:default'
     bar: '뀌'
@@ -1411,8 +1411,8 @@ hold_game_normal:
   difficulty: 35~60
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
   subtitle:
     font: 'customfishing:default'
     bar: '뀌'
@@ -1451,8 +1451,8 @@ hold_game_hard:
   difficulty: 60~90
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
   subtitle:
     font: 'customfishing:default'
     bar: '뀌'
@@ -1488,19 +1488,19 @@ hold_game_hard:
 
 
 ##########################################################
-#                        Tension                         #
-#            The fish will struggle. During the          #
-#     struggling, the tension would increase sharply.    #
-#    Fishing will fail if the tension reaches its peak   #
+#                        张力 (Tension)                         #
+#            鱼会挣扎。在挣扎过程中，          #
+#     张力会急剧增加。    #
+#    如果张力达到峰值，钓鱼将失败   #
 ##########################################################
 tension_game_easy:
   game-type: tension
   difficulty: 20~35
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
-  actionbar-tip: '<gray>Press <red><key:key.sneak> <gray>to pull the fish'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
+  actionbar-tip: '<gray>按下 <red><key:key.sneak> <gray>收线'
   subtitle:
     font: 'customfishing:default'
     bar: '뀑'
@@ -1538,9 +1538,9 @@ tension_game_normal:
   difficulty: 35~50
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
-  actionbar-tip: '<gray>Press <red><key:key.sneak> <gray>to pull the fish'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
+  actionbar-tip: '<gray>按下 <red><key:key.sneak> <gray>收线'
   subtitle:
     font: 'customfishing:default'
     bar: '뀑'
@@ -1578,9 +1578,9 @@ tension_game_hard:
   difficulty: 50~65
   time: 30
   title: '{progress}'
-  # Tip would show on the title to guide the player how to play
-  tip: '<gray>Press <red><key:key.sneak> <gray>to start'
-  actionbar-tip: '<gray>Press <red><key:key.sneak> <gray>to pull the fish'
+  # 提示会显示在标题上，指导玩家如何操作
+  tip: '<gray>按下 <red><key:key.sneak> <gray>开始'
+  actionbar-tip: '<gray>按下 <red><key:key.sneak> <gray>收线'
   subtitle:
     font: 'customfishing:default'
     bar: '뀑'
@@ -1610,3 +1610,113 @@ tension_game_hard:
     - '<font:customfishing:icons>뀗</font>'
     - '<font:customfishing:icons>뀘</font>'
     - '<font:customfishing:icons>뀙</font>'
+
+######################################
+#            点击游戏 (Click Games)             #
+#      快速点击以收线                #
+######################################
+click_game_easy:
+  game-type: click
+  difficulty: 15~25
+  time: 10
+  left-click: false
+  title: '<gradient:#00BFFF:#1E90FF>正在收线！进度：{progress}</gradient>'
+  subtitle: '<gray>快速连续<yellow>右键</yellow>收回钓线！剩余时间 <white>{time_left}s'
+
+click_game_normal:
+  game-type: click
+  difficulty: 28~40
+  time: 10
+  left-click: false
+  title: '<gradient:#FFA500:#FF4500>巨鱼搏斗！进度：{progress}</gradient>'
+  subtitle: '<gray>急速连点<yellow>右键</yellow>压制大鱼！剩余时间 <white>{time_left}s'
+
+click_game_hard:
+  game-type: click
+  difficulty: 45~60
+  time: 12
+  left-click: false
+  title: '<gradient:#FF0000:#8B0000>狂暴巨兽挣扎！进度：{progress}</gradient>'
+  subtitle: '<red>以最快手速狂点<yellow>右键</yellow>！剩余时间 <white>{time_left}s'
+
+######################################
+#            节奏游戏 (Dance Games)             #
+#        节奏与方向序列               #
+######################################
+dance_game_easy:
+  game-type: dance
+  difficulty: 8~12
+  time: 15
+  easy: true
+  subtitle: '<gray>音游节奏！剩余时间：<white>{time_left}s'
+  tip: '<yellow>根据上方指示依次按下对应动作！'
+  title:
+    left-button: '<gray>[左键] '
+    left-button-correct: '<green>[左键] '
+    left-button-wrong: '<red>[左键] '
+    left-button-current: '<gold><b>[左键]</b> '
+    right-button: '<gray>[右键] '
+    right-button-correct: '<green>[右键] '
+    right-button-wrong: '<red>[右键] '
+    right-button-current: '<gold><b>[右键]</b> '
+    up-button: '<gray>[跳跃] '
+    up-button-correct: '<green>[跳跃] '
+    up-button-wrong: '<red>[跳跃] '
+    up-button-current: '<gold><b>[跳跃]</b> '
+    down-button: '<gray>[潜行] '
+    down-button-correct: '<green>[潜行] '
+    down-button-wrong: '<red>[潜行] '
+    down-button-current: '<gold><b>[潜行]</b> '
+    display-amount: 4
+
+dance_game_normal:
+  game-type: dance
+  difficulty: 16~24
+  time: 15
+  easy: false
+  subtitle: '<gray>灵动旋律！剩余时间：<white>{time_left}s'
+  tip: '<gold>注意：包含[左键]、[右键]、[跳跃]、[潜行]四种按键！'
+  title:
+    left-button: '<gray>◀ '
+    left-button-correct: '<green>◀ '
+    left-button-wrong: '<red>◀ '
+    left-button-current: '<gold><b>◀</b> '
+    right-button: '<gray>▶ '
+    right-button-correct: '<green>▶ '
+    right-button-wrong: '<red>▶ '
+    right-button-current: '<gold><b>▶</b> '
+    up-button: '<gray>▲ '
+    up-button-correct: '<green>▲ '
+    up-button-wrong: '<red>▲ '
+    up-button-current: '<gold><b>▲</b> '
+    down-button: '<gray>▼ '
+    down-button-correct: '<green>▼ '
+    down-button-wrong: '<red>▼ '
+    down-button-current: '<gold><b>▼</b> '
+    display-amount: 8
+
+dance_game_hard:
+  game-type: dance
+  difficulty: 28~36
+  time: 18
+  easy: false
+  subtitle: '<gradient:#DA70D6:#BA55D3:#8A2BE2>高维时空节拍！剩余时间：<white>{time_left}s</gradient>'
+  tip: '<light_purple>精准输入虚空音律，按错一次即刻脱钩！'
+  title:
+    left-button: '<dark_gray>◀ '
+    left-button-correct: '<aqua>◀ '
+    left-button-wrong: '<red>◀ '
+    left-button-current: '<yellow><b>◀</b> '
+    right-button: '<dark_gray>▶ '
+    right-button-correct: '<aqua>▶ '
+    right-button-wrong: '<red>▶ '
+    right-button-current: '<yellow><b>▶</b> '
+    up-button: '<dark_gray>▲ '
+    up-button-correct: '<aqua>▲ '
+    up-button-wrong: '<red>▲ '
+    up-button-current: '<yellow><b>▲</b> '
+    down-button: '<dark_gray>▼ '
+    down-button-correct: '<aqua>▼ '
+    down-button-wrong: '<red>▼ '
+    down-button-current: '<yellow><b>▼</b> '
+    display-amount: 9

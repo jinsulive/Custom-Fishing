@@ -17,14 +17,14 @@ vanilla:
 # Some rubbish
 stick:
   tag: false
-  nick: '<#EEE685>Useless sticks</#EEE685>'
+  nick: '<#EEE685>无用的树枝</#EEE685>'
   material: stick
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 shoes:
   tag: false
-  nick: '<#8B814C>Something smells bad</#8B814C>'
+  nick: '<#8B814C>发臭的破旧皮靴</#8B814C>'
   material: leather_boots
   show-in-fishfinder: false
   disable-stat: true
@@ -32,88 +32,88 @@ shoes:
   random-durability: true
 seagrass:
   tag: false
-  nick: '<green>Sea Grass</green>'
+  nick: '<green>水下海草</green>'
   material: seagrass
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 kelp:
   tag: false
-  nick: '<green>Kelp</green>'
+  nick: '<green>湿漉海带</green>'
   material: kelp
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 nether_brick:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>下界砖石块</gray>'
   material: nether_brick
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 flint:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>坚硬的燧石</gray>'
   material: flint
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 stone:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>沉重坚硬的石头</gray>'
   material: stone
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 netherrack:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>温热的下界岩</gray>'
   material: netherrack
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 gold_ingot:
   tag: false
-  nick: '<yellow>Shining ingots</yellow>'
+  nick: '<yellow>闪光的金锭</yellow>'
   material: gold_ingot
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 gold_nugget:
   tag: false
-  nick: '<yellow>Shining nuggets</yellow>'
+  nick: '<yellow>闪光的金粒</yellow>'
   material: gold_nugget
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 cobblestone:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>粗糙的圆石</gray>'
   material: cobblestone
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 obsidian:
   tag: false
-  nick: '<gray>Something hard</gray>'
+  nick: '<gray>漆黑的黑曜石</gray>'
   material: obsidian
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 diamond:
   tag: false
-  nick: '<#00FFFF>Diamond</#00FFFF>'
+  nick: '<#00FFFF>璀璨的钻石</#00FFFF>'
   material: diamond
   show-in-fishfinder: false
   disable-stat: true
   disable-game: true
 rubbish:
   material: cod
-  nick: <#00BFFF>Radioactive Fish</#00BFFF>
+  nick: <#00BFFF>核辐射变异鱼</#00BFFF>
   display:
-    name: <#00BFFF>Radioactive Fish</#00BFFF>
+    name: <#00BFFF><b>核辐射变异鱼</b></#00BFFF>
     lore:
-      - <gray>Time to protect the environment
+      - <gray>保护环境，人人有责！
   custom-model-data: 50000
   show-in-fishfinder: false
   disable-stat: true
@@ -122,15 +122,15 @@ rubbish:
   prevent-grabbing: false
 rainbow_fish:
   material: cod
-  nick: <Rainbow>Rainbow Fish</Rainbow>
+  nick: <Rainbow>彩虹七彩神鱼</Rainbow>
   display:
-    name: <Rainbow>Rainbow Fish</Rainbow>
+    name: <Rainbow><b>彩虹七彩神鱼</b></Rainbow>
     lore:
-      - <gray>Bringing a good mood for the day
+      - <gray>带来一整天的好心情！
   group: special_game
   custom-model-data: 50100
   price:
-    base: 100
+    base: 500
 # Enchantments
 enchantment_book:
   tag: false
@@ -225,10 +225,10 @@ enchantment_book:
 tuna_fish:
   material: cod
   display:
-    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>Tuna Fish</gradient>
+    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>金枪鱼</gradient>
     lore:
-      - <gray>Tuna is a kind of healthy food.
-      - '<white>size: {size_formatted}cm'
+      - <gray>金枪鱼是一种健康的深海鱼类，肉质极其紧实。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50001
   group:
     - ocean
@@ -241,17 +241,16 @@ tuna_fish:
         chance: 1.0
   size: 15~50
   price:
-    base: 30
-    bonus: 0.6
+    base: 5
+    bonus: 0.5
 tuna_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>Tuna Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>金枪鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Tuna is a kind of healthy food.
-      - '<white>size: {size_formatted}cm'
+      - <gray>金枪鱼是一种健康的深海鱼类，肉质极其紧实。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50002
   group:
     - silver_star
@@ -270,11 +269,10 @@ tuna_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>Tuna Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#F0FFFF:#4682B4:#F0FFFF>金枪鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Tuna is a kind of healthy food.
-      - '<white>size: {size_formatted}cm'
+      - <gray>金枪鱼是一种健康的深海鱼类，肉质极其紧实。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50003
   group:
     - golden_star
@@ -292,13 +290,10 @@ tuna_fish_golden_star:
 pike_fish:
   material: cod
   display:
-    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>Pike Fish</gradient>
+    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>白斑狗鱼</gradient>
     lore:
-      - <gray>It likes to inhabit at the junction
-      - <gray>of salt and fresh water. It can
-      - <gray>survive in seawater, brackish fresh
-      - <gray>water and inland freshwater lakes
-      - '<white>size: {size_formatted}cm'
+      - <gray>喜栖息于咸淡水交界处，适应能力极强。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50004
   group:
     - ocean
@@ -311,20 +306,16 @@ pike_fish:
         chance: 1.0
   size: 5~15
   price:
-    base: 30
-    bonus: 1.5
+    base: 5
+    bonus: 0.5
 pike_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>Pike Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>白斑狗鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>It likes to inhabit at the junction
-      - <gray>of salt and fresh water. It can
-      - <gray>survive in seawater, brackish fresh
-      - <gray>water and inland freshwater lakes
-      - '<white>size: {size_formatted}cm'
+      - <gray>喜栖息于咸淡水交界处，适应能力极强。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50005
   group:
     - silver_star
@@ -343,14 +334,10 @@ pike_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>Pike Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#F0F8FF:#5F9EA0:#F0F8FF>白斑狗鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>It likes to inhabit at the junction
-      - <gray>of salt and fresh water. It can
-      - <gray>survive in seawater, brackish fresh
-      - <gray>water and inland freshwater lakes
-      - '<white>size: {size_formatted}cm'
+      - <gray>喜栖息于咸淡水交界处，适应能力极强。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50006
   group:
     - golden_star
@@ -368,15 +355,15 @@ pike_fish_golden_star:
 gold_fish:
   material: cod
   display:
-    name: <gradient:#40E0D0:#FFD700:#F0F8FF>Gold Fish</gradient>
+    name: <gradient:#40E0D0:#FFD700:#F0F8FF>金鱼</gradient>
     lore:
-      - <gray>Goldfish is one of most famous ornamental
-      - <gray>fishes in the world. It originated in China
-      - <gray>and has a history of more than 1700 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>金鱼是世界上最著名的观赏鱼之一。
+      - <gray>它起源于中国，
+      - <gray>已有1700多年的历史。
+      - '<white>体长: {size_formatted}cm'
   price:
-    base: 70
-    bonus: 2.6
+    base: 5
+    bonus: 0.5
   size: 2~3
   custom-model-data: 50007
   group:
@@ -392,13 +379,12 @@ gold_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#40E0D0:#FFD700:#F0F8FF>Gold Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#40E0D0:#FFD700:#F0F8FF>金鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Goldfish is one of most famous ornamental
-      - <gray>fishes in the world. It originated in China
-      - <gray>and has a history of more than 1700 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>金鱼是世界上最著名的观赏鱼之一。
+      - <gray>它起源于中国，
+      - <gray>已有1700多年的历史。
+      - '<white>体长: {size_formatted}cm'
   price:
     base: 80
     bonus: 3
@@ -417,13 +403,12 @@ gold_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#40E0D0:#FFD700:#F0F8FF>Gold Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#40E0D0:#FFD700:#F0F8FF>金鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Goldfish is one of most famous ornamental
-      - <gray>fishes in the world. It originated in China
-      - <gray>and has a history of more than 1700 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>金鱼是世界上最著名的观赏鱼之一。
+      - <gray>它起源于中国，
+      - <gray>已有1700多年的历史。
+      - '<white>体长: {size_formatted}cm'
   price:
     base: 100
     bonus: 3.4
@@ -441,11 +426,11 @@ gold_fish_golden_star:
 perch_fish:
   material: cod
   display:
-    name: <gradient:#BDB76B:#2E8B57:#008B8B>Perch Fish</gradient>
+    name: <gradient:#BDB76B:#2E8B57:#008B8B>河鲈</gradient>
     lore:
-      - <gray>Living in various habitats and
-      - <gray>foraging at dusk and early morning
-      - '<white>size: {size_formatted}cm'
+      - <gray>栖息于多种环境，
+      - <gray>在黄昏和清晨觅食。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50010
   group:
     - no_star
@@ -458,18 +443,17 @@ perch_fish:
         chance: 1.0
   size: 5~12
   price:
-    base: 10
-    bonus: 3
+    base: 5
+    bonus: 0.5
 perch_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#BDB76B:#2E8B57:#008B8B>Perch Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#BDB76B:#2E8B57:#008B8B>河鲈</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Living in various habitats and
-      - <gray>foraging at dusk and early morning
-      - '<white>size: {size_formatted}cm'
+      - <gray>栖息于多种环境，
+      - <gray>在黄昏和清晨觅食。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50011
   group:
     - silver_star
@@ -488,12 +472,11 @@ perch_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#BDB76B:#2E8B57:#008B8B>Perch Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#BDB76B:#2E8B57:#008B8B>河鲈</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Living in various habitats and
-      - <gray>foraging at dusk and early morning
-      - '<white>size: {size_formatted}cm'
+      - <gray>栖息于多种环境，
+      - <gray>在黄昏和清晨觅食。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50012
   group:
     - golden_star
@@ -511,11 +494,10 @@ perch_fish_golden_star:
 mullet_fish:
   material: cod
   display:
-    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>Mullet Fish</gradient>
+    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>鲻鱼</gradient>
     lore:
-      - <gray>Used in traditional Chinese medicine
-      - <gray>to treat spleen and stomach weakness
-      - '<white>size: {size_formatted}cm'
+      - <gray>在传统中医中用于治疗脾胃虚弱。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50013
   group:
     - no_star
@@ -528,18 +510,16 @@ mullet_fish:
         chance: 1.0
   size: 1~3
   price:
-    base: 20
-    bonus: 1.5
+    base: 5
+    bonus: 0.5
 mullet_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>Mullet Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>鲻鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Used in traditional Chinese medicine
-      - <gray>to treat spleen and stomach weakness
-      - '<white>size: {size_formatted}cm'
+      - <gray>在传统中医中用于治疗脾胃虚弱。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50014
   group:
     - silver_star
@@ -558,12 +538,10 @@ mullet_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>Mullet Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#D4F2E7:#E1FFFF:#D4F2E7>鲻鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Used in traditional Chinese medicine
-      - <gray>to treat spleen and stomach weakness
-      - '<white>size: {size_formatted}cm'
+      - <gray>在传统中医中用于治疗脾胃虚弱。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50015
   group:
     - golden_star
@@ -581,11 +559,11 @@ mullet_fish_golden_star:
 sardine_fish:
   material: cod
   display:
-    name: <gradient:#E1FFFF:#5F9EA0>Sardine Fish</gradient>
+    name: <gradient:#E1FFFF:#5F9EA0>沙丁鱼</gradient>
     lore:
-      - <gray>Sardine fish is rich in DHA which improves memory
-      - <gray>Therefore, sardine are also called "smart food"
-      - '<white>size: {size_formatted}cm'
+      - <gray>沙丁鱼富含可改善记忆力的DHA，
+      - <gray>因此沙丁鱼也被称为“聪明食品”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50016
   group:
     - ocean
@@ -598,17 +576,17 @@ sardine_fish:
         chance: 1.0
   size: 1~5
   price:
-    base: 10
-    bonus: 3.4
+    base: 5
+    bonus: 0.5
 sardine_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#E1FFFF:#5F9EA0>Sardine Fish</gradient> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <gradient:#E1FFFF:#5F9EA0>沙丁鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Sardine fish is rich in DHA which improves memory
-      - <gray>Therefore, sardine are also called "smart food"
-      - '<white>size: {size_formatted}cm'
+      - <gray>沙丁鱼富含可改善记忆力的DHA，
+      - <gray>因此沙丁鱼也被称为“聪明食品”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50017
   group:
     - silver_star
@@ -627,11 +605,11 @@ sardine_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#E1FFFF:#5F9EA0>Sardine Fish</gradient> <#FFD700>(Golden Star)</#FFD700>
+    name: <gradient:#E1FFFF:#5F9EA0>沙丁鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Sardine fish is rich in DHA which improves memory
-      - <gray>Therefore, sardine are also called "smart food"
-      - '<white>size: {size_formatted}cm'
+      - <gray>沙丁鱼富含可改善记忆力的DHA，
+      - <gray>因此沙丁鱼也被称为“聪明食品”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50018
   group:
     - golden_star
@@ -649,10 +627,10 @@ sardine_fish_golden_star:
 carp_fish:
   material: cod
   display:
-    name: <gradient:#808000:#556B2F>Carp Fish</gradient>
+    name: <gradient:#808000:#556B2F>鲤鱼</gradient>
     lore:
-      - <gray>One of the most common edible fish
-      - '<white>size: {size_formatted}cm'
+      - <gray>最常见的食用鱼之一。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50019
   group:
     - no_star
@@ -665,16 +643,16 @@ carp_fish:
         chance: 1.0
   size: 7~19
   price:
-    base: 10
-    bonus: 2
+    base: 5
+    bonus: 0.5
 carp_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#808000:#556B2F>Carp Fish</gradient> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <gradient:#808000:#556B2F>鲤鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>One of the most common edible fish
-      - '<white>size: {size_formatted}cm'
+      - <gray>最常见的食用鱼之一。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50020
   group:
     - silver_star
@@ -693,10 +671,10 @@ carp_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#808000:#556B2F>Carp Fish</gradient> <#FFD700>(Golden Star)</#FFD700>
+    name: <gradient:#808000:#556B2F>鲤鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>One of the most common edible fish
-      - '<white>size: {size_formatted}cm'
+      - <gray>最常见的食用鱼之一。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50021
   group:
     - golden_star
@@ -714,11 +692,11 @@ carp_fish_golden_star:
 cat_fish:
   material: cod
   display:
-    name: <#BDB76B>Cat Fish</#BDB76B>
+    name: <#BDB76B>鲇鱼</#BDB76B>
     lore:
-      - <gray>Catfish is a fierce carnivorous fish with
-      - <gray>sharp jaw teeth, short intestine and stomach
-      - '<white>size: {size_formatted}cm'
+      - <gray>鲇鱼是一种凶猛的肉食性鱼类，
+      - <gray>颌齿锋利，肠道和胃较短。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50022
   group:
     - no_star
@@ -731,17 +709,17 @@ cat_fish:
         chance: 1.0
   size: 3~12
   price:
-    base: 27
-    bonus: 1.8
+    base: 5
+    bonus: 0.5
 cat_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#BDB76B>Cat Fish</#BDB76B> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#BDB76B>鲇鱼</#BDB76B> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Catfish is a fierce carnivorous fish with
-      - <gray>sharp jaw teeth, short intestine and stomach
-      - '<white>size: {size_formatted}cm'
+      - <gray>鲇鱼是一种凶猛的肉食性鱼类，
+      - <gray>颌齿锋利，肠道和胃较短。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50023
   group:
     - silver_star
@@ -760,11 +738,11 @@ cat_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#BDB76B>Cat Fish</#BDB76B> <#FFD700>(Golden Star)</#FFD700>
+    name: <#BDB76B>鲇鱼</#BDB76B> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Catfish is a fierce carnivorous fish with
-      - <gray>sharp jaw teeth, short intestine and stomach
-      - '<white>size: {size_formatted}cm'
+      - <gray>鲇鱼是一种凶猛的肉食性鱼类，
+      - <gray>颌齿锋利，肠道和胃较短。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50024
   group:
     - golden_star
@@ -782,11 +760,11 @@ cat_fish_golden_star:
 octopus:
   material: cod
   display:
-    name: <gradient:#D2691E:#FF6347>Octopus</gradient>
+    name: <gradient:#D2691E:#FF6347>章鱼</gradient>
     lore:
-      - <gray>Octopus is crazy about all kinds of utensils
-      - <gray>People often use pots to catch octopus
-      - '<white>size: {size_formatted}cm'
+      - <gray>章鱼对各种器具非常着迷，
+      - <gray>人们常用陶罐捕捉章鱼。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50025
   group:
     - ocean
@@ -799,17 +777,17 @@ octopus:
         chance: 1.0
   size: 1~4
   price:
-    base: 50
-    bonus: 2.2
+    base: 5
+    bonus: 0.5
 octopus_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#D2691E:#FF6347>Octopus</gradient> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <gradient:#D2691E:#FF6347>章鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Octopus is crazy about all kinds of utensils
-      - <gray>People often use pots to catch octopus
-      - '<white>size: {size_formatted}cm'
+      - <gray>章鱼对各种器具非常着迷，
+      - <gray>人们常用陶罐捕捉章鱼。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50026
   group:
     - silver_star
@@ -828,11 +806,11 @@ octopus_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#D2691E:#FF6347>Octopus</gradient> <#FFD700>(Golden Star)</#FFD700>
+    name: <gradient:#D2691E:#FF6347>章鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Octopus is crazy about all kinds of utensils
-      - <gray>People often use pots to catch octopus
-      - '<white>size: {size_formatted}cm'
+      - <gray>章鱼对各种器具非常着迷，
+      - <gray>人们常用陶罐捕捉章鱼。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50027
   group:
     - golden_star
@@ -850,10 +828,10 @@ octopus_golden_star:
 sunfish:
   material: cod
   display:
-    name: <#F5DEB3>Sunfish</#F5DEB3>
+    name: <#F5DEB3>翻车鱼</#F5DEB3>
     lore:
-      - <gray>It only has one huge head
-      - '<white>size: {size_formatted}cm'
+      - <gray>它只有一个巨大的头。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50028
   group:
     - ocean
@@ -866,16 +844,16 @@ sunfish:
         chance: 1.0
   size: 5~18
   price:
-    base: 10
-    bonus: 1.5
+    base: 5
+    bonus: 0.5
 sunfish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#F5DEB3>Sunfish <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#F5DEB3>翻车鱼 <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>It only has one huge head
-      - '<white>size: {size_formatted}cm'
+      - <gray>它只有一个巨大的头。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50029
   group:
     - silver_star
@@ -894,10 +872,10 @@ sunfish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#F5DEB3>Sunfish <#FFD700>(Golden Star)</#FFD700>
+    name: <#F5DEB3>翻车鱼 <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>It only has one huge head
-      - '<white>size: {size_formatted}cm'
+      - <gray>它只有一个巨大的头。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50030
   group:
     - golden_star
@@ -915,11 +893,11 @@ sunfish_golden_star:
 red_snapper_fish:
   material: cod
   display:
-    name: <gradient:#FF4500:#FFA07A:#FF4500>Red Snapper Fish</gradient>
+    name: <gradient:#FF4500:#FFA07A:#FF4500>红鲷鱼</gradient>
     lore:
-      - <gray>They usually have a large family of ten or twenty
-      - <gray>with a male as the "head of the family"
-      - '<white>size: {size_formatted}cm'
+      - <gray>它们通常组成十到二十条的大群体，
+      - <gray>由一条雄性作为“一家之主”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50031
   group:
     - ocean
@@ -932,19 +910,18 @@ red_snapper_fish:
         chance: 1.0
   size: 1~4
   price:
-    base: 10
-    bonus: 2.3
+    base: 5
+    bonus: 0.5
 red_snapper_fish_silver_star:
   amount: 7~9
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#FF4500:#FFA07A:#FF4500>Red Snapper Fish</gradient> <#F5F5F5>(Silver
-      Star)</#F5F5F5>
+    name: <gradient:#FF4500:#FFA07A:#FF4500>红鲷鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>They usually have a large family of ten or twenty
-      - <gray>with a male as the "head of the family"
-      - '<white>size: {size_formatted}cm'
+      - <gray>它们通常组成十到二十条的大群体，
+      - <gray>由一条雄性作为“一家之主”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50032
   group:
     - silver_star
@@ -963,12 +940,11 @@ red_snapper_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#FF4500:#FFA07A:#FF4500>Red Snapper Fish</gradient> <#FFD700>(Golden
-      Star)</#FFD700>
+    name: <gradient:#FF4500:#FFA07A:#FF4500>红鲷鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>They usually have a large family of ten or twenty
-      - <gray>with a male as the "head of the family"
-      - '<white>size: {size_formatted}cm'
+      - <gray>它们通常组成十到二十条的大群体，
+      - <gray>由一条雄性作为“一家之主”。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50033
   group:
     - golden_star
@@ -986,11 +962,11 @@ red_snapper_fish_golden_star:
 salmon_void_fish:
   material: cod
   display:
-    name: <gradient:#800000:#800080>Void Salmon</gradient>
+    name: <gradient:#800000:#800080>虚空鲑鱼</gradient>
     lore:
-      - <gray>A fish from the hell
-      - <gray>It's looking at you...
-      - '<white>size: {size_formatted}cm'
+      - <gray>来自地狱的鱼，
+      - <gray>它正看着你……
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50034
   group:
     - lava
@@ -1003,17 +979,17 @@ salmon_void_fish:
         chance: 1.0
   size: 8~10
   price:
-    base: 20
-    bonus: 2.4
+    base: 5
+    bonus: 0.5
 salmon_void_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#800000:#800080>Void Salmon</gradient> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <gradient:#800000:#800080>虚空鲑鱼</gradient> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>A fish from the hell
-      - <gray>It's looking at you...
-      - '<white>size: {size_formatted}cm'
+      - <gray>来自地狱的鱼，
+      - <gray>它正看着你……
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50035
   group:
     - silver_star
@@ -1032,11 +1008,11 @@ salmon_void_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <gradient:#800000:#800080>Void Salmon</gradient> <#FFD700>(Golden Star)</#FFD700>
+    name: <gradient:#800000:#800080>虚空鲑鱼</gradient> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>A fish from the hell
-      - <gray>It's looking at you...
-      - '<white>size: {size_formatted}cm'
+      - <gray>来自地狱的鱼，
+      - <gray>它正看着你……
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50036
   group:
     - golden_star
@@ -1054,11 +1030,11 @@ salmon_void_fish_golden_star:
 woodskip_fish:
   material: cod
   display:
-    name: <#CD5C5C>Woodskip Fish</#CD5C5C>
+    name: <#CD5C5C>林跃鱼</#CD5C5C>
     lore:
-      - <gray>A very sensitive fish that can only
-      - <gray>live in pools deep in the forest
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种非常敏感的鱼，只能
+      - <gray>生活在森林深处的水池中。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50037
   group:
     - no_star
@@ -1071,17 +1047,17 @@ woodskip_fish:
         chance: 1.0
   size: 3~7
   price:
-    base: 10
-    bonus: 2.3
+    base: 5
+    bonus: 0.5
 woodskip_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#CD5C5C>Woodskip Fish</#CD5C5C> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#CD5C5C>林跃鱼</#CD5C5C> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>A very sensitive fish that can only
-      - <gray>live in pools deep in the forest
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种非常敏感的鱼，只能
+      - <gray>生活在森林深处的水池中。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50038
   group:
     - silver_star
@@ -1100,11 +1076,11 @@ woodskip_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#CD5C5C>Woodskip Fish</#CD5C5C> <#FFD700>(Golden Star)</#FFD700>
+    name: <#CD5C5C>林跃鱼</#CD5C5C> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>A very sensitive fish that can only
-      - <gray>live in pools deep in the forest
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种非常敏感的鱼，只能
+      - <gray>生活在森林深处的水池中。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50039
   group:
     - golden_star
@@ -1122,11 +1098,11 @@ woodskip_fish_golden_star:
 sturgeon_fish:
   material: cod
   display:
-    name: <#48D1CC>Sturgeon Fish</#48D1CC>
+    name: <#48D1CC>鲟鱼</#48D1CC>
     lore:
-      - <gray>An ancient bottom-feeder with a dwindling
-      - <gray>population. Females can live up to 150 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种古老的底栖鱼类，种群数量正在减少。
+      - <gray>雌性寿命可达150年。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50040
   group:
     - no_star
@@ -1139,17 +1115,17 @@ sturgeon_fish:
         chance: 1.0
   size: 1~5
   price:
-    base: 200
-    bonus: 10
+    base: 5
+    bonus: 0.5
 sturgeon_fish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#48D1CC>Sturgeon Fish</#48D1CC> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#48D1CC>鲟鱼</#48D1CC> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>An ancient bottom-feeder with a dwindling
-      - <gray>population. Females can live up to 150 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种古老的底栖鱼类，种群数量正在减少。
+      - <gray>雌性寿命可达150年。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50041
   group:
     - silver_star
@@ -1168,11 +1144,11 @@ sturgeon_fish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#48D1CC>Sturgeon Fish</#48D1CC> <#FFD700>(Golden Star)</#FFD700>
+    name: <#48D1CC>鲟鱼</#48D1CC> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>An ancient bottom-feeder with a dwindling
-      - <gray>population. Females can live up to 150 years
-      - '<white>size: {size_formatted}cm'
+      - <gray>一种古老的底栖鱼类，种群数量正在减少。
+      - <gray>雌性寿命可达150年。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50042
   group:
     - golden_star
@@ -1190,10 +1166,10 @@ sturgeon_fish_golden_star:
 blue_jellyfish:
   material: cod
   display:
-    name: <#87CEFA>Jellyfish</#87CEFA>
+    name: <#87CEFA>蓝水母</#87CEFA>
     lore:
-      - <gray>Looks like a blue umbrella
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来像一把蓝色雨伞。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50043
   group:
     - warm_ocean
@@ -1206,16 +1182,16 @@ blue_jellyfish:
         chance: 1.0
   size: 1~3
   price:
-    base: 20
-    bonus: 6.4
+    base: 5
+    bonus: 0.5
 blue_jellyfish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#87CEFA>Jellyfish</#87CEFA> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#87CEFA>蓝水母</#87CEFA> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Looks like a blue umbrella
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来像一把蓝色雨伞。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50044
   group:
     - silver_star
@@ -1234,10 +1210,10 @@ blue_jellyfish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#87CEFA>Jellyfish</#87CEFA> <#FFD700>(Golden Star)</#FFD700>
+    name: <#87CEFA>蓝水母</#87CEFA> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Looks like a blue umbrella
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来像一把蓝色雨伞。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50045
   group:
     - golden_star
@@ -1255,10 +1231,10 @@ blue_jellyfish_golden_star:
 pink_jellyfish:
   material: cod
   display:
-    name: <#FFC0CB>Jellyfish</#FFC0CB>
+    name: <#FFC0CB>粉水母</#FFC0CB>
     lore:
-      - <gray>Seems to be sweet
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来甜甜的。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50046
   group:
     - warm_ocean
@@ -1271,16 +1247,16 @@ pink_jellyfish:
         chance: 1.0
   size: 1~3
   price:
-    base: 20
-    bonus: 6.4
+    base: 5
+    bonus: 0.5
 pink_jellyfish_silver_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#FFC0CB>Jellyfish</#FFC0CB> <#F5F5F5>(Silver Star)</#F5F5F5>
+    name: <#FFC0CB>粉水母</#FFC0CB> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>Seems to be sweet
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来甜甜的。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50047
   group:
     - silver_star
@@ -1299,10 +1275,10 @@ pink_jellyfish_golden_star:
   show-in-fishfinder: false
   material: cod
   display:
-    name: <#FFC0CB>Jellyfish</#FFC0CB> <#FFD700>(Golden Star)</#FFD700>
+    name: <#FFC0CB>粉水母</#FFC0CB> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>Seems to be sweet
-      - '<white>size: {size_formatted}cm'
+      - <gray>看起来甜甜的。
+      - '<white>体长: {size_formatted}cm'
   custom-model-data: 50048
   group:
     - golden_star

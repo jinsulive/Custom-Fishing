@@ -17,22 +17,20 @@ BOOK:
         action_message:
           type: message
           value:
-            - 'This bait can only be used on <#7B68EE>Magical Fishing Rod'
+            - '<red>这种诱饵只能用于 <#7B68EE>秘法钓竿</red>'
 
 simple_bait:
   material: paper
   display:
-    name: '<b><#00BFFF>Simple lures'
+    name: '<b><#00BFFF>简易诱饵'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray>Made from natural ingredients, it attracts'
-      - '<gray>fish in a calm and steady manner. It''s the'
-      - '<gray>go-to choice for those who prefer a '
-      - '<gray>straightforward and reliable fishing experience.'
+      - '<#7FFFD4>描述:'
+      - '<gray>采用天然谷物与微光草制成，以平稳温和的方式吸引鱼群。'
+      - '<gray>是喜爱沉稳可靠钓鱼体验的首选诱饵。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Reduce fishing difficulty'
+      - '<#FFD700>特性:'
+      - '<gray> - 降低钓鱼难度 (-10)'
       - ''
   custom-model-data: 50001
   effects:
@@ -43,19 +41,16 @@ simple_bait:
 magnetic_bait:
   material: paper
   display:
-    name: '<b><red>Magn<blue>etic <gray>lures'
+    name: '<b><red>磁<blue>力<gray>诱饵'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray>Its radiant shimmer and unique energy pulse'
-      - '<gray>prove irresistible to curious fish, drawing'
-      - '<gray>them in with unprecedented speed. This is '
-      - '<gray>not just a bait, it''s a spectacle that fish'
-      - '<gray>can''t help but investigate.'
+      - '<#7FFFD4>描述:'
+      - '<gray>散发独特的光芒与微弱能量脉冲，对充满好奇心的鱼儿'
+      - '<gray>具有不可抵挡的吸引力，能以前所未有的速度吸引它们靠拢。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Reduce wait time'
-      - '<gray> - More time for fishing'
+      - '<#FFD700>特性:'
+      - '<gray> - 缩短 10% 咬钩等待时间'
+      - '<gray> - +2秒 钓鱼小游戏时间'
       - ''
   custom-model-data: 50002
   effects:
@@ -69,18 +64,17 @@ magnetic_bait:
 wild_bait:
   material: paper
   display:
-    name: '<b><#2E8B57>Wild lures'
+    name: '<b><#2E8B57>荒野狂暴诱饵'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray>Crafted for the fearless angler, the Wild '
-      - '<gray>Attraction Bait is an infusion of potent '
-      - '<gray>natural ingredients, exuding an irresistible'
-      - '<gray>aroma for large aquatic beasts.'
+      - '<#7FFFD4>描述:'
+      - '<gray>专为无所畏惧的捕鱼猎人打造，融合高烈度天然浓缩原料，'
+      - '<gray>散发出对水中大型巨兽极具诱惑的狂野气息。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increase fishing difficulty'
-      - '<gray> - Increase the size of fish caught'
+      - '<#FFD700>特性:'
+      - '<gray> - 增加钓鱼搏斗挑战难度 (+20)'
+      - '<gray> - 大幅提升钓获鱼类的体长 (+50%)'
+      - '<gray> - 钓鱼游戏时间 -2秒'
       - ''
   custom-model-data: 50003
   effects:
@@ -93,3 +87,121 @@ wild_bait:
     effect_3:
       type: game-time
       value: -2
+
+ender_essence_bait:
+  material: paper
+  display:
+    name: '<b><gradient:#BA55D3:#4B0082>末影虚空诱饵</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray>以末影珍珠粉末与紫颂果糖浆熬炼而成的空间诱饵，'
+      - '<gray>在虚空之中散发着对异次元生物极具诱惑的空间气味。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 缩短虚空垂钓 30% 等待时间'
+      - '<gray> - 虚空生物吸引率大幅提升 (+12)'
+      - ''
+  custom-model-data: 50031
+  effects:
+    effect_1:
+      type: wait-time-multiplier
+      value: 0.7
+    effect_2:
+      type: group-mod
+      value:
+        - void:+12
+
+magma_chum:
+  material: paper
+  display:
+    name: '<b><gradient:#FF4500:#FF8C00>炽热熔岩诱饵</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray>混合烈焰粉与岩浆膏制成的高热饵料，'
+      - '<gray>落入熔岩不会化为灰烬，反而会释放出让火怪痴迷的浓香。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 缩短岩浆垂钓 35% 等待时间'
+      - '<gray> - 熔岩鱼类吸引率大幅提升 (+12)'
+      - ''
+  custom-model-data: 50032
+  effects:
+    effect_1:
+      type: wait-time-multiplier
+      value: 0.65
+    effect_2:
+      type: group-mod
+      value:
+        - lava:+12
+
+storm_chum:
+  material: paper
+  display:
+    name: '<b><gradient:#00FFFF:#1E90FF>风暴雷鸣诱饵</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray>封存了雷电离子的特殊胶质诱饵，'
+      - '<gray>在暴风雨水流中能释放出微小脉冲，吸引暴戾的水下凶兽。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 大幅提升雷电与暴风系鱼类上钩率 (+15)'
+      - '<gray> - 传说海兽吸引率微量提升 (+4)'
+      - ''
+  custom-model-data: 50033
+  effects:
+    effect_1:
+      type: group-mod
+      value:
+        - storm:+15
+        - leviathan:+4
+
+bioluminescent_chum:
+  material: paper
+  display:
+    name: '<b><gradient:#7FFFD4:#00BFFF>深海荧光诱饵</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray>由荧光水母黏液与夜光藻提炼而成的冷光诱饵，'
+      - '<gray>在漆黑无光的深夜海沟中犹如明珠，引得深海掠食者竞相追逐。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 深海与夜间水产吸引率大幅提升 (+10)'
+      - '<gray> - 游戏时间 +3 秒'
+      - ''
+  custom-model-data: 50034
+  effects:
+    effect_1:
+      type: group-mod
+      value:
+        - deep_ocean:+10
+        - night:+8
+        - jelly:+8
+    effect_2:
+      type: game-time
+      value: 3
+
+golden_carp_bait:
+  material: paper
+  display:
+    name: '<b><gradient:#FFD700:#FFA500>万灵金蚕玉饵</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray>极其奢华的秘制贡品鱼饵，由金苹果汁与灵草碎精心揉捏，'
+      - '<gray>入水泛出金辉，专用于钓取最顶尖的黄金星级稀世珍馐。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 显著提升黄金之星品质概率 (+6)'
+      - '<gray> - 祥瑞好运鱼类吸引率提升 (+8)'
+      - ''
+  custom-model-data: 50035
+  effects:
+    effect_1:
+      type: group-mod
+      value:
+        - golden_star:+6
+        - lucky:+8

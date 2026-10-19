@@ -17,17 +17,16 @@ FISHING_ROD:
 beginner_rod:
   material: fishing_rod
   display:
-    name: "<b><#EEE9E9>Beginner's Fishing Rod"
+    name: "<b><#EEE9E9>新手钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Specially designed for those new to the art '
-      - '<gray> - of fishing, the Beginner''s Fishing Rod is a'
-      - '<gray> - novice angler''s best friend.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 专为初涉钓鱼艺术的新手设计的钓竿，'
+      - '<gray> - 操作平稳简单，是钓鱼初学者的最佳良伴。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increase the waiting time'
-      - '<gray> - Reduces the challenge of fishing'
+      - '<#FFD700>特性:'
+      - '<gray> - 稍稍延长咬钩等待时间'
+      - '<gray> - 显著降低钓鱼游戏难度'
   custom-model-data: 50001
   max-durability: 64
   effects:
@@ -41,16 +40,15 @@ beginner_rod:
 silver_rod:
   material: fishing_rod
   display:
-    name: "<b><#C0C0C0>Silver Fishing Rod"
+    name: "<b><#C0C0C0>白银钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Elegantly crafted with a gleaming finish, the'
-      - '<gray> - Silver Star Fishing Rod is the dream of every'
-      - '<gray> - angler seeking silver-star quality fish.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 工艺精湛且泛着高雅银光的钓竿，'
+      - '<gray> - 是每一位追求白银之星品质鱼获的垂钓者的梦想。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increase the chance of getting silver star fish'
+      - '<#FFD700>特性:'
+      - '<gray> - 提高白银之星品质鱼类的咬钩几率'
   custom-model-data: 50002
   max-durability: 96
   effects:
@@ -62,16 +60,15 @@ silver_rod:
 golden_rod:
   material: fishing_rod
   display:
-    name: "<b><#FFD700>Golden Fishing Rod"
+    name: "<b><#FFD700>黄金钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Glistening under the sunlight and exuding an'
-      - '<gray> - aura of luxury, the Golden Fishing Rod is the'
-      - '<gray> - epitome of high-tier angling gear.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 在阳光下耀眼夺目，散发着奢华尊贵的气息，'
+      - '<gray> - 是高阶垂钓装备的象征。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Increase the chance of getting golden star fish'
+      - '<#FFD700>特性:'
+      - '<gray> - 提高黄金之星品质鱼类的咬钩几率'
   custom-model-data: 50003
   max-durability: 80
   effects:
@@ -83,18 +80,15 @@ golden_rod:
 star_rod:
   material: fishing_rod
   display:
-    name: "<b><#FFFF00>Star Fishing Rod"
+    name: "<b><#FFFF00>群星钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Carved from stardust and bathed in cosmic energy,'
-      - '<gray> - the Star Fishing Rod is a testament to the wonders'
-      - '<gray> - of the universe. Its endless magical reservoir ensures'
-      - '<gray> - that time seems to stand still, granting anglers what'
-      - '<gray> - feels like an eternity to perfect their catch.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 由星尘雕琢而成并浸润了宇宙能量的神奇钓竿，'
+      - '<gray> - 其内蕴的魔力让时间仿佛停滞，给予钓鱼者充裕的操作时间。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - +15s Game Time'
+      - '<#FFD700>特性:'
+      - '<gray> - +15秒 钓鱼小游戏时间'
   custom-model-data: 50004
   max-durability: 128
   effects:
@@ -105,20 +99,16 @@ star_rod:
 bone_rod:
   material: fishing_rod
   display:
-    name: "<b><#CD2626>Bone Fishing Rod"
+    name: "<b><#CD2626>白骨钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Forged from the bones of age-old skeletons and'
-      - '<gray> - imbued with dark enchantments, the Skeleton Fishing'
-      - '<gray> - Rod is not for the faint-hearted. It allows the '
-      - '<gray> - brave or the mad to fish within the scorching '
-      - '<gray> - confines of lava, defying the usual limitations of'
-      - '<gray> - regular rods.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 由古老骸骨打造并附有黑暗咒文的钓竿，'
+      - '<gray> - 专为勇敢或疯狂的垂钓者设计，允许在滚烫的岩浆中垂钓。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Fish in lava'
-      - '<gray> - Attract skeletons'
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在岩浆 (Lava) 中垂钓'
+      - '<gray> - 容易吸引水下骷髅与凋灵生物'
   custom-model-data: 50005
   max-durability: 32
   effects:
@@ -128,23 +118,20 @@ bone_rod:
 magical_rod:
   material: fishing_rod
   display:
-    name: '<b><#7B68EE>Magical Fishing Rod'
+    name: '<b><#7B68EE>秘法钓竿'
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - A product of arcane innovation, this unique'
-      - '<gray> - fishing rod uses enchanted books as bait.'
-      - '<gray> - Its intricate reel mechanism and magical '
-      - '<gray> - allure demand the exp level of its user,'
-      - '<gray> - consuming experience levels upon each cast.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 奥术创新的产物，这根特殊的钓竿以附魔书为饵，'
+      - '<gray> - 其精密的绞盘机构与奥术吸引力会在每次抛竿时汲取经验。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Get an enchantment book from fishing.'
-      - '<gray> - The waiting time is very long.'
+      - '<#FFD700>特性:'
+      - '<gray> - 能够直接钓起附魔书'
+      - '<gray> - 咬钩等待时间极长'
       - ''
-      - '<#CD5C5C>Requirements:'
-      - '<gray> - 1x book bait'
-      - '<gray> - 30 exp levels'
+      - '<#CD5C5C>使用需求:'
+      - '<gray> - 1x 书本诱饵'
+      - '<gray> - 30 级经验等级'
   custom-model-data: 50006
   max-durability: 16
   requirements:
@@ -155,7 +142,7 @@ magical_rod:
         action_1:
           type: message
           value:
-            - 'You don''t have enough levels to control the rod.'
+            - '<red>你的经验等级不足以驾驭这根秘法钓竿（需要 30 级）。</red>'
     requirement_2:
       type: bait
       value:
@@ -164,7 +151,7 @@ magical_rod:
         action_message:
           type: message
           value:
-            - 'You have to hold a book as bait.'
+            - '<red>你需要手持一本书作为秘法诱饵。</red>'
   events:
     cast:
       action_level:
@@ -182,20 +169,17 @@ magical_rod:
 master_rod:
   material: fishing_rod
   display:
-    name: "<b><#FFFF00>Master's Fishing Rod"
+    name: "<b><#FFFF00>大师钓竿"
     lore:
       - ''
-      - '<#7FFFD4>Desciption:'
-      - '<gray> - Wielded only by the most skilled of anglers,'
-      - '<gray> - the Master''s Fishing Rod represents the pinnacle'
-      - '<gray> - of fishing craftsmanship. Meticulously crafted '
-      - '<gray> - for precision, it significantly reduces the '
-      - '<gray> - time it takes for a fish to bite.'
+      - '<#7FFFD4>描述:'
+      - '<gray> - 只有最具经验的钓鱼大师才能驾驭的巅峰之作，'
+      - '<gray> - 极其精密，大幅缩短鱼儿咬钩时间，但对收线技巧要求极高。'
       - ''
-      - '<#FFD700>Effects:'
-      - '<gray> - Reduce the waiting time'
-      - '<gray> - Increase the challenge of fishing'
-      - '<gray> - Higher chance of getting quality fish'
+      - '<#FFD700>特性:'
+      - '<gray> - 缩短咬钩等待时间'
+      - '<gray> - 增加钓鱼搏斗挑战难度'
+      - '<gray> - 更高概率获得高品质鱼获'
   custom-model-data: 50007
   max-durability: 128
   effects:
@@ -210,3 +194,147 @@ master_rod:
       value:
         - silver_star:+5
         - golden_star:+3
+
+# 新增进阶特色钓竿
+void_rod:
+  material: fishing_rod
+  display:
+    name: "<b><gradient:#9370DB:#8A2BE2:#4B0082>虚空幽影钓竿</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 融入末影能量与虚空丝线编制而成的神奇钓竿，'
+      - '<gray> - 能够打破维度阻碍，在末地深渊或世界底层虚空中垂钓。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在虚空 (Void) 中垂钓'
+      - '<gray> - 缩短虚空垂钓 20% 的等待时间'
+      - '<gray> - 增加虚空战利品的获取概率'
+  custom-model-data: 50020
+  max-durability: 160
+  effects:
+    effect_1:
+      type: void-fishing
+    effect_2:
+      type: wait-time-multiplier
+      value: 0.8
+    effect_3:
+      type: group-mod
+      value:
+        - void:+8
+
+storm_rod:
+  material: fishing_rod
+  display:
+    name: "<b><gradient:#00FFFF:#1E90FF:#FFFF00>风暴雷霆钓竿</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 竿梢缠绕着微弱的球形闪电，'
+      - '<gray> - 在雷暴天会与苍穹雷鸣产生共振，极易引诱带电与水暴生物。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 暴风雨天气大幅缩短咬钩时间'
+      - '<gray> - 增加雷暴与水暴系鱼类上钩率'
+  custom-model-data: 50021
+  max-durability: 180
+  effects:
+    effect_1:
+      type: group-mod
+      value:
+        - storm:+10
+    effect_2:
+      type: conditional
+      conditions:
+        weather:
+          - rain
+          - thunder
+      effects:
+        effect_1:
+          type: wait-time-multiplier
+          value: 0.65
+        effect_2:
+          type: difficulty
+          value: -5
+
+glacier_rod:
+  material: fishing_rod
+  display:
+    name: "<b><gradient:#AFEEEE:#00CED1:#FFFFFF>寒霜极冰钓竿</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 采用极地永不消融的玄冰与坚韧霜丝制成，'
+      - '<gray> - 极耐严寒，特别擅长在冰面之下探索巨大的耐寒冷水海产。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 提升所钓鱼类的体长 (+25%)'
+      - '<gray> - 降低冰钓难度'
+  custom-model-data: 50022
+  max-durability: 150
+  effects:
+    effect_1:
+      type: size-multiplier
+      value: 1.25
+    effect_2:
+      type: difficulty
+      value: -8
+    effect_3:
+      type: group-mod
+      value:
+        - frozen:+8
+
+infernal_rod:
+  material: fishing_rod
+  display:
+    name: "<b><gradient:#FF4500:#FF8C00:#FFD700>炽焰地狱钓竿</gradient></b>"
+    lore:
+      - '<gray> - 以烈焰棒与下界合金锻造而成，'
+      - '<gray> - 丝线由火怪吐丝制成，能无视万度熔岩的高温冲刷。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在岩浆 (Lava) 中垂钓'
+      - '<gray> - 显著提升熔岩鱼黄金之星品质概率'
+      - '<gray> - 岩浆咬钩时间缩短 25%'
+  custom-model-data: 50023
+  max-durability: 120
+  effects:
+    effect_1:
+      type: lava-fishing
+    effect_2:
+      type: wait-time-multiplier
+      value: 0.75
+    effect_3:
+      type: group-mod
+      value:
+        - golden_star:+5
+        - lava:+10
+
+neptune_rod:
+  material: fishing_rod
+  display:
+    name: "<b><gradient:#0000CD:#00BFFF:#7FFFD4>海神潮汐钓竿</gradient></b>"
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 传说中受到波塞冬潮汐赐福的远洋神竿，'
+      - '<gray> - 挥竿时隐隐伴有海浪轰鸣，能引起深海霸主的注意。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 30% 几率触发双重收获 (Multiple Loot)'
+      - '<gray> - 提升深海与巨兽系鱼类的咬钩概率'
+      - '<gray> - 游戏时间 +5 秒'
+  custom-model-data: 50024
+  max-durability: 250
+  effects:
+    effect_1:
+      type: multiple-loot
+      value: 0.3
+    effect_2:
+      type: game-time
+      value: 5
+    effect_3:
+      type: group-mod
+      value:
+        - titan:+5
+        - ocean:+6
