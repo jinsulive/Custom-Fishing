@@ -290,7 +290,8 @@ lava_loots:
         - 'obsidian:+5'
         - 'diamond:+2'
         - 'flint:+6'
-        - 'sunken_obsidian_hook:+2'
+        # 注意：钩子 (hook) 在本版本不会注册为 Loot，无法直接写入权重表，
+        # 因此「沉没黑曜石钓钩」改由 infernal_strongbox 箱内产出（见 contents/block/default.yml）
         - 'group_for_each:obsidian&no_star:+18'
         - 'group_for_each:obsidian&silver_star:+5'
         - 'group_for_each:obsidian&golden_star:+1.5'
@@ -307,7 +308,6 @@ lava_loots:
         - 'gold_nugget:+10'
         - 'magma_cube:+3'
         - 'infernal_strongbox:+3'
-        - 'sunken_obsidian_hook:+2'
         - 'group_for_each:lava&no_star:+15'
         - 'group_for_each:lava&silver_star:+4'
         - 'group_for_each:lava&golden_star:+1'
@@ -342,7 +342,7 @@ void_loots:
       - FISHING_ROD
   list:
     - 'void_relic_cube:+2'
-    - 'sunken_void_hook:+2'
+    # 「沉没虚空钓钩」同为 hook 类型，不可直接进权重表，改由 void_relic_cube 箱内产出
     - 'group_for_each:void&no_star:+15'
     - 'group_for_each:void&silver_star:+4'
     - 'group_for_each:void&golden_star:+1'

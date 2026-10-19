@@ -166,3 +166,76 @@ abyssal_heavy_sink_hook:
       value:
         - deep_ocean:+6
         - titan:+4
+
+# ==============================================================================
+#                        战利品掉落型鱼钩 (Salvaged Hooks)
+#   这两枚鱼钩不是工坊产物，而是从熔岩 / 虚空中打捞上来的旧钩。
+#   ⚠ 获取方式：hook 类型在本版本不会注册为 Loot（ConfigType.HOOK 中
+#     registerLoot 被注释），因此不能直接写入 loot-conditions.yml 的权重表，
+#     只能作为其它 Loot 的产出物发放 —— 目前由对应宝箱的 storage 开出：
+#       sunken_obsidian_hook <- infernal_strongbox (contents/block/default.yml)
+#       sunken_void_hook     <- void_relic_cube     (contents/block/default.yml)
+#   因长期受高温与空间乱流侵蚀，耐久远低于同类的精制版本，
+#   作为「可遇不可求的临时替代品」存在，不取代工坊鱼钩的地位。
+# ==============================================================================
+
+# 熔岩池打捞：仍带地火余温的黑曜石倒刺钩
+sunken_obsidian_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#FF4500:#2F4F4F>沉没黑曜石钓钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 从熔岩湖底打捞上来的黑曜石倒刺钩，钩身被地火反复烤灼成暗红，'
+      - '<gray> - 虽已远不如新铸之钩耐用，却仍残留着一层炽热的地脉气息。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在岩浆 (Lava) 中垂钓'
+      - '<gray> - 熔岩生物与黑曜石系鱼类吸引率提升'
+      - '<gray> - 耐久较低，仅可支撑 16 次垂钓'
+  max-durability: 16
+  custom-model-data: 50603
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 沉没黑曜石钓钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: lava-fishing
+    effect_2:
+      type: group-mod
+      value:
+        - lava:+4
+        - obsidian:+8
+
+# 虚空打捞：仍带空间涟漪的虚空钩
+sunken_void_hook:
+  material: SHEARS
+  display:
+    name: '<b><gradient:#8A2BE2:#191970>沉没虚空钓钩</gradient></b>'
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 在虚空乱流中飘荡多年的古旧鱼钩，钩尖仍在不断坍缩又复原，'
+      - '<gray> - 结构已极度脆弱，每一次穿入虚空都在消耗它的存在。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 允许在虚空 (Void) 中垂钓'
+      - '<gray> - 星云与紫颂系虚空生物吸引率提升'
+      - '<gray> - 耐久极低，仅可支撑 12 次垂钓'
+  max-durability: 12
+  custom-model-data: 50604
+  lore-on-rod:
+    - ''
+    - '<#7FFFAA>已装备鱼钩:'
+    - '<gray> - 沉没虚空钓钩: <white>{dur}</white> 次剩余'
+  effects:
+    effect_1:
+      type: void-fishing
+    effect_2:
+      type: group-mod
+      value:
+        - void:+4
+        - nebula:+6
+        - chorus:+6

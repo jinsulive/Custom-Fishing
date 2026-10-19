@@ -1,0 +1,170 @@
+# ==============================================================================
+#                CustomFishing 特殊战利品道具 (Special Treasure Items)
+#   本文件收录「右键开启型」战利品袋：手持右键即可拆袋，直接获得钓具补给。
+#   由 loot-conditions.yml 中的 special_water_loots 池产出。
+#
+#   ⚠ 书写约定
+#   1. 拆袋奖励用 give-item 动作发放，自定义物品必须写成 CustomFishing:<物品ID>，
+#      直接写物品 ID 会被当成原版材质解析（provider 名区分大小写）。
+#   2. 拆袋最后一步必须执行 item-amount: -1 消耗自身，否则会出现无限拆袋。
+#   3. give-item 的 to-inventory 默认为 false（掉在地上），袋装奖励务必设为 true。
+# ==============================================================================
+
+# 沉没鱼钩袋：必得 1 枚精制钓钩，另按概率额外出货更稀有的鱼钩
+sunken_hook_pouch:
+  material: leather
+  nick: <gradient:#1E90FF:#00008B>沉没鱼钩袋</gradient>
+  display:
+    name: <gradient:#1E90FF:#00008B><b>沉没鱼钩袋</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 在海沟淤泥里浸泡多年的旧皮袋，袋口缠着防水的鱼肠线，'
+      - '<gray> - 里面塞满了前人遗落、却依旧锋利的各式鱼钩。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：必得 精制钓钩 ×1'
+      - '<gray> - 有概率额外开出稀有鱼钩（虚空折跃钓钩等）'
+      - ''
+      - '<#FFAA00>右键点击即可拆开'
+  custom-model-data: 50601
+  show-in-fishfinder: false
+  disable-stat: true
+  price:
+    base: 150
+  events:
+    interact:
+      reward_base:
+        type: give-item
+        value:
+          item: 'CustomFishing:delicate_hook'
+          amount: 1
+          to-inventory: true
+      reward_bonus_1:
+        type: give-item
+        chance: 0.35
+        value:
+          item: 'CustomFishing:magnetic_gold_hook'
+          amount: 1
+          to-inventory: true
+      reward_bonus_2:
+        type: give-item
+        chance: 0.2
+        value:
+          item: 'CustomFishing:feather_hook'
+          amount: 1
+          to-inventory: true
+      reward_bonus_3:
+        type: give-item
+        chance: 0.12
+        value:
+          item: 'CustomFishing:abyssal_heavy_sink_hook'
+          amount: 1
+          to-inventory: true
+      reward_bonus_4:
+        type: give-item
+        chance: 0.06
+        value:
+          item: 'CustomFishing:obsidian_hook'
+          amount: 1
+          to-inventory: true
+      reward_bonus_5:
+        type: give-item
+        chance: 0.02
+        value:
+          item: 'CustomFishing:void_hook'
+          amount: 1
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:entity.experience_orb.pickup
+          source: player
+          volume: 0.9
+          pitch: 1.2
+
+# 秘法鱼饵袋：必得一批基础诱饵，另按概率额外出货环境特化饵料
+mystic_bait_pouch:
+  material: glow_ink_sac
+  nick: <gradient:#7B68EE:#4B0082>秘法鱼饵袋</gradient>
+  display:
+    name: <gradient:#7B68EE:#4B0082><b>秘法鱼饵袋</b></gradient>
+    lore:
+      - ''
+      - '<#7FFFD4>描述:'
+      - '<gray> - 用秘法丝线缝制的防水小袋，袋内分成数个密封隔层，'
+      - '<gray> - 分别存放着针对不同水域调配的诱饵，开袋时香气四溢。'
+      - ''
+      - '<#FFD700>特性:'
+      - '<gray> - 右键开启：必得 简易诱饵 ×3'
+      - '<gray> - 有概率额外开出环境特化饵料（荧光 / 熔岩 / 虚空等）'
+      - ''
+      - '<#FFAA00>右键点击即可拆开'
+  custom-model-data: 50602
+  show-in-fishfinder: false
+  disable-stat: true
+  price:
+    base: 120
+  events:
+    interact:
+      reward_base:
+        type: give-item
+        value:
+          item: 'CustomFishing:simple_bait'
+          amount: 3
+          to-inventory: true
+      reward_bonus_1:
+        type: give-item
+        chance: 0.4
+        value:
+          item: 'CustomFishing:magnetic_bait'
+          amount: 2
+          to-inventory: true
+      reward_bonus_2:
+        type: give-item
+        chance: 0.25
+        value:
+          item: 'CustomFishing:bioluminescent_chum'
+          amount: 2
+          to-inventory: true
+      reward_bonus_3:
+        type: give-item
+        chance: 0.2
+        value:
+          item: 'CustomFishing:storm_chum'
+          amount: 2
+          to-inventory: true
+      reward_bonus_4:
+        type: give-item
+        chance: 0.15
+        value:
+          item: 'CustomFishing:magma_chum'
+          amount: 2
+          to-inventory: true
+      reward_bonus_5:
+        type: give-item
+        chance: 0.1
+        value:
+          item: 'CustomFishing:ender_essence_bait'
+          amount: 2
+          to-inventory: true
+      reward_bonus_6:
+        type: give-item
+        chance: 0.05
+        value:
+          item: 'CustomFishing:golden_carp_bait'
+          amount: 1
+          to-inventory: true
+      consume_self:
+        type: item-amount
+        value: -1
+      open_sound:
+        type: sound
+        value:
+          key: minecraft:entity.experience_orb.pickup
+          source: player
+          volume: 0.9
+          pitch: 1.4
