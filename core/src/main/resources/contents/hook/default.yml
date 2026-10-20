@@ -19,6 +19,9 @@ delicate_hook:
       - '<gray> - 提高获得高品质鱼类的概率'
   max-durability: 16
   custom-model-data: 50000
+  # 封印附魔：由自研插件注册，id 必须与注册时的 NamespacedKey 一致
+  enchantments:
+    'minecraft:seal': 1
   # {dur} / {max}
   lore-on-rod:
     - ''
@@ -46,6 +49,8 @@ void_hook:
       - '<gray> - 虚空战利品吸引率大幅提升'
   max-durability: 32
   custom-model-data: 50011
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -73,6 +78,8 @@ obsidian_hook:
       - '<gray> - 熔岩鱼类吸引率提升'
   max-durability: 48
   custom-model-data: 50012
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -100,6 +107,8 @@ magnetic_gold_hook:
       - '<gray> - 幸运战利品概率上升'
   max-durability: 24
   custom-model-data: 50013
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -126,6 +135,8 @@ feather_hook:
       - '<gray> - 搏斗游戏时间 +4 秒'
   max-durability: 32
   custom-model-data: 50014
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -153,6 +164,8 @@ abyssal_heavy_sink_hook:
       - '<gray> - 鱼类体长增加 15%'
   max-durability: 32
   custom-model-data: 50015
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -196,6 +209,8 @@ sunken_obsidian_hook:
       - '<gray> - 耐久较低，仅可支撑 16 次垂钓'
   max-durability: 16
   custom-model-data: 50603
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
@@ -226,6 +241,8 @@ sunken_void_hook:
       - '<gray> - 耐久极低，仅可支撑 12 次垂钓'
   max-durability: 12
   custom-model-data: 50604
+  enchantments:
+    'minecraft:seal': 1
   lore-on-rod:
     - ''
     - '<#7FFFAA>已装备鱼钩:'
