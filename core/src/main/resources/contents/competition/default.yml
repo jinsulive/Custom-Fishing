@@ -113,41 +113,58 @@ weekend_competition:
   participate-requirements: {}
 
   # Rewards
+  # 名次档位固定为 1 / 2 / 3 / participation 四个子键，不可增删：
+  # Competition.java 以 `if (i < rewardsMap.size())` 判定档位，子键数量一变就会奖励错档。
+  # 同一档位可挂多个动作，ActionManager.trigger 按数组全部执行（不是随机取一个）。
   rewards:
     1:
       command_action:
         type: command
         value:
           - 'money give {player} 515'
-      # 冠军额外奖励：海神潮汐钓竿
-      rod_action:
+      # 冠军额外奖励：鲸元券 ×3（商业街抽奖凭证，非钓具）
+      coupon_action:
         type: give-item
         value:
-          item: 'CustomFishing:neptune_rod'
-          amount: 1
+          item: 'CustomFishing:whale_coupon'
+          amount: 3
           to-inventory: true
       messages_action:
         type: message
         value:
-          - '<#FFD700>【冠军】恭喜荣获第一名！奖励 515 憨币 + 海神潮汐钓竿！'
+          - '<#FFD700>【冠军】恭喜荣获第一名！奖励 515 憨币 + 鲸元券 ×3！'
     2:
       command_action:
         type: command
         value:
           - 'money give {player} 255'
+      # 亚军额外奖励：鲸元券 ×2
+      coupon_action:
+        type: give-item
+        value:
+          item: 'CustomFishing:whale_coupon'
+          amount: 2
+          to-inventory: true
       messages_action:
         type: message
         value:
-          - '<#E0FFFF>【亚军】恭喜荣获第二名！奖励 255 憨币！'
+          - '<#E0FFFF>【亚军】恭喜荣获第二名！奖励 255 憨币 + 鲸元券 ×2！'
     3:
       command_action:
         type: command
         value:
           - 'money give {player} 155'
+      # 季军额外奖励：鲸元券 ×1
+      coupon_action:
+        type: give-item
+        value:
+          item: 'CustomFishing:whale_coupon'
+          amount: 1
+          to-inventory: true
       messages_action:
         type: message
         value:
-          - '<#FFA500>【季军】恭喜荣获第三名！奖励 155 憨币！'
+          - '<#FFA500>【季军】恭喜荣获第三名！奖励 155 憨币 + 鲸元券 ×1！'
     # 第 4 名及以后不再发奖。
     # 注意：Competition.java 用 `if (i < rewardsMap.size())` 判定名次档位，
     # 本表子键数量必须为 4（1/2/3 + 本键），否则第 3 名会被归入"参与奖"分支而拿不到 155。

@@ -1,7 +1,9 @@
 # ==============================================================================
 #                CustomFishing 特殊战利品道具 (Special Treasure Items)
-#   本文件收录「右键开启型」战利品袋：手持右键即可拆袋，直接获得钓具补给。
-#   由 loot-conditions.yml 中的 special_water_loots 池产出。
+#   本文件收录两类内容：
+#     1.「右键开启型」战利品袋 —— 手持右键即可拆袋，直接获得钓具补给，
+#        由 loot-conditions.yml 中的 special_water_loots 池产出；
+#     2. 奖券类凭证 —— 仅由赛事奖励或指令发放，不进入战利品池（见文件末尾）。
 #
 #   ⚠ 书写约定
 #   1. 拆袋奖励用 give-item 动作发放，自定义物品必须写成 CustomFishing:<物品ID>，
@@ -176,3 +178,25 @@ mystic_bait_pouch:
           source: player
           volume: 0.9
           pitch: 1.4
+
+# ==============================================================================
+#  奖券类 (Coupons)
+#  非鱼获、非钓具，不在任何战利品池中产出，仅由赛事奖励或指令发放。
+#  1. 不设 price：鱼市场一律不收，避免被当杂物卖掉。
+#  2. 光效走原版组件 minecraft:enchantment_glint_override（1.20.5+），
+#     只出光效、不显示附魔行；旧的 item-flags 在高版本已被插件主动禁用，不要用它。
+# ==============================================================================
+
+# 鲸元券：周末钓鱼大赛前三名的额外奖励，可持券前往商业街指定抽奖机抽取
+whale_coupon:
+  material: PAPER
+  nick: <aqua><b>鲸元券</b></aqua>
+  display:
+    name: <aqua><b>鲸元券</b></aqua>
+    lore:
+      - '<white>可在商业街指定处进行抽奖</white>'
+  unbreakable: true
+  components:
+    'minecraft:enchantment_glint_override': true
+  show-in-fishfinder: false
+  disable-stat: true
