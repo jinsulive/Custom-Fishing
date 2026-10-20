@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/handheld_rod",
-  "textures": {
-    "layer0": "mgtown:item/storm_rod_cast"
-  }
-}
