@@ -34,7 +34,7 @@ weekend_competition:
         - '<red>[钓鱼竞赛]</red> 参与人数不足，本场周末钓鱼比赛已取消。'
 
   bossbar:
-    enable: true
+    enable: false # 关闭 BOSS 血条显示（12 小时长赛程会长时间遮挡视野）；如需恢复改为 true
     color: WHITE
     overlay: PROGRESS
     text:
@@ -56,8 +56,11 @@ weekend_competition:
     only-show-to-participants: true
 
   # timely broadcast competition
+  # 定期排行榜广播：BOSS 血条关闭后，用它承担「倒计时 + 榜单」的信息输出。
+  # 广播会发给全服在线玩家（实现里固定遍历 Bukkit.getOnlinePlayers()），
+  # 12 小时赛程 × 30 分钟一次 = 24 次/天，兼顾可见度与聊天框负担。
   broadcast:
-    enable: false
+    enable: true
     text:
       - '<#D4F2E7>◤─────────────────────────◥'
       - ''
@@ -68,8 +71,10 @@ weekend_competition:
       - '              <#E1FFFF>No.②: {2_player} - {2_score}'
       - '              <#E1FFFF>No.③: {3_player} - {3_score}'
       - ''
+      - '              <#B0C4DE>剩余时间: {hour}{minute}{second}'
+      - ''
       - '<#D4F2E7>◣─────────────────────────◢'
-    interval: 1200 # in ticks
+    interval: 36000 # in ticks (30 分钟)
 
   start-actions:
     broadcast:
@@ -170,7 +175,7 @@ daily_max_size_derby:
   duration: 43200
   min-players: 1
   bossbar:
-    enable: true
+    enable: false # 关闭 BOSS 血条显示（如需恢复改为 true）
     color: BLUE
     overlay: PROGRESS
     text:
@@ -179,6 +184,22 @@ daily_max_size_derby:
     refresh-rate: 20
     switch-interval: 160
     only-show-to-participants: true
+  # 定期排行榜广播（BOSS 血条关闭后的信息出口），30 分钟一次
+  broadcast:
+    enable: true
+    text:
+      - '<#00BFFF>◤──────────────────────────────────────◥'
+      - ''
+      - '       <gray>[<#00FFFF>🦈<gray>]  <gradient:#00BFFF:#1E90FF>【每日海王巨物争霸赛 实时榜单】'
+      - ''
+      - '      <#E1FFFF>No.①: {1_player} - {1_score}cm'
+      - '      <#E1FFFF>No.②: {2_player} - {2_score}cm'
+      - '      <#E1FFFF>No.③: {3_player} - {3_score}cm'
+      - ''
+      - '      <#B0C4DE>剩余时间: {hour}{minute}{second}'
+      - ''
+      - '<#00BFFF>◣──────────────────────────────────────◢'
+    interval: 36000 # in ticks (30 分钟)
   start-actions:
     broadcast:
       type: broadcast
