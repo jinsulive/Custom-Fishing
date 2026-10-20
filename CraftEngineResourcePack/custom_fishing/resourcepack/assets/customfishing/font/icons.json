@@ -1,0 +1,166 @@
+{
+    "providers": [
+        {
+            "file": "customfishing:font/icons/progress_1.png",
+            "chars": [
+                "\ub001"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+        {
+            "file": "customfishing:font/icons/progress_2.png",
+            "chars": [
+                "\ub002"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_3.png",
+            "chars": [
+                "\ub003"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_4.png",
+            "chars": [
+                "\ub004"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_5.png",
+            "chars": [
+                "\ub005"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_6.png",
+            "chars": [
+                "\ub006"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_7.png",
+            "chars": [
+                "\ub007"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_8.png",
+            "chars": [
+                "\ub008"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/progress_9.png",
+            "chars": [
+                "\ub009"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_1.png",
+            "chars": [
+                "\ub011"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_2.png",
+            "chars": [
+                "\ub012"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_3.png",
+            "chars": [
+                "\ub013"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_4.png",
+            "chars": [
+                "\ub014"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_5.png",
+            "chars": [
+                "\ub015"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_6.png",
+            "chars": [
+                "\ub016"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_7.png",
+            "chars": [
+                "\ub017"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_8.png",
+            "chars": [
+                "\ub018"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        },
+		{
+            "file": "customfishing:font/icons/strain_9.png",
+            "chars": [
+                "\ub019"
+            ],
+            "height": 13,
+            "ascent": 13,
+            "type": "bitmap"
+        }
+    ]
+}
