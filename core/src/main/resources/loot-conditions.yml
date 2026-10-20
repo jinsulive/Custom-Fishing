@@ -50,8 +50,6 @@ water_loots:
               - minecraft:warm_ocean
           list:
             - 'rubbish:-6'
-            - 'apple_crate:+2'
-            - 'carrot_crate:+2'
             - 'kelp:+20'
             - 'seagrass:+5'
             - 'group_for_each:ocean&no_star:+14'
