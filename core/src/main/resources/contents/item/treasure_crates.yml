@@ -324,7 +324,7 @@ void_relic_cube:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 右键开启：随机获得末地素材 / 虚空饵料 / 空间类钓具'
-      - '<gray> - 极小概率开出 潜影壳 / 龙息'
+      - '<gray> - 极小概率开出 潜影壳 / 龙息 / 末影水晶 / 龙蛋'
       - ''
       - '<#FFAA00>右键点击即可开启'
   custom-model-data: 50608
@@ -398,6 +398,21 @@ void_relic_cube:
         value:
           item: DRAGON_BREATH
           amount: 1~2
+          to-inventory: true
+      # 末影水晶 / 龙蛋：末地主题的高价值压箱底产出
+      reward_end_crystal:
+        type: give-item
+        chance: 0.1
+        value:
+          item: END_CRYSTAL
+          amount: 1
+          to-inventory: true
+      reward_dragon_egg:
+        type: give-item
+        chance: 0.01
+        value:
+          item: DRAGON_EGG
+          amount: 1
           to-inventory: true
       consume_self:
         type: item-amount
