@@ -28,7 +28,7 @@ tackle_crate:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 右键开启：随机获得精制鱼钩 / 诱饵 / 诱鱼剂'
-      - '<gray> - 小概率开出稀有鱼竿（虚空 / 炽焰）'
+      - '<gray> - 小概率开出稀有鱼竿（风暴 / 冰霜）'
       - '<gray> - 每件物品独立判定，可能开出多件，也可能空手'
       - ''
       - '<#FFAA00>右键点击即可开启'
@@ -90,19 +90,19 @@ tackle_crate:
           item: 'CustomFishing:wild_bait'
           amount: 1~2
           to-inventory: true
-      # ---- 稀有鱼竿：各自独立判定 5%（虚空 / 炽焰，两根合计约 9.75% 至少出一根）----
-      reward_rod_void:
+      # ---- 稀有鱼竿：各自独立判定 5%（风暴 / 冰霜，两根合计约 9.75% 至少出一根）----
+      reward_rod_storm:
         type: give-item
         chance: 0.05
         value:
-          item: 'CustomFishing:void_rod'
+          item: 'CustomFishing:storm_rod'
           amount: 1
           to-inventory: true
-      reward_rod_infernal:
+      reward_rod_glacier:
         type: give-item
         chance: 0.05
         value:
-          item: 'CustomFishing:infernal_rod'
+          item: 'CustomFishing:glacier_rod'
           amount: 1
           to-inventory: true
       consume_self:
@@ -130,7 +130,7 @@ abyssal_treasure_chest:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 右键开启：随机获得深海钓钩 / 荧光饵 / 海洋珍贵素材'
-      - '<gray> - 极小概率开出 海洋之心 / 稀有鱼竿（风暴 / 冰霜）'
+      - '<gray> - 极小概率开出 海洋之心 / 稀有鱼竿（虚空 / 炽焰）'
       - ''
       - '<#FFAA00>右键点击即可开启'
   custom-model-data: 50606
@@ -190,19 +190,19 @@ abyssal_treasure_chest:
           item: HEART_OF_THE_SEA
           amount: 1
           to-inventory: true
-      # ---- 稀有鱼竿：各自独立判定 5%（风暴 / 冰霜，两根合计约 9.75% 至少出一根）----
-      reward_rod_storm:
+      # ---- 稀有鱼竿：各自独立判定 5%（虚空 / 炽焰，两根合计约 9.75% 至少出一根）----
+      reward_rod_void:
         type: give-item
         chance: 0.05
         value:
-          item: 'CustomFishing:storm_rod'
+          item: 'CustomFishing:void_rod'
           amount: 1
           to-inventory: true
-      reward_rod_glacier:
+      reward_rod_infernal:
         type: give-item
         chance: 0.05
         value:
-          item: 'CustomFishing:glacier_rod'
+          item: 'CustomFishing:infernal_rod'
           amount: 1
           to-inventory: true
       consume_self:
