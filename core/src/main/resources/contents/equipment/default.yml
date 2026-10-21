@@ -10,6 +10,11 @@ angler_helmet:
       - '<#FFD700>特性:'
       - '<gray> - 略微降低钓鱼难度 (-4)'
   custom-model-data: 50010
+  components:
+    'minecraft:equippable':
+      slot: head
+      asset_id: customfishing:angler_helmet
+      equip_sound: minecraft:item.armor.equip_iron
   effects:
     effect_1:
       type: difficulty
@@ -27,6 +32,11 @@ deep_sea_chestplate:
       - '<#FFD700>特性:'
       - '<gray> - 深海垂钓（Y < 30）时，白银之星权重 +2'
   custom-model-data: 50011
+  components:
+    'minecraft:equippable':
+      slot: chest
+      asset_id: customfishing:deep_sea_chestplate
+      equip_sound: minecraft:item.armor.equip_diamond
   effects:
     effect_1:
       type: conditional
@@ -52,6 +62,11 @@ swift_leggings:
       - '<#FFD700>特性:'
       - '<gray> - 咬钩等待时间 -5%'
   custom-model-data: 50012
+  components:
+    'minecraft:equippable':
+      slot: legs
+      asset_id: customfishing:swift_leggings
+      equip_sound: minecraft:item.armor.equip_leather
   effects:
     effect_1:
       type: wait-time-multiplier
@@ -69,6 +84,11 @@ sturdy_boots:
       - '<#FFD700>特性:'
       - '<gray> - 收线小游戏时间 +1.5 秒'
   custom-model-data: 50013
+  components:
+    'minecraft:equippable':
+      slot: feet
+      asset_id: customfishing:sturdy_boots
+      equip_sound: minecraft:item.armor.equip_gold
   effects:
     effect_1:
       type: game-time
@@ -87,6 +107,11 @@ void_walker_boots:
       - '<#FFD700>特性:'
       - '<gray> - 虚空垂钓时咬钩等待 -10%，难度 -3'
   custom-model-data: 50041
+  components:
+    'minecraft:equippable':
+      slot: feet
+      asset_id: customfishing:void_walker_boots
+      equip_sound: minecraft:item.armor.equip_netherite
   effects:
     effect_1:
       type: conditional
@@ -113,6 +138,11 @@ flame_resistant_apron:
       - '<#FFD700>特性:'
       - '<gray> - 熔岩垂钓时难度 -6，收线时间 +2 秒'
   custom-model-data: 50042
+  components:
+    'minecraft:equippable':
+      slot: chest
+      asset_id: customfishing:flame_resistant_apron
+      equip_sound: minecraft:item.armor.equip_chain
   effects:
     effect_1:
       type: conditional
@@ -140,6 +170,11 @@ poseidon_crown:
       - '<gray> - 主世界水域中，8% 概率触发双重渔获'
       - '<gray> - 黄金之星权重 +1'
   custom-model-data: 50043
+  components:
+    'minecraft:equippable':
+      slot: head
+      asset_id: customfishing:poseidon_crown
+      equip_sound: minecraft:item.armor.equip_diamond
   effects:
     effect_1:
       type: conditional

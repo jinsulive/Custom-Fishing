@@ -1,0 +1,9 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "customfishing:void_walker_boots"
+      }
+    ]
+  }
+}
