@@ -1,0 +1,69 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/paper"
+    },
+    "entries": [
+      {
+        "threshold": 50001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/simple_bait"
+        }
+      },
+      {
+        "threshold": 50002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magnetic_bait"
+        }
+      },
+      {
+        "threshold": 50003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/wild_bait"
+        }
+      },
+      {
+        "threshold": 50031,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/ender_essence_bait"
+        }
+      },
+      {
+        "threshold": 50032,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magma_chum"
+        }
+      },
+      {
+        "threshold": 50033,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/storm_chum"
+        }
+      },
+      {
+        "threshold": 50034,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bioluminescent_chum"
+        }
+      },
+      {
+        "threshold": 50035,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/golden_carp_bait"
+        }
+      }
+    ]
+  }
+}

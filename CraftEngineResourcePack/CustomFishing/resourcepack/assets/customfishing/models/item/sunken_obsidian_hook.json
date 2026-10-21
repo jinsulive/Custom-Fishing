@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "customfishing:item/sunken_obsidian_hook"
+  }
+}

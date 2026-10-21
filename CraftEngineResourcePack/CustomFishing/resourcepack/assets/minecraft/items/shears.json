@@ -1,0 +1,69 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/shears"
+    },
+    "entries": [
+      {
+        "threshold": 50000,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/delicate_hook"
+        }
+      },
+      {
+        "threshold": 50011,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/void_hook"
+        }
+      },
+      {
+        "threshold": 50012,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/obsidian_hook"
+        }
+      },
+      {
+        "threshold": 50013,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magnetic_gold_hook"
+        }
+      },
+      {
+        "threshold": 50014,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/feather_hook"
+        }
+      },
+      {
+        "threshold": 50015,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/abyssal_heavy_sink_hook"
+        }
+      },
+      {
+        "threshold": 50603,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sunken_obsidian_hook"
+        }
+      },
+      {
+        "threshold": 50604,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sunken_void_hook"
+        }
+      }
+    ]
+  }
+}
