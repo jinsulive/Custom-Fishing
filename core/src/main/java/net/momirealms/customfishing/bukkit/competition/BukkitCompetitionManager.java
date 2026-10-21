@@ -87,8 +87,8 @@ public class BukkitCompetitionManager implements CompetitionManager {
     public void unload() {
         if (this.timerCheckTask != null)
             this.timerCheckTask.cancel();
-        if (currentCompetition != null && currentCompetition.isOnGoing())
-            this.currentCompetition.stop(true);
+        // reload 时保留进行中的赛事：不停赛、不清榜，倒计时/BossBar/榜单自然延续
+        // 仅在插件停机(disable)时才停赛
         if (this.redisPlayerCount != null)
             this.redisPlayerCount.cancel();
         this.commandConfigMap.clear();
