@@ -190,6 +190,7 @@ mystic_bait_pouch:
 # 鲸元券：周末钓鱼大赛前三名的额外奖励，可持券前往商业街指定抽奖机抽取
 whale_coupon:
   material: PAPER
+  custom-model-data: 50609
   nick: <aqua><b>鲸元券</b></aqua>
   display:
     name: <aqua><b>鲸元券</b></aqua>

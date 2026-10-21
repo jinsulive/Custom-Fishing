@@ -9,6 +9,13 @@
     },
     "entries": [
       {
+        "threshold": 50000,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/rubbish"
+        }
+      },
+      {
         "threshold": 50001,
         "model": {
           "type": "minecraft:model",

@@ -9,6 +9,27 @@
     },
     "entries": [
       {
+        "threshold": 49998,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/water_effect"
+        }
+      },
+      {
+        "threshold": 49999,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/lava_effect"
+        }
+      },
+      {
+        "threshold": 50000,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/fishfinder"
+        }
+      },
+      {
         "threshold": 50001,
         "model": {
           "type": "minecraft:model",
@@ -62,6 +83,13 @@
         "model": {
           "type": "minecraft:model",
           "model": "customfishing:item/golden_carp_bait"
+        }
+      },
+      {
+        "threshold": 50609,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/whale_coupon"
         }
       }
     ]

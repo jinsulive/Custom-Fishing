@@ -1,0 +1,41 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/barrel"
+    },
+    "entries": [
+      {
+        "threshold": 50605,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/tackle_crate"
+        }
+      },
+      {
+        "threshold": 50606,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/abyssal_treasure_chest"
+        }
+      },
+      {
+        "threshold": 50607,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/infernal_strongbox"
+        }
+      },
+      {
+        "threshold": 50608,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/void_relic_cube"
+        }
+      }
+    ]
+  }
+}
