@@ -8,11 +8,11 @@
       "property": "minecraft:fishing_rod/cast",
       "on_false": {
         "type": "minecraft:model",
-        "model": "minecraft:item/fishing_rod_cast"
+        "model": "minecraft:item/fishing_rod"
       },
       "on_true": {
         "type": "minecraft:model",
-        "model": "minecraft:item/fishing_rod"
+        "model": "minecraft:item/fishing_rod_cast"
       }
     },
     "entries": [
@@ -23,11 +23,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/beginner_rod_cast"
+            "model": "customfishing:item/beginner_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/beginner_rod"
+            "model": "customfishing:item/beginner_rod_cast"
           }
         }
       },
@@ -38,11 +38,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/silver_rod_cast"
+            "model": "customfishing:item/silver_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/silver_rod"
+            "model": "customfishing:item/silver_rod_cast"
           }
         }
       },
@@ -53,11 +53,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/golden_rod_cast"
+            "model": "customfishing:item/golden_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/golden_rod"
+            "model": "customfishing:item/golden_rod_cast"
           }
         }
       },
@@ -68,11 +68,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/star_rod_cast"
+            "model": "customfishing:item/star_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/star_rod"
+            "model": "customfishing:item/star_rod_cast"
           }
         }
       },
@@ -83,11 +83,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/bone_rod_cast"
+            "model": "customfishing:item/bone_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/bone_rod"
+            "model": "customfishing:item/bone_rod_cast"
           }
         }
       },
@@ -98,11 +98,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/magical_rod_cast"
+            "model": "customfishing:item/magical_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/magical_rod"
+            "model": "customfishing:item/magical_rod_cast"
           }
         }
       },
@@ -113,11 +113,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/master_rod_cast"
+            "model": "customfishing:item/master_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/master_rod"
+            "model": "customfishing:item/master_rod_cast"
           }
         }
       },
@@ -128,11 +128,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/void_rod_cast"
+            "model": "customfishing:item/void_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/void_rod"
+            "model": "customfishing:item/void_rod_cast"
           }
         }
       },
@@ -143,11 +143,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/storm_rod_cast"
+            "model": "customfishing:item/storm_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/storm_rod"
+            "model": "customfishing:item/storm_rod_cast"
           }
         }
       },
@@ -158,11 +158,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/glacier_rod_cast"
+            "model": "customfishing:item/glacier_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/glacier_rod"
+            "model": "customfishing:item/glacier_rod_cast"
           }
         }
       },
@@ -173,11 +173,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/infernal_rod_cast"
+            "model": "customfishing:item/infernal_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/infernal_rod"
+            "model": "customfishing:item/infernal_rod_cast"
           }
         }
       },
@@ -188,11 +188,11 @@
           "property": "minecraft:fishing_rod/cast",
           "on_false": {
             "type": "minecraft:model",
-            "model": "customfishing:item/neptune_rod_cast"
+            "model": "customfishing:item/neptune_rod"
           },
           "on_true": {
             "type": "minecraft:model",
-            "model": "customfishing:item/neptune_rod"
+            "model": "customfishing:item/neptune_rod_cast"
           }
         }
       }
