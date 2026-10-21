@@ -179,24 +179,51 @@ public class ItemBrowserGUI {
      */
     @NotNull
     private ItemStack buildDisplay(@NotNull String id) {
-        ItemStack built = plugin.getItemManager().buildInternal(Context.player(viewer).arg(ContextKeys.ID, id), id);
-        if (built == null) {
-            // 理论上不会发生: ID 来自 getItemIDs()
-            return button(Material.PAPER, "<white>" + id, List.of("<red>物品构建失败"));
-        }
-        ItemStack display = built.clone();
-        Item<ItemStack> wrapped = plugin.getItemManager().wrap(display);
-        List<String> loreJson = new ArrayList<>(wrapped.lore().orElse(List.of()));
-        loreJson.add(AdventureHelper.miniMessageToJson(""));
-        loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>ID: <gray>" + id));
-        loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>类别: <gray>" + category.displayName()));
-        if (canGiveItems) {
+        try {
+            ItemStack built = plugin.getItemManager().buildInternal(Context.player(viewer).arg(ContextKeys.ID, id), id);
+            if (built == null) {
+                // 理论上不会发生: ID 来自 getItemIDs()
+                return failedPlaceholder(id, "物品不存在");
+            }
+            // 空栈没有可用的 NMS 句柄, 交给 Rtag 会抛
+            // "DataComponentHolder.get(...) with null receiver", 直接跳过
+            if (built.getType() == Material.AIR) {
+                return failedPlaceholder(id, "材质为空");
+            }
+            Item<ItemStack> wrapped = plugin.getItemManager().wrap(built.clone());
+            List<String> loreJson = new ArrayList<>(wrapped.lore().orElse(List.of()));
             loreJson.add(AdventureHelper.miniMessageToJson(""));
-            loreJson.add(AdventureHelper.miniMessageToJson("<aqua>左键 <white>获取 1 个"));
-            loreJson.add(AdventureHelper.miniMessageToJson("<aqua>右键 <white>获取一组"));
+            loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>ID: <gray>" + id));
+            loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>类别: <gray>" + category.displayName()));
+            if (canGiveItems) {
+                loreJson.add(AdventureHelper.miniMessageToJson(""));
+                loreJson.add(AdventureHelper.miniMessageToJson("<aqua>左键 <white>获取 1 个"));
+                loreJson.add(AdventureHelper.miniMessageToJson("<aqua>右键 <white>获取一组"));
+            }
+            wrapped.lore(loreJson);
+            return wrapped.load();
+        } catch (Exception | LinkageError e) {
+            // 单个物品读不到组件不应该拖垮整页渲染: 翻页时整个 InventoryClickEvent 会因此失败
+            plugin.getPluginLogger().warn("Failed to render item '" + id + "' in the item browser", e);
+            return failedPlaceholder(id, "渲染失败");
         }
-        wrapped.lore(loreJson);
-        return wrapped.load();
+    }
+
+    /**
+     * 构建展示失败的占位物品.
+     *
+     * @param id     物品 ID
+     * @param reason 失败原因
+     * @return 占位物品
+     */
+    @NotNull
+    private ItemStack failedPlaceholder(@NotNull String id, @NotNull String reason) {
+        try {
+            return button(Material.PAPER, "<white>" + id, List.of("<red>物品构建失败: <gray>" + reason));
+        } catch (Exception | LinkageError e) {
+            // 连占位物品都写不进去(组件通道整体不可用)时, 至少保证槽位有一个物品
+            return new ItemStack(Material.PAPER);
+        }
     }
 
     private void renderNavigation() {

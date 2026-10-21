@@ -256,6 +256,8 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
         if (this.commandManager != null) {
             if (!Bukkit.getServer().isStopping()) {
                 this.commandManager.unregisterFeatures();
+                // 服务器仍在运行 => 这是一次运行期卸载(PlugManX 等), 下次 enable 需要换命令通道
+                BukkitCommandManager.markRuntimeReload();
             }
         }
         this.scheduler.shutdownScheduler();
