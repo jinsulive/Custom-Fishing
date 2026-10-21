@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "customfishing:item/blind_cave_fish_golden_star"
+  }
+}

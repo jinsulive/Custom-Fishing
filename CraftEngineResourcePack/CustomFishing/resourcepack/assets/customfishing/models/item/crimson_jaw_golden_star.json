@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "customfishing:item/crimson_jaw_golden_star"
+  }
+}

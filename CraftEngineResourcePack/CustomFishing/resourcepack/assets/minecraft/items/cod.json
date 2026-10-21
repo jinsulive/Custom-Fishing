@@ -1,0 +1,713 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/cod"
+    },
+    "entries": [
+      {
+        "threshold": 50001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/tuna_fish"
+        }
+      },
+      {
+        "threshold": 50002,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/tuna_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/tuna_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50004,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pike_fish"
+        }
+      },
+      {
+        "threshold": 50005,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pike_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50006,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pike_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50007,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/gold_fish"
+        }
+      },
+      {
+        "threshold": 50008,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/gold_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50009,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/gold_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50010,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/perch_fish"
+        }
+      },
+      {
+        "threshold": 50011,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/perch_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50012,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/perch_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50013,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mullet_fish"
+        }
+      },
+      {
+        "threshold": 50014,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mullet_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50015,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mullet_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50016,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sardine_fish"
+        }
+      },
+      {
+        "threshold": 50017,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sardine_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50018,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sardine_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50019,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/carp_fish"
+        }
+      },
+      {
+        "threshold": 50020,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/carp_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50021,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/carp_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50022,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cat_fish"
+        }
+      },
+      {
+        "threshold": 50023,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cat_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50024,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cat_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50025,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/octopus"
+        }
+      },
+      {
+        "threshold": 50026,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/octopus_silver_star"
+        }
+      },
+      {
+        "threshold": 50027,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/octopus_golden_star"
+        }
+      },
+      {
+        "threshold": 50028,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sunfish"
+        }
+      },
+      {
+        "threshold": 50029,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sunfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50030,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sunfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50031,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/red_snapper_fish"
+        }
+      },
+      {
+        "threshold": 50032,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/red_snapper_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50033,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/red_snapper_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50034,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/salmon_void_fish"
+        }
+      },
+      {
+        "threshold": 50035,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/salmon_void_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50036,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/salmon_void_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50037,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/woodskip_fish"
+        }
+      },
+      {
+        "threshold": 50038,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/woodskip_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50039,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/woodskip_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50040,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sturgeon_fish"
+        }
+      },
+      {
+        "threshold": 50041,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sturgeon_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50042,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sturgeon_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50043,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blue_jellyfish"
+        }
+      },
+      {
+        "threshold": 50044,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blue_jellyfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50045,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blue_jellyfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50046,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pink_jellyfish"
+        }
+      },
+      {
+        "threshold": 50047,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pink_jellyfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50048,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/pink_jellyfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50100,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/rainbow_fish"
+        }
+      },
+      {
+        "threshold": 50211,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/electric_eel"
+        }
+      },
+      {
+        "threshold": 50212,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/electric_eel_silver_star"
+        }
+      },
+      {
+        "threshold": 50213,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/electric_eel_golden_star"
+        }
+      },
+      {
+        "threshold": 50231,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/phantom_catfish"
+        }
+      },
+      {
+        "threshold": 50232,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/phantom_catfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50233,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/phantom_catfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50241,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mossy_bass"
+        }
+      },
+      {
+        "threshold": 50242,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mossy_bass_silver_star"
+        }
+      },
+      {
+        "threshold": 50243,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/mossy_bass_golden_star"
+        }
+      },
+      {
+        "threshold": 50251,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bamboo_stream_fish"
+        }
+      },
+      {
+        "threshold": 50252,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bamboo_stream_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50253,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bamboo_stream_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50271,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sailfish"
+        }
+      },
+      {
+        "threshold": 50272,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sailfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50273,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sailfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50281,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/hammerhead_shark"
+        }
+      },
+      {
+        "threshold": 50282,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/hammerhead_shark_silver_star"
+        }
+      },
+      {
+        "threshold": 50283,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/hammerhead_shark_golden_star"
+        }
+      },
+      {
+        "threshold": 50291,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/moonlight_manta"
+        }
+      },
+      {
+        "threshold": 50292,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/moonlight_manta_silver_star"
+        }
+      },
+      {
+        "threshold": 50293,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/moonlight_manta_golden_star"
+        }
+      },
+      {
+        "threshold": 50331,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/ancient_coelacanth"
+        }
+      },
+      {
+        "threshold": 50332,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/ancient_coelacanth_silver_star"
+        }
+      },
+      {
+        "threshold": 50333,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/ancient_coelacanth_golden_star"
+        }
+      },
+      {
+        "threshold": 50381,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blind_cave_fish"
+        }
+      },
+      {
+        "threshold": 50382,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blind_cave_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50383,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/blind_cave_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50391,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sculk_spine_fish"
+        }
+      },
+      {
+        "threshold": 50392,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sculk_spine_fish_silver_star"
+        }
+      },
+      {
+        "threshold": 50393,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/sculk_spine_fish_golden_star"
+        }
+      },
+      {
+        "threshold": 50411,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/dripstone_catfish"
+        }
+      },
+      {
+        "threshold": 50412,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/dripstone_catfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50413,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/dripstone_catfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50421,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/alligator_gar"
+        }
+      },
+      {
+        "threshold": 50422,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/alligator_gar_silver_star"
+        }
+      },
+      {
+        "threshold": 50423,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/alligator_gar_golden_star"
+        }
+      },
+      {
+        "threshold": 50431,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/muddy_lungfish"
+        }
+      },
+      {
+        "threshold": 50432,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/muddy_lungfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50433,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/muddy_lungfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50451,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/obsidian_sunfish"
+        }
+      },
+      {
+        "threshold": 50452,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/obsidian_sunfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50453,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/obsidian_sunfish_golden_star"
+        }
+      },
+      {
+        "threshold": 50461,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magma_ray"
+        }
+      },
+      {
+        "threshold": 50462,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magma_ray_silver_star"
+        }
+      },
+      {
+        "threshold": 50463,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/magma_ray_golden_star"
+        }
+      },
+      {
+        "threshold": 50471,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/soul_lava_eel"
+        }
+      },
+      {
+        "threshold": 50472,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/soul_lava_eel_silver_star"
+        }
+      },
+      {
+        "threshold": 50473,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/soul_lava_eel_golden_star"
+        }
+      },
+      {
+        "threshold": 50481,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crimson_jaw"
+        }
+      },
+      {
+        "threshold": 50482,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crimson_jaw_silver_star"
+        }
+      },
+      {
+        "threshold": 50483,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crimson_jaw_golden_star"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/amethyst_shard"
+    },
+    "entries": [
+      {
+        "threshold": 50401,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crystal_guppy"
+        }
+      },
+      {
+        "threshold": 50402,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crystal_guppy_silver_star"
+        }
+      },
+      {
+        "threshold": 50403,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/crystal_guppy_golden_star"
+        }
+      },
+      {
+        "threshold": 50531,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nebula_drifter"
+        }
+      },
+      {
+        "threshold": 50532,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nebula_drifter_silver_star"
+        }
+      },
+      {
+        "threshold": 50533,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nebula_drifter_golden_star"
+        }
+      }
+    ]
+  }
+}

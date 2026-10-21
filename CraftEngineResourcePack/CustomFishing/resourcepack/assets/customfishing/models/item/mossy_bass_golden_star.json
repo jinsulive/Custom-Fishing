@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "customfishing:item/mossy_bass_golden_star"
+  }
+}

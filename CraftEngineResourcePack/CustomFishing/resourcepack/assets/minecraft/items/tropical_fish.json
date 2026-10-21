@@ -1,0 +1,76 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/tropical_fish"
+    },
+    "entries": [
+      {
+        "threshold": 50221,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/golden_koi"
+        }
+      },
+      {
+        "threshold": 50222,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/golden_koi_silver_star"
+        }
+      },
+      {
+        "threshold": 50223,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/golden_koi_golden_star"
+        }
+      },
+      {
+        "threshold": 50321,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/clownfish_ruby"
+        }
+      },
+      {
+        "threshold": 50322,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/clownfish_ruby_silver_star"
+        }
+      },
+      {
+        "threshold": 50323,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/clownfish_ruby_golden_star"
+        }
+      },
+      {
+        "threshold": 50361,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/aurora_fin"
+        }
+      },
+      {
+        "threshold": 50362,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/aurora_fin_silver_star"
+        }
+      },
+      {
+        "threshold": 50363,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/aurora_fin_golden_star"
+        }
+      }
+    ]
+  }
+}

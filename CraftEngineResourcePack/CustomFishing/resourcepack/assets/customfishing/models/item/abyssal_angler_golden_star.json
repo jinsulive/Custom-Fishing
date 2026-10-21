@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "customfishing:item/abyssal_angler_golden_star"
+  }
+}

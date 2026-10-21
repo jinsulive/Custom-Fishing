@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "customfishing:item/glacial_crab_silver_star"
+  }
+}

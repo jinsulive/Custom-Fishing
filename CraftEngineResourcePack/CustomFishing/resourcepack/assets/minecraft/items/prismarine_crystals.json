@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/prismarine_crystals"
+    },
+    "entries": [
+      {
+        "threshold": 50551,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/celestial_koi"
+        }
+      },
+      {
+        "threshold": 50552,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/celestial_koi_silver_star"
+        }
+      },
+      {
+        "threshold": 50553,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/celestial_koi_golden_star"
+        }
+      }
+    ]
+  }
+}

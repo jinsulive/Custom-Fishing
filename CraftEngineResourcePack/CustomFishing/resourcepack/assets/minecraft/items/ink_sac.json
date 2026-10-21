@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/ink_sac"
+    },
+    "entries": [
+      {
+        "threshold": 50311,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/colossal_squid"
+        }
+      },
+      {
+        "threshold": 50312,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/colossal_squid_silver_star"
+        }
+      },
+      {
+        "threshold": 50313,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/colossal_squid_golden_star"
+        }
+      }
+    ]
+  }
+}

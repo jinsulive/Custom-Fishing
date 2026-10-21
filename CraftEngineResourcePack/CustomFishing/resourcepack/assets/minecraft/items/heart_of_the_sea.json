@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/heart_of_the_sea"
+    },
+    "entries": [
+      {
+        "threshold": 50541,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/leviathan_young"
+        }
+      },
+      {
+        "threshold": 50542,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/leviathan_young_silver_star"
+        }
+      },
+      {
+        "threshold": 50543,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/leviathan_young_golden_star"
+        }
+      }
+    ]
+  }
+}

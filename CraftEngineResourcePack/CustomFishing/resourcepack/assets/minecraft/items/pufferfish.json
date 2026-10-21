@@ -1,0 +1,76 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/pufferfish"
+    },
+    "entries": [
+      {
+        "threshold": 50261,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/abyssal_angler"
+        }
+      },
+      {
+        "threshold": 50262,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/abyssal_angler_silver_star"
+        }
+      },
+      {
+        "threshold": 50263,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/abyssal_angler_golden_star"
+        }
+      },
+      {
+        "threshold": 50301,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bioluminescent_jelly"
+        }
+      },
+      {
+        "threshold": 50302,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bioluminescent_jelly_silver_star"
+        }
+      },
+      {
+        "threshold": 50303,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/bioluminescent_jelly_golden_star"
+        }
+      },
+      {
+        "threshold": 50441,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/witch_brew_frogfish"
+        }
+      },
+      {
+        "threshold": 50442,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/witch_brew_frogfish_silver_star"
+        }
+      },
+      {
+        "threshold": 50443,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/witch_brew_frogfish_golden_star"
+        }
+      }
+    ]
+  }
+}

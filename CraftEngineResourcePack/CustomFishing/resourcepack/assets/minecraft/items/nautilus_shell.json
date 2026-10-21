@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/nautilus_shell"
+    },
+    "entries": [
+      {
+        "threshold": 50351,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/glacial_crab"
+        }
+      },
+      {
+        "threshold": 50352,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/glacial_crab_silver_star"
+        }
+      },
+      {
+        "threshold": 50353,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/glacial_crab_golden_star"
+        }
+      }
+    ]
+  }
+}

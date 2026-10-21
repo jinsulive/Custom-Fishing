@@ -1,0 +1,76 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/salmon"
+    },
+    "entries": [
+      {
+        "threshold": 50201,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cherry_salmon"
+        }
+      },
+      {
+        "threshold": 50202,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cherry_salmon_silver_star"
+        }
+      },
+      {
+        "threshold": 50203,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/cherry_salmon_golden_star"
+        }
+      },
+      {
+        "threshold": 50341,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/frost_trout"
+        }
+      },
+      {
+        "threshold": 50342,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/frost_trout_silver_star"
+        }
+      },
+      {
+        "threshold": 50343,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/frost_trout_golden_star"
+        }
+      },
+      {
+        "threshold": 50371,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/arctic_char"
+        }
+      },
+      {
+        "threshold": 50372,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/arctic_char_silver_star"
+        }
+      },
+      {
+        "threshold": 50373,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/arctic_char_golden_star"
+        }
+      }
+    ]
+  }
+}

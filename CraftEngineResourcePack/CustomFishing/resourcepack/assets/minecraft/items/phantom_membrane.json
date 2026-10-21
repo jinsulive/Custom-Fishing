@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/phantom_membrane"
+    },
+    "entries": [
+      {
+        "threshold": 50501,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/void_ray"
+        }
+      },
+      {
+        "threshold": 50502,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/void_ray_silver_star"
+        }
+      },
+      {
+        "threshold": 50503,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/void_ray_golden_star"
+        }
+      }
+    ]
+  }
+}

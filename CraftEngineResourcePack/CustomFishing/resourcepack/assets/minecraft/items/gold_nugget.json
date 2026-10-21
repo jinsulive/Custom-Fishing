@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/gold_nugget"
+    },
+    "entries": [
+      {
+        "threshold": 50491,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nether_gilded_carp"
+        }
+      },
+      {
+        "threshold": 50492,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nether_gilded_carp_silver_star"
+        }
+      },
+      {
+        "threshold": 50493,
+        "model": {
+          "type": "minecraft:model",
+          "model": "customfishing:item/nether_gilded_carp_golden_star"
+        }
+      }
+    ]
+  }
+}
