@@ -170,11 +170,16 @@ public class BukkitFishingManager implements FishingManager, Listener {
 
     @EventHandler (ignoreCancelled = false)
     public void onLeftClick(PlayerInteractEvent event) {
-        if (event.getAction() != Action.LEFT_CLICK_AIR)
+        // 准星落在方块上时触发的是 LEFT_CLICK_BLOCK，原来只接受 AIR 会把这类点击整段丢掉
+        if (event.getAction() != Action.LEFT_CLICK_AIR && event.getAction() != Action.LEFT_CLICK_BLOCK)
             return;
-        if (event.getMaterial() != Material.FISHING_ROD)
+        if (event.getHand() != null && event.getHand() != EquipmentSlot.HAND)
             return;
-        if (event.getHand() != EquipmentSlot.HAND)
+        ItemStack handItem = event.getItem();
+        if (handItem == null || handItem.getType() == Material.AIR) {
+            handItem = event.getPlayer().getInventory().getItemInMainHand();
+        }
+        if (handItem.getType() != Material.FISHING_ROD)
             return;
         getFishHook(event.getPlayer()).ifPresent(hook -> {
             Optional<GamingPlayer> optionalGamingPlayer = hook.getGamingPlayer();

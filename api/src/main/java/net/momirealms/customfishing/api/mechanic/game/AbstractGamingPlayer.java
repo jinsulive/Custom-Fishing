@@ -37,8 +37,14 @@ public abstract class AbstractGamingPlayer implements GamingPlayer, Runnable {
     protected GameSetting settings;
     protected CustomFishingHook hook;
     protected boolean isTimeOut;
-    private boolean valid = true;
-    private boolean firstFlag = true;
+    private volatile boolean valid = true;
+    /**
+     * 开局宽限期（毫秒）。开启小游戏的那一次点击会额外产生一个挥手包（Swing），
+     * 它晚于 REEL_IN 到达，若不做拦截会被误判为游戏内的第一次左键。
+     * 这里用时间窗口只丢弃这一段残留输入，不影响玩家后续的正常点击。
+     */
+    private static final long STARTUP_GRACE_MS = 120L;
+    private final long startTime = System.currentTimeMillis();
     protected Boolean forcedGameResult;
 
     @Override
@@ -104,7 +110,8 @@ public abstract class AbstractGamingPlayer implements GamingPlayer, Runnable {
      */
     @ApiStatus.Internal
     public void internalRightClick() {
-        firstFlag = true;
+        // 已结束/已销毁的对局不再响应，避免"僵尸窗口"内继续走到判定逻辑
+        if (!isValid()) return;
         handleRightClick();
     }
 
@@ -123,10 +130,10 @@ public abstract class AbstractGamingPlayer implements GamingPlayer, Runnable {
      */
     @ApiStatus.Internal
     public boolean internalLeftClick() {
-        if (firstFlag) {
-            firstFlag = false;
-            return false;
-        }
+        // 已结束/已销毁的对局不再响应（原实现会让 dance 越界并抛异常）
+        if (!isValid()) return false;
+        // 只丢弃开局瞬间的残留挥手包，之后的所有左键都正常处理
+        if (System.currentTimeMillis() - startTime < STARTUP_GRACE_MS) return false;
         return handleLeftClick();
     }
 
