@@ -17,11 +17,11 @@
 
 package net.momirealms.customfishing.bukkit.gui;
 
-import net.kyori.adventure.text.Component;
 import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
 import net.momirealms.customfishing.api.mechanic.context.Context;
 import net.momirealms.customfishing.api.mechanic.context.ContextKeys;
 import net.momirealms.customfishing.common.helper.AdventureHelper;
+import net.momirealms.customfishing.common.item.Item;
 import net.momirealms.sparrow.heart.SparrowHeart;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -126,22 +126,21 @@ public class ItemBrowserGUI {
         for (int i = 0; i < values.length; i++) {
             ItemBrowserCategory tab = values[i];
             ItemStack icon = new ItemStack(tab.icon());
+            // 附魔光效与 hide flags 不含 Component 描述符, 仍可用 Bukkit 原生 API
             ItemMeta meta = icon.getItemMeta();
             if (meta != null) {
-                meta.displayName(AdventureHelper.miniMessage(
-                        tab == category ? "<gold><b>▶ " + tab.displayName() : "<gray>" + tab.displayName()));
-                List<Component> lore = new ArrayList<>();
-                lore.add(AdventureHelper.miniMessage("<dark_gray>" + tab.id()));
-                if (tab == category) {
-                    lore.add(AdventureHelper.miniMessage("<yellow>当前分类"));
-                    // 1.20.5+ 起 UNBREAKING 更名为 DURABILITY
-                    meta.addEnchant(Enchantment.DURABILITY, 1, true);
-                }
-                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                meta.lore(lore);
+                decorateTab(meta, tab == category);
                 icon.setItemMeta(meta);
             }
-            inventory.setItem(TAB_START_SLOT + i, icon);
+            // 名称与 Lore 必须走 Rtag 组件写入, 详见 named() 的注释
+            List<String> loreJson = new ArrayList<>(2);
+            loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>" + tab.id()));
+            if (tab == category) {
+                loreJson.add(AdventureHelper.miniMessageToJson("<yellow>当前分类"));
+            }
+            inventory.setItem(TAB_START_SLOT + i, named(icon,
+                    tab == category ? "<gold><b>▶ " + tab.displayName() : "<gray>" + tab.displayName(),
+                    loreJson));
         }
         // 间隔与关闭按钮
         inventory.setItem(7, decorative(Material.GRAY_STAINED_GLASS_PANE, " "));
@@ -186,23 +185,18 @@ public class ItemBrowserGUI {
             return button(Material.PAPER, "<white>" + id, List.of("<red>物品构建失败"));
         }
         ItemStack display = built.clone();
-        ItemMeta meta = display.getItemMeta();
-        if (meta != null) {
-            List<Component> lore = meta.hasLore() && meta.lore() != null
-                    ? new ArrayList<>(meta.lore())
-                    : new ArrayList<>();
-            lore.add(Component.empty());
-            lore.add(AdventureHelper.miniMessage("<dark_gray>ID: <gray>" + id));
-            lore.add(AdventureHelper.miniMessage("<dark_gray>类别: <gray>" + category.displayName()));
-            if (canGiveItems) {
-                lore.add(Component.empty());
-                lore.add(AdventureHelper.miniMessage("<aqua>左键 <white>获取 1 个"));
-                lore.add(AdventureHelper.miniMessage("<aqua>右键 <white>获取一组"));
-            }
-            meta.lore(lore);
-            display.setItemMeta(meta);
+        Item<ItemStack> wrapped = plugin.getItemManager().wrap(display);
+        List<String> loreJson = new ArrayList<>(wrapped.lore().orElse(List.of()));
+        loreJson.add(AdventureHelper.miniMessageToJson(""));
+        loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>ID: <gray>" + id));
+        loreJson.add(AdventureHelper.miniMessageToJson("<dark_gray>类别: <gray>" + category.displayName()));
+        if (canGiveItems) {
+            loreJson.add(AdventureHelper.miniMessageToJson(""));
+            loreJson.add(AdventureHelper.miniMessageToJson("<aqua>左键 <white>获取 1 个"));
+            loreJson.add(AdventureHelper.miniMessageToJson("<aqua>右键 <white>获取一组"));
         }
-        return display;
+        wrapped.lore(loreJson);
+        return wrapped.load();
     }
 
     private void renderNavigation() {
@@ -220,9 +214,14 @@ public class ItemBrowserGUI {
     }
 
     private void updateTitle() {
-        SparrowHeart.getInstance().updateInventoryTitle(viewer,
-                AdventureHelper.componentToJson(AdventureHelper.miniMessage(
-                        "<gradient:#56ab2f:#a8e063><b>CustomFishing</b></gradient> <dark_gray>|</dark_gray> <white>物品图鉴</white> <gray>(" + category.displayName() + ")</gray>")));
+        // 标题走 SparrowHeart 的 NMS 通道, 版本不匹配时只影响标题文本, 不应让 GUI 整体不可用
+        try {
+            SparrowHeart.getInstance().updateInventoryTitle(viewer,
+                    AdventureHelper.componentToJson(AdventureHelper.miniMessage(
+                            "<gradient:#56ab2f:#a8e063><b>CustomFishing</b></gradient> <dark_gray>|</dark_gray> <white>物品图鉴</white> <gray>(" + category.displayName() + ")</gray>")));
+        } catch (Exception | LinkageError e) {
+            plugin.getPluginLogger().warn("Failed to update item browser title", e);
+        }
     }
 
     /**
@@ -300,10 +299,29 @@ public class ItemBrowserGUI {
     }
 
     /**
+     * 给分类标签加上选中光效并隐藏附魔提示(纯装饰, 失败不影响渲染).
+     *
+     * @param meta     物品 meta
+     * @param selected 是否为当前选中的分类
+     */
+    @SuppressWarnings("deprecation")
+    private static void decorateTab(@NotNull ItemMeta meta, boolean selected) {
+        try {
+            if (selected) {
+                // 1.20.5+ 起 UNBREAKING 更名为 DURABILITY
+                meta.addEnchant(Enchantment.DURABILITY, 1, true);
+            }
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        } catch (Exception | LinkageError ignored) {
+            // 服务端移除某个枚举/字段时忽略: 光效只是视觉提示
+        }
+    }
+
+    /**
      * 构建装饰性物品(无交互).
      */
     @NotNull
-    private static ItemStack decorative(@NotNull Material material, @NotNull String name) {
+    private ItemStack decorative(@NotNull Material material, @NotNull String name) {
         return button(material, name, List.of());
     }
 
@@ -316,20 +334,35 @@ public class ItemBrowserGUI {
      * @return 按钮物品
      */
     @NotNull
-    private static ItemStack button(@NotNull Material material, @NotNull String name, @NotNull List<String> lore) {
-        ItemStack itemStack = new ItemStack(material);
-        ItemMeta meta = itemStack.getItemMeta();
-        if (meta != null) {
-            meta.displayName(AdventureHelper.miniMessage(name));
-            if (!lore.isEmpty()) {
-                List<Component> components = new ArrayList<>(lore.size());
-                for (String line : lore) {
-                    components.add(AdventureHelper.miniMessage(line));
-                }
-                meta.lore(components);
-            }
-            itemStack.setItemMeta(meta);
+    private ItemStack button(@NotNull Material material, @NotNull String name, @NotNull List<String> lore) {
+        List<String> loreJson = new ArrayList<>(lore.size());
+        for (String line : lore) {
+            loreJson.add(AdventureHelper.miniMessageToJson(line));
         }
-        return itemStack;
+        return named(new ItemStack(material), name, loreJson);
+    }
+
+    /**
+     * 给物品写入 MiniMessage 名称与已序列化为 JSON 的 Lore.
+     *
+     * <p><b>不要改用 {@code ItemMeta#displayName(Component)} / {@code ItemMeta#lore(List&lt;Component&gt;)}
+     * 之类的 adventure 重载:</b> 构建产物由 shadowJar 把 {@code net.kyori} 重定位到
+     * {@code net.momirealms.customfishing.libraries}, 方法描述符里的 Component 也被一起改写,
+     * 而服务端的 {@code ItemMeta} 仍是原版签名, 运行时只会抛
+     * {@code NoSuchMethodError: ItemMeta.displayName(net.momirealms...Component)}.
+     * 因此统一走 {@link net.momirealms.customfishing.common.item.Item} 的 Rtag 组件写入通道,
+     * 与插件配置化物品(display.name / display.lore)完全同源.</p>
+     *
+     * @param itemStack 目标物品
+     * @param name      MiniMessage 名称
+     * @param loreJson  已序列化为 JSON 的 Lore 行
+     * @return 写入后的物品
+     */
+    @NotNull
+    private ItemStack named(@NotNull ItemStack itemStack, @NotNull String name, @NotNull List<String> loreJson) {
+        Item<ItemStack> wrapped = plugin.getItemManager().wrap(itemStack);
+        wrapped.displayName(AdventureHelper.miniMessageToJson(name));
+        wrapped.lore(loreJson);
+        return wrapped.load();
     }
 }
