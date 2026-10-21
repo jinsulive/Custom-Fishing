@@ -196,7 +196,7 @@ golden_carp_bait:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 显著提升黄金之星品质概率 (+6)'
-      - '<gray> - 祥瑞好运鱼类吸引率提升 (+8)'
+      - '<gray> - 祥瑞好运鱼类吸引率提升 (+20)'
       - ''
   custom-model-data: 50035
   effects:
@@ -204,4 +204,4 @@ golden_carp_bait:
       type: group-mod
       value:
         - golden_star:+6
-        - lucky:+8
+        - lucky:+20

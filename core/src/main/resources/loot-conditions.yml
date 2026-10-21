@@ -353,8 +353,8 @@ void_loots:
         - 'group_for_each:nebula&no_star:+16'
         - 'group_for_each:nebula&silver_star:+5'
         - 'group_for_each:nebula&golden_star:+1.5'
-        - 'group_for_each:chorus&no_star:+16'
-        - 'group_for_each:chorus&silver_star:+5'
+        - 'group_for_each:chorus&no_star:+22.5'
+        - 'group_for_each:chorus&silver_star:+6'
         - 'group_for_each:chorus&golden_star:+1.5'
 
     # 世界最底层深渊虚空 (Y < -55 极限时空奇点)
@@ -363,9 +363,9 @@ void_loots:
         ypos:
           - -128~-55
       list:
-        - 'singularity_fish:+3'
-        - 'singularity_fish_silver_star:+1'
-        - 'singularity_fish_golden_star:+0.3'
+        - 'singularity_fish:+7.5'
+        - 'singularity_fish_silver_star:+2'
+        - 'singularity_fish_golden_star:+0.5'
 
 # ------------------------------------------------------------------------------
 # 特殊装备奇遇 (骷髅钓竿引怪)
