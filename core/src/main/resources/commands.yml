@@ -113,6 +113,15 @@ open_bag:
   - "/customfishing open bag"
   - "/cfishing open bag"
 
+# A command to open the item browser GUI for players
+# Usage: [COMMAND]
+open_item_browser:
+  enable: true
+  permission: "customfishing.command.item.browser"
+  usage:
+  - "/customfishing items browser"
+  - "/cfishing items browser"
+
 # A command to edit bag contents
 # Usage: [COMMAND] [player]
 edit_online_bag:

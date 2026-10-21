@@ -83,7 +83,6 @@ public abstract class ConfigManager implements ConfigLoader, Reloadable {
     protected int dataSaveInterval;
     protected boolean logDataSaving;
     protected boolean lockData;
-    protected boolean metrics;
     protected boolean checkUpdate;
     protected boolean debug;
     protected boolean overrideVanillaWaitTime;
@@ -158,10 +157,6 @@ public abstract class ConfigManager implements ConfigLoader, Reloadable {
 
     public static boolean lockData() {
         return instance.lockData;
-    }
-
-    public static boolean metrics() {
-        return instance.metrics;
     }
 
     public static boolean checkUpdate() {

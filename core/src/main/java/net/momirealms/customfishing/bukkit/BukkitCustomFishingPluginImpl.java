@@ -36,6 +36,7 @@ import net.momirealms.customfishing.bukkit.entity.BukkitEntityManager;
 import net.momirealms.customfishing.bukkit.event.BukkitEventManager;
 import net.momirealms.customfishing.bukkit.fishing.BukkitFishingManager;
 import net.momirealms.customfishing.bukkit.game.BukkitGameManager;
+import net.momirealms.customfishing.bukkit.gui.BukkitItemBrowserManager;
 import net.momirealms.customfishing.bukkit.hook.BukkitHookManager;
 import net.momirealms.customfishing.bukkit.integration.BukkitIntegrationManager;
 import net.momirealms.customfishing.bukkit.item.BukkitItemManager;
@@ -57,7 +58,6 @@ import net.momirealms.customfishing.common.plugin.classpath.ReflectionClassPathA
 import net.momirealms.customfishing.common.plugin.logging.JavaPluginLogger;
 import net.momirealms.customfishing.common.plugin.logging.PluginLogger;
 import net.momirealms.sparrow.heart.SparrowHeart;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -72,6 +72,7 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
     private final ClassPathAppender classPathAppender;
     private final PluginLogger logger;
     private BukkitCommandManager commandManager;
+    private BukkitItemBrowserManager itemBrowserManager;
     private Consumer<Supplier<String>> debugger = (supplier -> {});
     private String buildByBit = "%%__BUILTBYBIT__%%";
     private String polymart = "%%__POLYMART__%%";
@@ -93,7 +94,6 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
         this.dependencyManager.loadDependencies(
                 List.of(
                         Dependency.BOOSTED_YAML,
-                        Dependency.BSTATS_BASE, Dependency.BSTATS_BUKKIT,
                         Dependency.CAFFEINE,
                         Dependency.GEANTY_REF,
                         Dependency.CLOUD_CORE, Dependency.CLOUD_SERVICES, Dependency.CLOUD_BUKKIT, Dependency.CLOUD_PAPER, Dependency.CLOUD_BRIGADIER, Dependency.CLOUD_MINECRAFT_EXTRAS,
@@ -135,6 +135,7 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
         this.fishingManager = new BukkitFishingManager(this);
         this.bagManager = new BukkitBagManager(this);
         this.totemManager = new BukkitTotemManager(this);
+        this.itemBrowserManager = new BukkitItemBrowserManager(this);
         this.translationManager = new TranslationManager(this);
         this.integrationManager = new BukkitIntegrationManager(this);
         this.gameManager = new BukkitGameManager(this);
@@ -169,7 +170,6 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
                     this.integrationManager.delayedLoad();
                 } finally {
                     this.reload();
-                    if (ConfigManager.metrics()) new Metrics(getBootstrap(), 16648);
                 }
             });
         } else {
@@ -178,7 +178,6 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
                     this.integrationManager.delayedLoad();
                 } finally {
                     this.reload();
-                    if (ConfigManager.metrics()) new Metrics(getBootstrap(), 16648);
                 }
             });
         }
@@ -253,6 +252,7 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
         if (this.integrationManager != null)  this.integrationManager.disable();
         if (this.storageManager != null) this.storageManager.disable();
         if (this.hologramManager != null) this.hologramManager.disable();
+        if (this.itemBrowserManager != null) this.itemBrowserManager.unload();
         if (this.commandManager != null) {
             if (!Bukkit.getServer().isStopping()) {
                 this.commandManager.unregisterFeatures();
@@ -302,5 +302,14 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
     @Override
     public void debug(Supplier<String> messageSupplier) {
         this.debugger.accept(messageSupplier);
+    }
+
+    /**
+     * 获取物品图鉴 GUI 管理器.
+     *
+     * @return 物品图鉴 GUI 管理器
+     */
+    public BukkitItemBrowserManager getItemBrowserManager() {
+        return itemBrowserManager;
     }
 }

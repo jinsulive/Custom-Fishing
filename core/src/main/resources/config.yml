@@ -2,10 +2,8 @@
 config-version: "41"
 # 调试模式开关
 debug: false
-# 启用 BStats 指标
-metrics: true
 # 启用自动更新检查
-update-checker: true
+update-checker: false
 # 强制语言设置，例如 zh_cn
 force-locale: "zh_cn"
 # 机制设置

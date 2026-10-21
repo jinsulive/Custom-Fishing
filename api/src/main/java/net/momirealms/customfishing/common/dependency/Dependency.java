@@ -198,25 +198,6 @@ public enum Dependency {
             "commons-pool",
             Relocation.of("commonspool2", "org{}apache{}commons{}pool2")
     ),
-    BSTATS_BASE(
-            "org{}bstats",
-            "bstats-base",
-            "maven",
-            "bstats-base",
-            Relocation.of("bstats", "org{}bstats")
-    ),
-    BSTATS_BUKKIT(
-            "org{}bstats",
-            "bstats-bukkit",
-            "maven",
-            "bstats-bukkit",
-            Relocation.of("bstats", "org{}bstats")
-    ) {
-        @Override
-        public String getVersion() {
-            return Dependency.BSTATS_BASE.getVersion();
-        }
-    },
     GSON(
             "com.google.code.gson",
             "gson",

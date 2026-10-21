@@ -1,0 +1,61 @@
+/*
+ *  Copyright (C) <2024> <XiaoMoMi>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package net.momirealms.customfishing.bukkit.command.feature;
+
+import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
+import net.momirealms.customfishing.bukkit.BukkitCustomFishingPluginImpl;
+import net.momirealms.customfishing.bukkit.command.BukkitCommandFeature;
+import net.momirealms.customfishing.common.command.CustomFishingCommandManager;
+import net.momirealms.customfishing.common.helper.VersionHelper;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.incendo.cloud.Command;
+import org.incendo.cloud.CommandManager;
+
+/**
+ * 打开物品图鉴 GUI 的命令.
+ * 用法: {@code /customfishing items browser}
+ */
+public class OpenItemBrowserCommand extends BukkitCommandFeature<CommandSender> {
+
+    public OpenItemBrowserCommand(CustomFishingCommandManager<CommandSender> commandManager) {
+        super(commandManager);
+    }
+
+    @Override
+    public Command.Builder<? extends CommandSender> assembleCommand(CommandManager<CommandSender> manager, Command.Builder<CommandSender> builder) {
+        return builder
+                .senderType(Player.class)
+                .handler(context -> {
+                    final Player player = context.sender();
+                    Runnable r = () -> ((BukkitCustomFishingPluginImpl) BukkitCustomFishingPlugin.getInstance())
+                            .getItemBrowserManager().openGUI(player);
+                    // 打开背包属于区域线程敏感操作, Folia 下需切回玩家所在区域线程
+                    if (VersionHelper.isFolia()) {
+                        BukkitCustomFishingPlugin.getInstance().getScheduler().sync().run(r, player.getLocation());
+                    } else {
+                        r.run();
+                    }
+                });
+    }
+
+    @Override
+    public String getFeatureID() {
+        return "open_item_browser";
+    }
+}

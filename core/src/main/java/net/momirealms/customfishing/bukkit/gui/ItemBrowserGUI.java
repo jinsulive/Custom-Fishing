@@ -1,0 +1,335 @@
+/*
+ *  Copyright (C) <2024> <XiaoMoMi>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package net.momirealms.customfishing.bukkit.gui;
+
+import net.kyori.adventure.text.Component;
+import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
+import net.momirealms.customfishing.api.mechanic.context.Context;
+import net.momirealms.customfishing.api.mechanic.context.ContextKeys;
+import net.momirealms.customfishing.common.helper.AdventureHelper;
+import net.momirealms.sparrow.heart.SparrowHeart;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+/**
+ * 物品图鉴 GUI.
+ *
+ * <p>布局(54 槽, 6 行):</p>
+ * <pre>
+ *   第 0 行:  分类标签(0-6) | 间隔(7) | 关闭(8)
+ *   第 1-4 行: 物品展示区(9-44), 每页 36 个
+ *   第 5 行:  上一页(45) | 装饰(46-48, 50-52) | 页码(49) | 下一页(53)
+ * </pre>
+ *
+ * <p>分类标签点击切换分类, 展示区左键获取 1 个物品、右键获取一组(需权限),
+ * 物品通过 {@code ItemManager#buildInternal} 实时构建, 保证与配置完全一致.</p>
+ */
+public class ItemBrowserGUI {
+
+    /** 每页展示的物品数量 */
+    public static final int ITEMS_PER_PAGE = 36;
+    /** 展示区起始槽位 */
+    public static final int CONTENT_START_SLOT = 9;
+    /** 上一页按钮槽位 */
+    public static final int PREV_PAGE_SLOT = 45;
+    /** 页码指示槽位 */
+    public static final int PAGE_INDICATOR_SLOT = 49;
+    /** 下一页按钮槽位 */
+    public static final int NEXT_PAGE_SLOT = 53;
+    /** 关闭按钮槽位 */
+    public static final int CLOSE_SLOT = 8;
+    /** 分类标签起始槽位 */
+    public static final int TAB_START_SLOT = 0;
+
+    private final BukkitCustomFishingPlugin plugin;
+    private final ItemBrowserHolder holder;
+    private final Inventory inventory;
+    private final Player viewer;
+    private final boolean canGiveItems;
+
+    private ItemBrowserCategory category = ItemBrowserCategory.ALL;
+    private int page = 0;
+    /** 当前分类下已排序的物品 ID 列表 */
+    private List<String> cachedItemIds = List.of();
+
+    public ItemBrowserGUI(@NotNull BukkitCustomFishingPlugin plugin, @NotNull Player viewer) {
+        this.plugin = plugin;
+        this.viewer = viewer;
+        this.canGiveItems = viewer.hasPermission("customfishing.command.getitem");
+        this.holder = new ItemBrowserHolder();
+        this.inventory = Bukkit.createInventory(holder, 54, "CustomFishing Item Browser");
+        this.holder.setInventory(this.inventory);
+        refreshItemIds();
+    }
+
+    /**
+     * 打开并渲染 GUI.
+     */
+    public void open() {
+        render();
+        viewer.openInventory(inventory);
+        updateTitle();
+    }
+
+    /**
+     * 重绘整个 GUI(标签行、展示区、导航行).
+     */
+    public void render() {
+        refreshItemIds();
+        renderTabs();
+        renderContent();
+        renderNavigation();
+    }
+
+    /**
+     * 刷新当前分类下的物品 ID 列表(按字典序排列保证翻页稳定).
+     */
+    private void refreshItemIds() {
+        TreeSet<String> ids = new TreeSet<>();
+        for (String id : plugin.getItemManager().getItemIDs()) {
+            if (category.contains(id)) {
+                ids.add(id);
+            }
+        }
+        this.cachedItemIds = List.copyOf(ids);
+    }
+
+    private void renderTabs() {
+        ItemBrowserCategory[] values = ItemBrowserCategory.values();
+        for (int i = 0; i < values.length; i++) {
+            ItemBrowserCategory tab = values[i];
+            ItemStack icon = new ItemStack(tab.icon());
+            ItemMeta meta = icon.getItemMeta();
+            if (meta != null) {
+                meta.displayName(AdventureHelper.miniMessage(
+                        tab == category ? "<gold><b>▶ " + tab.displayName() : "<gray>" + tab.displayName()));
+                List<Component> lore = new ArrayList<>();
+                lore.add(AdventureHelper.miniMessage("<dark_gray>" + tab.id()));
+                if (tab == category) {
+                    lore.add(AdventureHelper.miniMessage("<yellow>当前分类"));
+                    // 1.20.5+ 起 UNBREAKING 更名为 DURABILITY
+                    meta.addEnchant(Enchantment.DURABILITY, 1, true);
+                }
+                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                meta.lore(lore);
+                icon.setItemMeta(meta);
+            }
+            inventory.setItem(TAB_START_SLOT + i, icon);
+        }
+        // 间隔与关闭按钮
+        inventory.setItem(7, decorative(Material.GRAY_STAINED_GLASS_PANE, " "));
+        inventory.setItem(CLOSE_SLOT, button(Material.BARRIER, "<red>关闭", List.of("<gray>点击关闭图鉴")));
+    }
+
+    private void renderContent() {
+        // 清空展示区
+        for (int i = 0; i < ITEMS_PER_PAGE; i++) {
+            inventory.setItem(CONTENT_START_SLOT + i, null);
+        }
+
+        int totalPages = totalPages();
+        if (page >= totalPages) {
+            page = Math.max(0, totalPages - 1);
+        }
+
+        if (cachedItemIds.isEmpty()) {
+            inventory.setItem(CONTENT_START_SLOT + ITEMS_PER_PAGE / 2, button(
+                    Material.BARRIER, "<yellow>空空如也", List.of("<gray>该分类下暂无物品")));
+            return;
+        }
+
+        int start = page * ITEMS_PER_PAGE;
+        for (int i = 0; i < ITEMS_PER_PAGE && start + i < cachedItemIds.size(); i++) {
+            String id = cachedItemIds.get(start + i);
+            inventory.setItem(CONTENT_START_SLOT + i, buildDisplay(id));
+        }
+    }
+
+    /**
+     * 构建展示用的物品: 在原始物品基础上追加 ID / 分类 / 操作提示.
+     *
+     * @param id 物品 ID
+     * @return 展示用物品
+     */
+    @NotNull
+    private ItemStack buildDisplay(@NotNull String id) {
+        ItemStack built = plugin.getItemManager().buildInternal(Context.player(viewer).arg(ContextKeys.ID, id), id);
+        if (built == null) {
+            // 理论上不会发生: ID 来自 getItemIDs()
+            return button(Material.PAPER, "<white>" + id, List.of("<red>物品构建失败"));
+        }
+        ItemStack display = built.clone();
+        ItemMeta meta = display.getItemMeta();
+        if (meta != null) {
+            List<Component> lore = meta.hasLore() && meta.lore() != null
+                    ? new ArrayList<>(meta.lore())
+                    : new ArrayList<>();
+            lore.add(Component.empty());
+            lore.add(AdventureHelper.miniMessage("<dark_gray>ID: <gray>" + id));
+            lore.add(AdventureHelper.miniMessage("<dark_gray>类别: <gray>" + category.displayName()));
+            if (canGiveItems) {
+                lore.add(Component.empty());
+                lore.add(AdventureHelper.miniMessage("<aqua>左键 <white>获取 1 个"));
+                lore.add(AdventureHelper.miniMessage("<aqua>右键 <white>获取一组"));
+            }
+            meta.lore(lore);
+            display.setItemMeta(meta);
+        }
+        return display;
+    }
+
+    private void renderNavigation() {
+        int totalPages = totalPages();
+        // 装饰底纹
+        for (int slot : new int[]{46, 47, 48, 50, 51, 52}) {
+            inventory.setItem(slot, decorative(Material.GRAY_STAINED_GLASS_PANE, " "));
+        }
+        inventory.setItem(PREV_PAGE_SLOT, button(Material.ARROW, "<white>上一页",
+                List.of(page > 0 ? "<gray>点击翻到第 " + page + " 页" : "<gray>已经是第一页了")));
+        inventory.setItem(PAGE_INDICATOR_SLOT, button(Material.PAPER, "<gold>第 " + (page + 1) + " / " + totalPages + " 页",
+                List.of("<gray>" + category.displayName() + " 共 " + cachedItemIds.size() + " 个物品")));
+        inventory.setItem(NEXT_PAGE_SLOT, button(Material.ARROW, "<white>下一页",
+                List.of(page < totalPages - 1 ? "<gray>点击翻到第 " + (page + 2) + " 页" : "<gray>已经是最后一页了")));
+    }
+
+    private void updateTitle() {
+        SparrowHeart.getInstance().updateInventoryTitle(viewer,
+                AdventureHelper.componentToJson(AdventureHelper.miniMessage(
+                        "<gradient:#56ab2f:#a8e063><b>CustomFishing</b></gradient> <dark_gray>|</dark_gray> <white>物品图鉴</white> <gray>(" + category.displayName() + ")</gray>")));
+    }
+
+    /**
+     * 总页数, 至少为 1.
+     *
+     * @return 总页数
+     */
+    public int totalPages() {
+        return Math.max(1, (int) Math.ceil(cachedItemIds.size() / (double) ITEMS_PER_PAGE));
+    }
+
+    /**
+     * 切换到指定分类并回到第一页.
+     *
+     * @param category 目标分类
+     */
+    public void switchCategory(@NotNull ItemBrowserCategory category) {
+        if (this.category == category) return;
+        this.category = category;
+        this.page = 0;
+        render();
+        updateTitle();
+    }
+
+    /**
+     * 切换到上一页, 已在第一页时返回 false.
+     *
+     * @return 是否成功切换
+     */
+    public boolean previousPage() {
+        if (page <= 0) return false;
+        page--;
+        render();
+        return true;
+    }
+
+    /**
+     * 切换到下一页, 已在最后一页时返回 false.
+     *
+     * @return 是否成功切换
+     */
+    public boolean nextPage() {
+        if (page >= totalPages() - 1) return false;
+        page++;
+        render();
+        return true;
+    }
+
+    /**
+     * 获取展示区槽位对应的物品 ID.
+     *
+     * @param slot 槽位
+     * @return 物品 ID, 非展示区或为空时返回 null
+     */
+    @Nullable
+    public String getItemIdAtSlot(int slot) {
+        if (slot < CONTENT_START_SLOT || slot >= CONTENT_START_SLOT + ITEMS_PER_PAGE) return null;
+        int start = page * ITEMS_PER_PAGE;
+        int index = start + (slot - CONTENT_START_SLOT);
+        if (index < 0 || index >= cachedItemIds.size()) return null;
+        return cachedItemIds.get(index);
+    }
+
+    /**
+     * 获取分类标签槽位对应的分类.
+     *
+     * @param slot 槽位
+     * @return 分类, 非标签槽位时返回 null
+     */
+    @Nullable
+    public ItemBrowserCategory getCategoryAtSlot(int slot) {
+        ItemBrowserCategory[] values = ItemBrowserCategory.values();
+        if (slot < TAB_START_SLOT || slot >= TAB_START_SLOT + values.length) return null;
+        return values[slot - TAB_START_SLOT];
+    }
+
+    /**
+     * 构建装饰性物品(无交互).
+     */
+    @NotNull
+    private static ItemStack decorative(@NotNull Material material, @NotNull String name) {
+        return button(material, name, List.of());
+    }
+
+    /**
+     * 构建带名称与 Lore 的按钮物品.
+     *
+     * @param material 材质
+     * @param name     MiniMessage 名称
+     * @param lore     MiniMessage Lore 行
+     * @return 按钮物品
+     */
+    @NotNull
+    private static ItemStack button(@NotNull Material material, @NotNull String name, @NotNull List<String> lore) {
+        ItemStack itemStack = new ItemStack(material);
+        ItemMeta meta = itemStack.getItemMeta();
+        if (meta != null) {
+            meta.displayName(AdventureHelper.miniMessage(name));
+            if (!lore.isEmpty()) {
+                List<Component> components = new ArrayList<>(lore.size());
+                for (String line : lore) {
+                    components.add(AdventureHelper.miniMessage(line));
+                }
+                meta.lore(components);
+            }
+            itemStack.setItemMeta(meta);
+        }
+        return itemStack;
+    }
+}

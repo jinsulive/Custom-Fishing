@@ -188,7 +188,6 @@ public class BukkitConfigManager extends ConfigManager {
     private void loadSettings() {
         YamlDocument config = getMainConfig();
 
-        metrics = config.getBoolean("metrics", true);
         checkUpdate = config.getBoolean("update-checker", true);
         debug = config.getBoolean("debug", false);
 

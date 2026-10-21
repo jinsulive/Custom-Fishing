@@ -28,8 +28,6 @@ dependencies {
     implementation("com.saicone.rtag:rtag-item:${rootProject.properties["rtag_version"]}")
     // nms util
     implementation("net.momirealms:sparrow-heart:${rootProject.properties["sparrow_heart_version"]}")
-    // bstats
-    compileOnly("org.bstats:bstats-bukkit:${rootProject.properties["bstats_version"]}")
     // config
     compileOnly("dev.dejvokep:boosted-yaml:${rootProject.properties["boosted_yaml_version"]}")
     // serialization
@@ -66,9 +64,8 @@ tasks {
         relocate("org.mariadb", "net.momirealms.customfishing.libraries.mariadb")
         relocate("com.zaxxer.hikari", "net.momirealms.customfishing.libraries.hikari")
         relocate("com.mongodb", "net.momirealms.customfishing.libraries.mongodb")
-        relocate("org.bson", "net.momirealms.customfishing.libraries.bson")
-        relocate("org.bstats", "net.momirealms.customfishing.libraries.bstats")
-        relocate("com.github.benmanes.caffeine", "net.momirealms.customfishing.libraries.caffeine")
+    relocate("org.bson", "net.momirealms.customfishing.libraries.bson")
+    relocate("com.github.benmanes.caffeine", "net.momirealms.customfishing.libraries.caffeine")
         relocate("net.momirealms.sparrow.heart", "net.momirealms.customfishing.bukkit.nms")
         relocate("com.saicone.rtag", "net.momirealms.customfishing.libraries.rtag")
         relocate("net.objecthunter.exp4j", "net.momirealms.customfishing.libraries.exp4j")
