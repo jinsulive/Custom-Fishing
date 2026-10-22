@@ -67,10 +67,33 @@
   .matrix .unit { color:#adb5bd; font-size:10px; }
   .matrix td.zero { color:#ced4da; text-align:center; }
   .matrix td.cov { color:var(--acc); text-align:center; }
+  .ftbl { width:100%; border-collapse:collapse; font-size:12.5px; background:var(--panel);
+    border:1px solid var(--line); border-radius:10px; }
+  .ftbl th { text-align:left; color:var(--tx2); font-weight:600; background:#f7f9fa;
+    padding:7px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  .ftbl td { padding:6px 10px; border-bottom:1px solid #f0f2f4; vertical-align:top; }
+  .ftbl td.fish { font-weight:600; white-space:nowrap; color:#1f2328; }
+  .ftbl td.fid { font-family:ui-monospace,Consolas,monospace; font-size:11.5px; color:#2c3540; }
+  .ftbl td.tier { line-height:2.1; }
+  .ftbl tr.grp td { background:#f7f9fa; font-weight:700; font-size:12.5px; color:#364049;
+    padding:8px 10px; border-bottom:1px solid var(--line); }
+  .ftbl tr.grp .cnt { font-weight:400; margin-left:8px; }
+  .gc { display:inline-block; border:1px solid var(--line); border-radius:20px;
+    padding:0 8px; margin:1px 4px 1px 0; font-size:11.5px; line-height:1.7;
+    white-space:nowrap; background:#fff; color:#2c3540; }
+  .gc i { width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:5px; vertical-align:1px; }
+  .gc b { font-weight:700; color:#1f2328; }
+  .ftbl td.code { font-family:ui-monospace,Consolas,monospace; font-size:11px; color:#5b6570; white-space:nowrap; }
+  .flow { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:12px 16px; margin:14px 0; font-size:13px; line-height:2.1; color:#364049; }
+  .flow b { color:#c2255c; }
+  .flow .arr { color:#adb5bd; margin:0 7px; }
+  .flow .out { color:#2f9e44; }
 </style></head><body><div class="wrap">
 <h1>CustomFishing 钓鱼小游戏统计</h1>
 <div class="sub">数据源：<code>contents/minigame/default.yml</code>（46 个条目）+
-<code>game-conditions.yml</code>（8 个触发场景）</div>
+<code>game-conditions.yml</code>（8 个触发场景）+
+<code>contents/item/</code>（53 种鱼的生境 / 星级分组）</div>
 
 <h2>机制概览</h2>
 <div class="cards"><div class="card">
@@ -226,6 +249,139 @@
   <div class='tier'><b>普通鱼</b><div class='bars'><div class='bar'><span class='gid'>accurate_click_bar_1_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_2_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_3_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_4_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_5_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_6_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_7_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_8_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>accurate_click_bar_9_easy</span><span class='track'><i style='width:9.7%'></i></span><span class='pct'>9.7%</span><span class='w'>12</span></div><div class='bar'><span class='gid'>dance_game_easy</span><span class='track'><i style='width:8.1%'></i></span><span class='pct'>8.1%</span><span class='w'>10</span></div><div class='bar'><span class='gid'>click_game_easy</span><span class='track'><i style='width:4.8%'></i></span><span class='pct'>4.8%</span><span class='w'>6</span></div></div></div><div class='tier'><b>银星</b><div class='bars'><div class='bar'><span class='gid'>dance_game_easy</span><span class='track'><i style='width:8.3%'></i></span><span class='pct'>8.3%</span><span class='w'>10</span></div><div class='bar'><span class='gid'>dance_game_normal</span><span class='track'><i style='width:6.7%'></i></span><span class='pct'>6.7%</span><span class='w'>8</span></div><div class='bar'><span class='gid'>click_game_easy</span><span class='track'><i style='width:5.0%'></i></span><span class='pct'>5.0%</span><span class='w'>6</span></div><div class='bar'><span class='gid'>click_game_normal</span><span class='track'><i style='width:5.0%'></i></span><span class='pct'>5.0%</span><span class='w'>6</span></div><div class='bar'><span class='gid'>accurate_click_bar_1_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_2_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_3_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_4_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_5_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_6_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_7_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_8_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_9_easy</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_1_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_2_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_3_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_4_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_5_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_6_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_7_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_8_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_9_normal</span><span class='track'><i style='width:3.3%'></i></span><span class='pct'>3.3%</span><span class='w'>4</span></div><div class='bar'><span class='gid'>accurate_click_bar_1_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_2_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_3_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_4_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_5_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_6_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_7_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_8_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div><div class='bar'><span class='gid'>accurate_click_bar_9_hard</span><span class='track'><i style='width:1.7%'></i></span><span class='pct'>1.7%</span><span class='w'>2</span></div></div></div><div class='tier'><b>金星</b><div class='bars'><div class='bar'><span class='gid'>dance_game_easy</span><span class='track'><i style='width:12.7%'></i></span><span class='pct'>12.7%</span><span class='w'>10</span></div><div class='bar'><span class='gid'>dance_game_hard</span><span class='track'><i style='width:12.7%'></i></span><span class='pct'>12.7%</span><span class='w'>10</span></div><div class='bar'><span class='gid'>click_game_hard</span><span class='track'><i style='width:10.1%'></i></span><span class='pct'>10.1%</span><span class='w'>8</span></div><div class='bar'><span class='gid'>click_game_easy</span><span class='track'><i style='width:7.6%'></i></span><span class='pct'>7.6%</span><span class='w'>6</span></div><div class='bar'><span class='gid'>accurate_click_bar_1_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_2_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_3_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_4_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_5_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_6_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_7_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_8_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div><div class='bar'><span class='gid'>accurate_click_bar_9_hard</span><span class='track'><i style='width:6.3%'></i></span><span class='pct'>6.3%</span><span class='w'>5</span></div></div></div>
 </details>
 
+<h2>每种鱼会抽中哪些难度的小游戏</h2>
+<div class="sub">
+抽奖分两步：<b>①</b> 先按 <code>game-conditions.yml</code> 的权重抽出<b>小游戏 ID</b>——
+所有条件成立的场景 / 子组权重累加进同一张表再抽；<b>②</b> 抽中后才在该游戏自己的
+<code>difficulty</code> 区间（如 <code>15~30</code>）内随机 roll 一个值，最后按
+<code>roll值 × difficultyMultiplier + difficultyAdder</code> 叠加装备 buff 并钳制在 1~100
+（buff 来源为钓竿 / 鱼钩 / 装备 / 鱼饵的 <code>type: difficulty</code> 与
+<code>type: difficulty-multiplier</code>，只改难度数值、不改抽中概率）。
+因此同一种鱼每次开局，难度只会在下表各游戏的区间内浮动。53 种鱼中 4 种
+<code>special_game</code> 剧情鱼走独立奖池，其余按「所在环境 / 生物群系 + 星档」抽奖；
+色点与上方五种机制一一对应。
+</div>
+<div class="ftbl"><table>
+<thead><tr><th>鱼种</th><th>ID</th><th>普通鱼</th><th>银星</th><th>金星</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="5">专属剧情鱼 · <code>special_game</code> 组（4 种）<span class="cnt">独立奖池，不参与环境 / 生物群系抽奖；该组会使 water_games 整体条件不成立</span></td></tr>
+<tr><td class="fish">彩虹七彩神鱼</td><td class="fid">rainbow_fish</td>
+<td class="tier" colspan="3">无星级变体；7 个配色变体等分奖池：<span class="gc"><i style="background:#e8590c"></i>精准点击·困难(20~80) <b>各 14.3%</b></span><span class="muted">难度评级 ★★★★★</span></td></tr>
+<tr><td class="fish">幼年利维坦</td><td class="fid">leviathan_young</td>
+<td class="tier" colspan="3">银 / 金星变体同池：<span class="gc"><i style="background:#c2255c"></i>张力控制·困难(50~65) <b>62.5%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速收线·困难(45~60) <b>37.5%</b></span></td></tr>
+<tr><td class="fish">奇点坍缩星核鱼</td><td class="fid">singularity_fish</td>
+<td class="tier" colspan="3">银 / 金星变体同池：<span class="gc"><i style="background:#7048e8"></i>音游律动·困难(28~36) <b>100%</b></span></td></tr>
+<tr><td class="fish">九天星穹苍龙鲤</td><td class="fid">celestial_koi</td>
+<td class="tier" colspan="3">银 / 金星变体同池：<span class="gc"><i style="background:#7048e8"></i>音游律动·普通(16~24) <b>66.7%</b></span><span class="gc"><i style="background:#7048e8"></i>音游律动·困难(28~36) <b>33.3%</b></span></td></tr>
+<tr class="grp"><td colspan="5">虚空环境 · <code>in-void</code> 且非 special_game（3 种）<span class="cnt">末地虚空下竿；银 / 金星由子组修正权重</span></td></tr>
+<tr><td class="fish">虚空漂流鳐</td><td class="fid">void_ray</td>
+<td class="tier" rowspan="3"><span class="gc"><i style="background:#7048e8"></i>音游·简单(8~12) <b>53.6%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·普通(16~24) <b>28.6%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·普通(35~60) <b>17.9%</b></span></td>
+<td class="tier" rowspan="3"><span class="gc"><i style="background:#7048e8"></i>音游·普通 <b>59.0%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·困难(28~36) <b>15.4%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·简单 <b>12.8%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·普通 <b>12.8%</b></span></td>
+<td class="tier" rowspan="3"><span class="gc"><i style="background:#7048e8"></i>音游·困难 <b>60.0%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·普通 <b>20.0%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·普通 <b>20.0%</b></span></td></tr>
+<tr><td class="fish">紫颂星体乌贼</td><td class="fid">chorus_squid</td></tr>
+<tr><td class="fish">星云游荡水母</td><td class="fid">nebula_drifter</td></tr>
+<tr class="grp"><td colspan="5">熔岩环境 · <code>in-lava</code> 且非 special_game（6 种）<span class="cnt">下界 / 主界熔岩湖下竿；银 / 金星由子组修正权重</span></td></tr>
+<tr><td class="fish">虚空鲑鱼</td><td class="fid">salmon_void_fish</td>
+<td class="tier" rowspan="6"><span class="gc"><i style="background:#1971c2"></i>长按·简单(15~35) <b>51.7%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单(15~25) <b>27.6%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·普通(35~60) <b>20.7%</b></span></td>
+<td class="tier" rowspan="6"><span class="gc"><i style="background:#1971c2"></i>长按·普通 <b>40.9%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>18.2%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·普通(28~40) <b>18.2%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·简单 <b>11.4%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·困难(60~90) <b>11.4%</b></span></td>
+<td class="tier" rowspan="6"><span class="gc"><i style="background:#1971c2"></i>长按·困难 <b>31.2%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·困难(45~60) <b>31.2%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>25.0%</b></span><span class="gc"><i style="background:#1971c2"></i>长按·普通 <b>12.5%</b></span></td></tr>
+<tr><td class="fish">黑曜熔鳞翻车鱼</td><td class="fid">obsidian_sunfish</td></tr>
+<tr><td class="fish">烈焰流火鳐</td><td class="fid">magma_ray</td></tr>
+<tr><td class="fish">幽魂青炎鳗</td><td class="fid">soul_lava_eel</td></tr>
+<tr><td class="fish">绯红巨颚暴龙鱼</td><td class="fid">crimson_jaw</td></tr>
+<tr><td class="fish">玄武鎏金帝王鲤</td><td class="fid">nether_gilded_carp</td></tr>
+<tr class="grp"><td colspan="5">海洋生物群系 · ocean 列表 biome（19 种）<span class="cnt">含 warm_ocean；银 / 金星由子组修正权重</span></td></tr>
+<tr><td class="fish">金枪鱼</td><td class="fid">tuna_fish</td>
+<td class="tier" rowspan="19"><span class="gc"><i style="background:#c2255c"></i>张力·简单(20~35) <b>51.7%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单(15~25) <b>27.6%</b></span><span class="gc"><i style="background:#c2255c"></i>张力·普通(35~50) <b>20.7%</b></span></td>
+<td class="tier" rowspan="19"><span class="gc"><i style="background:#c2255c"></i>张力·普通 <b>41.9%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>18.6%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·普通(28~40) <b>18.6%</b></span><span class="gc"><i style="background:#c2255c"></i>张力·简单 <b>11.6%</b></span><span class="gc"><i style="background:#c2255c"></i>张力·困难(50~65) <b>9.3%</b></span></td>
+<td class="tier" rowspan="19"><span class="gc"><i style="background:#c2255c"></i>张力·困难 <b>30.0%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·困难(45~60) <b>30.0%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>26.7%</b></span><span class="gc"><i style="background:#c2255c"></i>张力·普通 <b>13.3%</b></span></td></tr>
+<tr><td class="fish">白斑狗鱼</td><td class="fid">pike_fish</td></tr>
+<tr><td class="fish">沙丁鱼</td><td class="fid">sardine_fish</td></tr>
+<tr><td class="fish">章鱼</td><td class="fid">octopus</td></tr>
+<tr><td class="fish">翻车鱼</td><td class="fid">sunfish</td></tr>
+<tr><td class="fish">红鲷鱼</td><td class="fid">red_snapper_fish</td></tr>
+<tr><td class="fish">蓝水母</td><td class="fid">blue_jellyfish</td></tr>
+<tr><td class="fish">粉水母</td><td class="fid">pink_jellyfish</td></tr>
+<tr><td class="fish">深渊灯笼鮟鱇</td><td class="fid">abyssal_angler</td></tr>
+<tr><td class="fish">极速旗鱼</td><td class="fid">sailfish</td></tr>
+<tr><td class="fish">巨浪双髻鲨</td><td class="fid">hammerhead_shark</td></tr>
+<tr><td class="fish">银月魔鬼鱼</td><td class="fid">moonlight_manta</td></tr>
+<tr><td class="fish">荧光水母</td><td class="fid">bioluminescent_jelly</td></tr>
+<tr><td class="fish">大王酸浆乌贼</td><td class="fid">colossal_squid</td></tr>
+<tr><td class="fish">红宝石小丑鱼</td><td class="fid">clownfish_ruby</td></tr>
+<tr><td class="fish">远古腔棘鱼</td><td class="fid">ancient_coelacanth</td></tr>
+<tr><td class="fish">极地霜花鳟</td><td class="fid">frost_trout</td></tr>
+<tr><td class="fish">冰川帝王巨蟹</td><td class="fid">glacial_crab</td></tr>
+<tr><td class="fish">极光幻彩极鳍鱼</td><td class="fid">aurora_fin</td></tr>
+<tr class="grp"><td colspan="5">河川 / 淡水生物群系 · 非 ocean 的水域（21 种）<span class="cnt">river / swamp / cave 生境鱼均落入 river_games；银 / 金星由子组修正权重</span></td></tr>
+<tr><td class="fish">金鱼</td><td class="fid">gold_fish</td>
+<td class="tier" rowspan="21"><span class="gc"><i style="background:#e8590c"></i>精准·简单×9(10~30) <b>87.3%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·简单(8~12) <b>8.1%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单(15~25) <b>4.8%</b></span></td>
+<td class="tier" rowspan="21"><span class="gc"><i style="background:#e8590c"></i>精准·简单×9(10~30) <b>30.0%</b></span><span class="gc"><i style="background:#e8590c"></i>精准·普通×9(20~60) <b>30.0%</b></span><span class="gc"><i style="background:#e8590c"></i>精准·困难×9(30~90) <b>15.0%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·简单 <b>8.3%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·普通(16~24) <b>6.7%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>5.0%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·普通(28~40) <b>5.0%</b></span></td>
+<td class="tier" rowspan="21"><span class="gc"><i style="background:#e8590c"></i>精准·困难×9(30~90) <b>56.9%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·困难(28~36) <b>12.7%</b></span><span class="gc"><i style="background:#7048e8"></i>音游·简单 <b>12.7%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·困难(45~60) <b>10.1%</b></span><span class="gc"><i style="background:#2f9e44"></i>急速·简单 <b>7.6%</b></span></td></tr>
+<tr><td class="fish">河鲈</td><td class="fid">perch_fish</td></tr>
+<tr><td class="fish">鲻鱼</td><td class="fid">mullet_fish</td></tr>
+<tr><td class="fish">鲤鱼</td><td class="fid">carp_fish</td></tr>
+<tr><td class="fish">鲇鱼</td><td class="fid">cat_fish</td></tr>
+<tr><td class="fish">林跃鱼</td><td class="fid">woodskip_fish</td></tr>
+<tr><td class="fish">鲟鱼</td><td class="fid">sturgeon_fish</td></tr>
+<tr><td class="fish">樱花大马哈鱼</td><td class="fid">cherry_salmon</td></tr>
+<tr><td class="fish">雷霆电鳗</td><td class="fid">electric_eel</td></tr>
+<tr><td class="fish">祥瑞金锦鲤</td><td class="fid">golden_koi</td></tr>
+<tr><td class="fish">幽灵鲇</td><td class="fid">phantom_catfish</td></tr>
+<tr><td class="fish">苔原巨鲈</td><td class="fid">mossy_bass</td></tr>
+<tr><td class="fish">竹溪碧雀鳝</td><td class="fid">bamboo_stream_fish</td></tr>
+<tr><td class="fish">北极红点鲑</td><td class="fid">arctic_char</td></tr>
+<tr><td class="fish">无目洞穴脂鲤</td><td class="fid">blind_cave_fish</td></tr>
+<tr><td class="fish">幽匿刺脊鱼</td><td class="fid">sculk_spine_fish</td></tr>
+<tr><td class="fish">紫晶簇孔雀鱼</td><td class="fid">crystal_guppy</td></tr>
+<tr><td class="fish">滴石针鳞鲇</td><td class="fid">dripstone_catfish</td></tr>
+<tr><td class="fish">远古鳄雀鳝</td><td class="fid">alligator_gar</td></tr>
+<tr><td class="fish">泥沼潜伏肺鱼</td><td class="fid">muddy_lungfish</td></tr>
+<tr><td class="fish">女巫密酿躄鱼</td><td class="fid">witch_brew_frogfish</td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:10px">
+×9 = <code>accurate_click_bar_1~9</code> 对应难度档共 9 个变体，概率为合计（如河川银星「精准·简单」= 9 条各 3.3%）；
+括号内为该难度档的 difficulty 区间，实际值在区间内随机 roll 后叠加装备 buff。
+银 / 金星鱼为基名 + <code>_silver_star</code> / <code>_golden_star</code>（CMD 依次 +1、+2），彩虹鱼无星级变体。
+概率为条件概率：分母 = 本次下竿所有成立条件的权重总和（跨场景累加进同一张表），同一竿只会命中一个场景，不可跨行相加。
+环境优先级：<code>in-void</code> / <code>in-lava</code> 先于 biome 判定，海洋 / 河川按 biome 互斥；
+swamp、cave 等非海洋水域一律落入 river_games。已知缺口：<code>deep_warm_ocean</code> 不在 ocean 列表
+（列表收了 deep_lukewarm_ocean 却漏了 deep_warm_ocean），在该生物群系下竿会按 river_games 抽奖。
+</div>
+
+<h2>抽奖与结算全流程</h2>
+<div class="sub">从抛竿到结束的完整链路（源码：<code>CustomFishingHook</code> / <code>VanillaMechanic</code> /
+<code>AbstractGamingPlayer</code>）。关键结论：<b>最终鱼种在浮标入水瞬间就已抽定</b>——
+比咬钩更早，比小游戏更早；小游戏只决定这条已抽定的鱼「给不给」，失败即丢弃。</div>
+<div class="flow">抛竿<span class="arr">→</span>浮标入水<b>【抽鱼定种】</b><span class="arr">→</span>等待咬钩<span class="arr">→</span>咬钩<span class="arr">→</span>右键收线<span class="arr">→</span>抽小游戏 ID<span class="arr">→</span>roll 难度（叠加装备 buff）<span class="arr">→</span>小游戏<span class="arr">→</span><span class="out">成功给鱼 / 失败弃鱼</span><span class="arr">→</span>销毁钩子</div>
+<div class="ftbl"><table>
+<thead><tr><th>阶段</th><th>触发时机</th><th>代码位置</th><th>发生什么</th></tr></thead>
+<tbody>
+<tr><td class="fish">① 抛竿</td><td>右键抛出浮标</td><td class="code">CustomFishingHook:132-134</td>
+<td>应用 CAST 阶段效果；按环境选出 HookMechanic（水 = VanillaMechanic，熔岩 / 虚空各有专用）；启动每 tick 轮询任务</td></tr>
+<tr><td class="fish">② 抽鱼定种</td><td><b>浮标入水瞬间</b>（canStart = 入水）</td><td class="code">CustomFishingHook:150-233</td>
+<td><code>getNextLoot()</code> 抽出最终鱼存入 <code>nextLoot</code>；合并该鱼的 baseEffect + 装备 phase-2 修正 → <code>tempFinalEffect</code> 落定；<code>mechanic.start()</code> 设定咬钩等待时间。抽不到鱼 → freeze，玩家永远空竿</td></tr>
+<tr><td class="fish">③ 等待咬钩</td><td>入水后 100~1200 tick</td><td class="code">VanillaMechanic:85-119</td>
+<td>每 tick 检测咬钩状态；等待时间 = 原版计时 × waitTimeMultiplier + adder（或配置区间随机）；等待中脱钩 → ESCAPE 事件并重新计时</td></tr>
+<tr><td class="fish">④ 咬钩</td><td>浮标抖动</td><td class="code">CustomFishingHook:408-423</td>
+<td>BITE 事件；自动钓鱼条件满足 → 直接发鱼不玩小游戏；<code>instantGame</code> 的鱼 → 立即开小游戏，不等收线</td></tr>
+<tr><td class="fish">⑤ 收线</td><td>玩家右键收线</td><td class="code">CustomFishingHook:381-403</td>
+<td>未咬钩 → 空竿销毁；已咬钩且 <code>disableGame</code> / skip-game 条件满足 → 直接发鱼；否则进入小游戏</td></tr>
+<tr><td class="fish">⑥ 小游戏开局</td><td>收线（或 instantGame）</td><td class="code">gameStart():335-353</td>
+<td>权重累加 → 抽游戏 ID → 难度区间 roll + 装备 buff 修正（clamp 1~100）→ mechanic freeze（等待时间锁 MAX_VALUE，防止游戏中浮标变状态）</td></tr>
+<tr><td class="fish">⑦ 判定</td><td>操作 / 超时</td><td class="code">AbstractGamingPlayer:202-240</td>
+<td>每 tick 运行 + 超时检查；<code>endGame()</code> 按 <code>isSuccessful()</code> 分流</td></tr>
+<tr><td class="fish">⑧ 结算</td><td>游戏结束</td><td class="code">CustomFishingHook:457-660</td>
+<td><b>成功</b>：数量（multipleLootChance）→ 生成物品（size 在此用 SIZE_MULTIPLIER/ADDER 求值）→ 统计记录；<b>失败</b>：已抽定的鱼直接丢弃，什么都不给；随后销毁钩子，自动钓鱼自动抛下一竿</td></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:10px">
+<b>绕过小游戏的路径</b>：<code>disable-game: true</code> 的鱼（本项目约 20 处：default.yml 的原版鱼 +
+entity 类掉落）收线即得；自动钓鱼（auto-fishing 条件）咬钩即得；<code>skip-game</code> 条件满足也可跳过；
+<code>instantGame: true</code> 则咬钩立即开局。<b>时序细节</b>：抽鱼用的是 LOOT 阶段效果，鱼的
+<code>baseEffect</code> 是抽中之后才合并的——所以一条鱼自己的 base-effects（含 difficulty-adder）
+能改它自己的小游戏难度，但改不了抽中过程。
+</div>
+
 <h2>值得注意的几点</h2>
 <div class="note"><ol>
 <li><b>精准点击占了 74%</b>（34/46）：7 个 rainbow 变体 + 9 种 bar × 3 档。但它在场景里只服务于
@@ -241,6 +397,9 @@ ocean_games / lava_games 的 golden 档里 <code>click_game_easy</code> 仍占 2
 <code>accurate_click_bar_1_easy</code> 为 15s。</li>
 <li><b>click 的 difficulty 直接等于需要点击的次数</b>（15~60），没有独立参数，
 调难度只能改 difficulty 数字。</li>
+<li><b>鱼先抽定，小游戏只是闸门</b>：最终鱼种在浮标入水瞬间（收线与小游戏之前）就已抽定，
+小游戏失败则这条鱼直接丢弃；先抽 ID 再 roll 难度、装备 buff 只改难度数值的完整链路
+见上一节「抽奖与结算全流程」。</li>
 </ol></div>
 </div>
 <script>
