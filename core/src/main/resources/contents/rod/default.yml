@@ -85,16 +85,17 @@ star_rod:
       - ''
       - '<#7FFFD4>描述:'
       - '<gray> - 由星尘雕琢而成并浸润了宇宙能量的神奇钓竿，'
-      - '<gray> - 其内蕴的魔力让时间仿佛停滞，给予钓鱼者充裕的操作时间。'
+      - '<gray> - 其内蕴的星辉牵引着冥冥中的福运，让趋吉的祥鱼自投罗网。'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - +15秒 钓鱼小游戏时间'
+      - '<gray> - 显著提高幸运系 (锦鲤) 鱼类的上钩几率 (+10)'
   custom-model-data: 50004
   max-durability: 128
   effects:
     effect_1:
-      type: game-time
-      value: 15
+      type: group-mod
+      value:
+        - lucky:+10
 
 bone_rod:
   material: fishing_rod
@@ -177,22 +178,22 @@ master_rod:
       - '<gray> - 极其精密，大幅缩短鱼儿咬钩时间，但对收线技巧要求极高。'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - 缩短咬钩等待时间'
-      - '<gray> - 增加钓鱼搏斗挑战难度'
-      - '<gray> - 更高概率获得高品质鱼获'
+      - '<gray> - 缩短 20% 咬钩等待时间'
+      - '<gray> - 钓鱼小游戏难度 +20'
+      - '<gray> - 白银之星权重 +8、黄金之星权重 +3'
   custom-model-data: 50007
   max-durability: 128
   effects:
     effect_1:
       type: wait-time-multiplier
-      value: 0.95
+      value: 0.8
     effect_2:
       type: difficulty
-      value: +10
+      value: +20
     effect_3:
       type: group-mod
       value:
-        - silver_star:+5
+        - silver_star:+8
         - golden_star:+3
 
 # 新增进阶特色钓竿
@@ -234,8 +235,8 @@ storm_rod:
       - '<gray> - 在雷暴天会与苍穹雷鸣产生共振，极易引诱带电与水暴生物。'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - 暴风雨天气大幅缩短咬钩时间'
-      - '<gray> - 增加雷暴与水暴系鱼类上钩率'
+      - '<gray> - 雷暴系鱼类上钩权重 +10'
+      - '<gray> - 雨/雷暴天气缩短 50% 咬钩时间，难度 −5'
   custom-model-data: 50021
   max-durability: 180
   effects:
@@ -252,7 +253,7 @@ storm_rod:
       effects:
         effect_1:
           type: wait-time-multiplier
-          value: 0.65
+          value: 0.5
         effect_2:
           type: difficulty
           value: -5
@@ -269,7 +270,9 @@ glacier_rod:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 提升所钓鱼类的体长 (+25%)'
-      - '<gray> - 降低冰钓难度'
+      - '<gray> - 缩短 20% 咬钩等待时间'
+      - '<gray> - 降低钓鱼难度 (−8)'
+      - '<gray> - 提升冰霜系鱼类的上钩几率 (+8)'
   custom-model-data: 50022
   max-durability: 150
   effects:
@@ -280,6 +283,9 @@ glacier_rod:
       type: difficulty
       value: -8
     effect_3:
+      type: wait-time-multiplier
+      value: 0.8
+    effect_4:
       type: group-mod
       value:
         - frozen:+8
@@ -321,20 +327,20 @@ neptune_rod:
       - '<gray> - 挥竿时隐隐伴有海浪轰鸣，能引起深海霸主的注意。'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - 30% 几率触发双重收获 (Multiple Loot)'
-      - '<gray> - 提升深海与巨兽系鱼类的咬钩概率'
-      - '<gray> - 游戏时间 +5 秒'
+      - '<gray> - 50% 几率触发双重收获 (Multiple Loot)'
+      - '<gray> - 缩短 20% 咬钩等待时间'
+      - '<gray> - 大幅提升巨物系 (+10) 与海洋系 (+6) 鱼类的上钩概率'
   custom-model-data: 50024
   max-durability: 250
   effects:
     effect_1:
       type: multiple-loot
-      value: 0.3
+      value: 0.5
     effect_2:
-      type: game-time
-      value: 5
+      type: wait-time-multiplier
+      value: 0.8
     effect_3:
       type: group-mod
       value:
-        - titan:+5
+        - titan:+10
         - ocean:+6
