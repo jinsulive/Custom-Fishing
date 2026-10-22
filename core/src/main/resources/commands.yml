@@ -95,6 +95,15 @@ start_competition:
   - "/customfishing competition start"
   - "/cfishing competition start"
 
+# A command to view the current competition ranking
+# Usage: [COMMAND] [count]
+rank_competition:
+  enable: true
+  permission: "customfishing.command.competition"
+  usage:
+  - "/customfishing competition rank"
+  - "/cfishing competition rank"
+
 # A command to open market for players
 # Usage: [COMMAND] [player]
 open_market:

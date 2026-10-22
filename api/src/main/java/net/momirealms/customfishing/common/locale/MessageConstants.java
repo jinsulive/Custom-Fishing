@@ -51,6 +51,9 @@ public interface MessageConstants {
     TranslatableComponent.Builder COMMAND_COMPETITION_START_SUCCESS = Component.translatable().key("command.competition.start.success");
     TranslatableComponent.Builder COMMAND_COMPETITION_STOP_SUCCESS = Component.translatable().key("command.competition.stop.success");
     TranslatableComponent.Builder COMMAND_COMPETITION_END_SUCCESS = Component.translatable().key("command.competition.end.success");
+    TranslatableComponent.Builder COMMAND_COMPETITION_RANK_HEADER = Component.translatable().key("command.competition.rank.header");
+    TranslatableComponent.Builder COMMAND_COMPETITION_RANK_ENTRY = Component.translatable().key("command.competition.rank.entry");
+    TranslatableComponent.Builder COMMAND_COMPETITION_RANK_EMPTY = Component.translatable().key("command.competition.rank.empty");
     TranslatableComponent.Builder COMMAND_BAG_EDIT_FAILURE_UNSAFE = Component.translatable().key("command.bag.edit.failure.unsafe");
     TranslatableComponent.Builder COMMAND_BAG_EDIT_FAILURE_NEVER_PLAYED = Component.translatable().key("command.bag.edit.failure.never_played");
     TranslatableComponent.Builder COMMAND_BAG_OPEN_SUCCESS = Component.translatable().key("command.bag.open.success");
