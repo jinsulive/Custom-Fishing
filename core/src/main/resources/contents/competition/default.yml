@@ -11,7 +11,9 @@ weekend_competition:
   # MIN_SIZE
   # TOTAL_SIZE
   # RANDOM
-  goal: CATCH_AMOUNT
+  # 由 CATCH_AMOUNT 改为 MAX_SIZE，周末赛与海王巨物赛同为「比最长的鱼」，
+  # 两者仅在开赛日、人数门槛与奖励上区分。
+  goal: MAX_SIZE
 
   # Optional
   # 1-7 (周日 = 7)
@@ -39,7 +41,7 @@ weekend_competition:
     overlay: PROGRESS
     text:
       - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
-      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}cm</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}cm</#E6E6FA>'
       - '<gray>[<#87CEFA>🎣<gray>] <gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 20 # in ticks
     switch-interval: 200 # in ticks
@@ -49,7 +51,7 @@ weekend_competition:
     enable: false
     text:
       - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前排名: <#E6E6FA>#{rank}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>第一名: <#E6E6FA>{1_player}</#E6E6FA>'
-      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}</#E6E6FA>'
+      - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>当前得分: <#E6E6FA>{score_formatted}cm</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>最高分: <#E6E6FA>{1_score}cm</#E6E6FA>'
       - '<gradient:#F0F8FF:#87CEFA:#F0F8FF>剩余时间: <#E6E6FA>{hour}{minute}{second}</#E6E6FA> <gray>| <gradient:#F0F8FF:#87CEFA:#F0F8FF>获胜条件: <#E6E6FA>{goal}</#E6E6FA>'
     refresh-rate: 5 # in ticks
     switch-interval: 200 # in ticks
@@ -67,9 +69,9 @@ weekend_competition:
       - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF>周末钓鱼大赛'
       - ''
       - '     <#E1FFFF>当前排行榜:</#E1FFFF>'
-      - '              <#E1FFFF>No.①: {1_player} - {1_score}'
-      - '              <#E1FFFF>No.②: {2_player} - {2_score}'
-      - '              <#E1FFFF>No.③: {3_player} - {3_score}'
+      - '              <#E1FFFF>No.①: {1_player} - {1_score}cm'
+      - '              <#E1FFFF>No.②: {2_player} - {2_score}cm'
+      - '              <#E1FFFF>No.③: {3_player} - {3_score}cm'
       - ''
       - '              <#B0C4DE>剩余时间: {hour}{minute}{second}'
       - ''
@@ -86,7 +88,7 @@ weekend_competition:
         - ''
         - '      <#E1FFFF>获胜目标:'
         - '         <#B0C4DE>{goal}'
-        - '           <#B0C4DE>甩起鱼竿即可参与竞逐！'
+        - '           <#B0C4DE>甩起鱼竿即可参与竞逐，看谁能钓起最长的鱼！'
         - ''
         - '<#D4F2E7>◣─────────────────────────◢'
   end-actions:
@@ -98,9 +100,9 @@ weekend_competition:
         - '             <gray>[<#87CEFA>🎣<gray>]  <gradient:#F0F8FF:#87CEFA:#F0F8FF><b>周末钓鱼大赛 颁奖</b></gradient>'
         - ''
         - '      <#E1FFFF>比赛结果:'
-        - '              <gradient:#FFF8DC:#FFD700:#FFF8DC>No.①: {1_player} - {1_score}'
-        - '              <gradient:#F5FFFA:#F5F5F5:#F5FFFA>No.②: {2_player} - {2_score}'
-        - '              <gradient:#D2B48C:#CD853F:#D2B48C>No.③: {3_player} - {3_score}'
+        - '              <gradient:#FFF8DC:#FFD700:#FFF8DC>No.①: {1_player} - {1_score}cm'
+        - '              <gradient:#F5FFFA:#F5F5F5:#F5FFFA>No.②: {2_player} - {2_score}cm'
+        - '              <gradient:#D2B48C:#CD853F:#D2B48C>No.③: {3_player} - {3_score}cm'
         - ''
         - '<#D4F2E7>◣─────────────────────────◢'
   participate-actions:
