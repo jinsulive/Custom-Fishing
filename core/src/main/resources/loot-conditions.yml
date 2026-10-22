@@ -343,29 +343,19 @@ void_loots:
     - 'group_for_each:void&no_star:+15'
     - 'group_for_each:void&silver_star:+4'
     - 'group_for_each:void&golden_star:+1'
-  sub-groups:
-    # 末地岛屿虚空
-    the_end_void:
-      conditions:
-        environment:
-          - the_end
-      list:
-        - 'group_for_each:nebula&no_star:+16'
-        - 'group_for_each:nebula&silver_star:+5'
-        - 'group_for_each:nebula&golden_star:+1.5'
-        - 'group_for_each:chorus&no_star:+22.5'
-        - 'group_for_each:chorus&silver_star:+6'
-        - 'group_for_each:chorus&golden_star:+1.5'
-
-    # 世界最底层深渊虚空 (Y < -55 极限时空奇点)
-    bottom_world_abyss:
-      conditions:
-        ypos:
-          - -128~-55
-      list:
-        - 'singularity_fish:+7.5'
-        - 'singularity_fish_silver_star:+2'
-        - 'singularity_fish_golden_star:+0.5'
+    # ---- 统一虚空池 ----
+    # 所有虚空环境（末地岛屿虚空 / 世界底层 Y<-55 深渊虚空）共用同一份权重表，
+    # 不再按 environment / ypos 拆分子池；原「世界底层专属」的奇点鱼一并并入本池，
+    # 避免移除子池后该鱼种失去产出途径。
+    - 'group_for_each:nebula&no_star:+16'
+    - 'group_for_each:nebula&silver_star:+5'
+    - 'group_for_each:nebula&golden_star:+1.5'
+    - 'group_for_each:chorus&no_star:+22.5'
+    - 'group_for_each:chorus&silver_star:+6'
+    - 'group_for_each:chorus&golden_star:+1.5'
+    - 'singularity_fish:+7.5'
+    - 'singularity_fish_silver_star:+2'
+    - 'singularity_fish_golden_star:+0.5'
 
 # ------------------------------------------------------------------------------
 # 特殊装备奇遇 (骷髅钓竿引怪)

@@ -85,10 +85,10 @@ star_rod:
       - ''
       - '<#7FFFD4>描述:'
       - '<gray> - 由星尘雕琢而成并浸润了宇宙能量的神奇钓竿，'
-      - '<gray> - 其内蕴的星辉牵引着冥冥中的福运，让趋吉的祥鱼自投罗网。'
+      - '<gray> - 其内蕴的魔力能够吸引宝藏，提高战利品的出现概率'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - 显著提高幸运系 (锦鲤) 鱼类的上钩几率 (+10)'
+      - '<gray> - 幸运战利品概率上升'
   custom-model-data: 50004
   max-durability: 128
   effects:
@@ -236,7 +236,7 @@ storm_rod:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 雷暴系鱼类上钩权重 +10'
-      - '<gray> - 雨/雷暴天气缩短 50% 咬钩时间，难度 −5'
+      - '<gray> - 雨/雷暴天气缩短 80% 咬钩时间，难度 −5'
   custom-model-data: 50021
   max-durability: 180
   effects:
@@ -253,7 +253,7 @@ storm_rod:
       effects:
         effect_1:
           type: wait-time-multiplier
-          value: 0.5
+          value: 0.2
         effect_2:
           type: difficulty
           value: -5
