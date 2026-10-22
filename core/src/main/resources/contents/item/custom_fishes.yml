@@ -357,10 +357,10 @@ phantom_catfish:
   display:
     name: <gradient:#483D8B:#6A5ACD:#9370DB><b>幽灵鲇</b></gradient>
     lore:
-      - '<gray>仅在深夜游荡于深水泥底的半透明怪鱼，'
+      - '<gray>常在深夜游荡于深水泥底的半透明怪鱼，'
       - '<gray>肉质若隐若现，具有微弱的夜视荧光。'
       - ''
-      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#87CEEB>生境: <white>淡水水底 (夜晚更活跃 14000~22000)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <white>普通 ★☆☆'
   custom-model-data: 50231
@@ -393,7 +393,7 @@ phantom_catfish_silver_star:
     lore:
       - '<gray>身形宛如一抹漂浮的夜雾，隐匿在河道深处。'
       - ''
-      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#87CEEB>生境: <white>淡水水底 (夜晚更活跃 14000~22000)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
   custom-model-data: 50232
@@ -426,7 +426,7 @@ phantom_catfish_golden_star:
     lore:
       - '<gray>仿佛穿梭阴阳两界的幽冥使者，全身泛着冰冷的紫罗兰磷光。'
       - ''
-      - '<#87CEEB>生境: <white>淡水水底 (仅限夜晚 14000~22000)'
+      - '<#87CEEB>生境: <white>淡水水底 (夜晚更活跃 14000~22000)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#FFD700>黄金 ★★★'
   custom-model-data: 50233
@@ -917,7 +917,7 @@ moonlight_manta:
       - '<gray>在满月银光洒满海面时浮上水面的幻之蝠鲼，'
       - '<gray>双翼平滑如云，游动间似在星海中漫游。'
       - ''
-      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#87CEEB>生境: <white>大洋水面 (满月夜晚更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <white>普通 ★☆☆'
   custom-model-data: 50291
@@ -950,7 +950,7 @@ moonlight_manta_silver_star:
     lore:
       - '<gray>银色符文在它的翼膜上流动，带给人飘渺轻灵的宁静感。'
       - ''
-      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#87CEEB>生境: <white>大洋水面 (满月夜晚更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
   custom-model-data: 50292
@@ -983,7 +983,7 @@ moonlight_manta_golden_star:
     lore:
       - '<gray>月之精魄的眷属，振翅宛如月华流泻，倾倒众生。'
       - ''
-      - '<#87CEEB>生境: <white>大洋水面 (仅限满月夜晚 FULL_MOON)'
+      - '<#87CEEB>生境: <white>大洋水面 (满月夜晚更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#FFD700>黄金 ★★★'
   custom-model-data: 50293
@@ -1119,9 +1119,9 @@ colossal_squid:
     name: <gradient:#8B0000:#DC143C:#FF4500><b>大王酸浆乌贼</b></gradient>
     lore:
       - '<gray>深海千米之下的恐怖霸主，触手末端长有倒钩与吸盘，'
-      - '<gray>体长可达数米，需要乘船出远海才能寻觅其踪迹。'
+      - '<gray>体长可达数米，多在远洋深处出没。'
       - ''
-      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#87CEEB>生境: <white>深海远洋'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <white>普通 ★☆☆'
   custom-model-data: 50311
@@ -1151,7 +1151,7 @@ colossal_squid_silver_star:
     lore:
       - '<gray>狰狞的暗红巨目有餐盘大小，触须粗如水桶。'
       - ''
-      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#87CEEB>生境: <white>深海远洋'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
   custom-model-data: 50312
@@ -1181,7 +1181,7 @@ colossal_squid_golden_star:
     lore:
       - '<gray>远洋水手口口相传的灭世海妖！能够轻易将小型帆船拖入海底！'
       - ''
-      - '<#87CEEB>生境: <white>深海远洋 (需乘船垂钓)'
+      - '<#87CEEB>生境: <white>深海远洋'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#FFD700>黄金 ★★★'
   custom-model-data: 50313
@@ -1834,9 +1834,9 @@ sculk_spine_fish:
     name: <gradient:#008B8B:#00FFFF:#001122><b>幽匿刺脊鱼</b></gradient>
     lore:
       - '<gray>受到幽匿物质侵蚀共生的深渊异种，背脊上长满振动触角。'
-      - '<gray>只有保持极度的静止与潜行（Sneak）才可能引其咬钩。'
+      - '<gray>保持静止并潜行（Sneak）垂钓时，更易引其咬钩。'
       - ''
-      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20，潜行时更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <white>普通 ★☆☆'
   custom-model-data: 50391
@@ -1873,7 +1873,7 @@ sculk_spine_fish_silver_star:
     lore:
       - '<gray>幽匿触须散发着摄人心魄的青蓝光芒，吸收着周围的声音。'
       - ''
-      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20，潜行时更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#E0FFFF>白银 ★★☆'
   custom-model-data: 50392
@@ -1910,7 +1910,7 @@ sculk_spine_fish_golden_star:
     lore:
       - '<gray>幽暗深渊的主宰之眼！蕴含着纯粹的幽匿原核与古老声波！'
       - ''
-      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20 潜行垂钓)'
+      - '<#87CEEB>生境: <white>深板岩层水体 (Y < -20，潜行时更易出现)'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#FFD700>黄金 ★★★'
   custom-model-data: 50393
@@ -3101,7 +3101,7 @@ singularity_fish:
       - '<gray>于世界最深处世界底层的极限虚空边缘凝结而成，'
       - '<gray>核心引力强横无匹，周围光线与空间均因其发生扭曲。'
       - ''
-      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#87CEEB>生境: <white>虚空'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <white>神话 ★★★★★'
   custom-model-data: 50521
@@ -3136,7 +3136,7 @@ singularity_fish_silver_star:
     lore:
       - '<gray>星核脉冲不断释放出毁灭与重生的时空潮汐。'
       - ''
-      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#87CEEB>生境: <white>虚空'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#E0FFFF>白银神话 ★★★★★'
   custom-model-data: 50522
@@ -3164,7 +3164,7 @@ singularity_fish_golden_star:
     lore:
       - '<gray>万象归一的时空之眼！拥有改写维度现实的不可思议神力！'
       - ''
-      - '<#87CEEB>生境: <white>世界最底层虚空 (Y < -60 极限深渊)'
+      - '<#87CEEB>生境: <white>虚空'
       - '<#FFD700>体长: <white>{size_formatted} cm'
       - '<#98FB98>品质: <#FFD700>黄金神话 ★★★★★'
   custom-model-data: 50523

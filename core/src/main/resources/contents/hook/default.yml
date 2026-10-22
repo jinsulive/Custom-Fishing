@@ -131,8 +131,8 @@ feather_hook:
       - '<gray> - 能大幅减轻鱼儿咬钩后的挣扎反抗烈度。'
       - ''
       - '<#FFD700>特性:'
-      - '<gray> - 垂钓小游戏难度大幅降低 (-15)'
-      - '<gray> - 搏斗游戏时间 +4 秒'
+      - '<gray> - 垂钓小游戏难度大幅降低'
+      - '<gray> - 延长搏斗游戏时间'
   max-durability: 32
   custom-model-data: 50014
   enchantments:
@@ -161,7 +161,7 @@ abyssal_heavy_sink_hook:
       - ''
       - '<#FFD700>特性:'
       - '<gray> - 显著提升深海生物与巨物咬钩率'
-      - '<gray> - 鱼类体长增加 15%'
+      - '<gray> - 鱼类体长增加'
   max-durability: 32
   custom-model-data: 50015
   enchantments:
@@ -206,7 +206,7 @@ sunken_obsidian_hook:
       - '<#FFD700>特性:'
       - '<gray> - 允许在岩浆 (Lava) 中垂钓'
       - '<gray> - 熔岩生物与黑曜石系鱼类吸引率提升'
-      - '<gray> - 耐久较低，仅可支撑 16 次垂钓'
+      - '<gray> - 耐久较低，仅可支撑寥寥数次垂钓'
   max-durability: 16
   custom-model-data: 50603
   enchantments:
@@ -238,7 +238,7 @@ sunken_void_hook:
       - '<#FFD700>特性:'
       - '<gray> - 允许在虚空 (Void) 中垂钓'
       - '<gray> - 星云与紫颂系虚空生物吸引率提升'
-      - '<gray> - 耐久极低，仅可支撑 12 次垂钓'
+      - '<gray> - 耐久极低，仅可支撑极少次数垂钓'
   max-durability: 12
   custom-model-data: 50604
   enchantments:

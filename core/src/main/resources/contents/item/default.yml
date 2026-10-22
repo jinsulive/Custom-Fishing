@@ -1032,8 +1032,8 @@ woodskip_fish:
   display:
     name: <#CD5C5C>林跃鱼</#CD5C5C>
     lore:
-      - <gray>一种非常敏感的鱼，只能
-      - <gray>生活在森林深处的水池中。
+      - <gray>一种非常敏感的鱼，多栖息于
+      - <gray>沼泽与红树林的静水之中。
       - '<white>体长: {size_formatted}cm'
   custom-model-data: 50037
   group:
@@ -1055,8 +1055,8 @@ woodskip_fish_silver_star:
   display:
     name: <#CD5C5C>林跃鱼</#CD5C5C> <#F5F5F5>(白银之星)</#F5F5F5>
     lore:
-      - <gray>一种非常敏感的鱼，只能
-      - <gray>生活在森林深处的水池中。
+      - <gray>一种非常敏感的鱼，多栖息于
+      - <gray>沼泽与红树林的静水之中。
       - '<white>体长: {size_formatted}cm'
   custom-model-data: 50038
   group:
@@ -1078,8 +1078,8 @@ woodskip_fish_golden_star:
   display:
     name: <#CD5C5C>林跃鱼</#CD5C5C> <#FFD700>(黄金之星)</#FFD700>
     lore:
-      - <gray>一种非常敏感的鱼，只能
-      - <gray>生活在森林深处的水池中。
+      - <gray>一种非常敏感的鱼，多栖息于
+      - <gray>沼泽与红树林的静水之中。
       - '<white>体长: {size_formatted}cm'
   custom-model-data: 50039
   group:
