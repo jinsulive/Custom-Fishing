@@ -20,6 +20,7 @@ package net.momirealms.customfishing.bukkit.competition;
 import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
 import net.momirealms.customfishing.api.mechanic.action.ActionManager;
 import net.momirealms.customfishing.api.mechanic.competition.CompetitionConfig;
+import net.momirealms.customfishing.api.mechanic.competition.CompetitionGoal;
 import net.momirealms.customfishing.api.mechanic.competition.CompetitionManager;
 import net.momirealms.customfishing.api.mechanic.competition.CompetitionSchedule;
 import net.momirealms.customfishing.api.mechanic.competition.FishingCompetition;
@@ -34,6 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,6 +51,9 @@ public class BukkitCompetitionManager implements CompetitionManager {
     private int interval;
     private final UUID identifier;
     private final ConcurrentHashMap<UUID, PlayerCount> playerCountMap;
+    private final PendingRewardManager pendingRewardManager;
+    @Nullable
+    private CompetitionPersistence persistence;
     private RedisPlayerCount redisPlayerCount;
 
     public BukkitCompetitionManager(BukkitCustomFishingPlugin plugin) {
@@ -57,7 +62,23 @@ public class BukkitCompetitionManager implements CompetitionManager {
         this.timeConfigMap = new TreeMap<>();
         this.commandConfigMap = new HashMap<>();
         this.playerCountMap = new ConcurrentHashMap<>();
+        this.pendingRewardManager = new PendingRewardManager(plugin);
         this.redisPlayerCount = null;
+    }
+
+    /**
+     * 离线玩家的大赛奖励补发队列。
+     */
+    public PendingRewardManager getPendingRewardManager() {
+        return pendingRewardManager;
+    }
+
+    /**
+     * 赛事数据持久化层；存储后端不是 SQL 时 {@code available()} 为 false。
+     */
+    @Nullable
+    public CompetitionPersistence getPersistence() {
+        return persistence;
     }
 
     @Override
@@ -70,6 +91,17 @@ public class BukkitCompetitionManager implements CompetitionManager {
                 TimeUnit.SECONDS
         );
         plugin.debug("Loaded " + commandConfigMap.size() + " competitions");
+
+        // 存储管理器在 competitionManager.load() 之前完成 reload，这里可以安全取连接
+        this.persistence = new CompetitionPersistence(plugin);
+        if (persistence.available()) {
+            persistence.createTables();
+        } else {
+            plugin.getPluginLogger().info("Competition data will be stored in local files "
+                    + "(current storage backend is not SQL)");
+        }
+        this.pendingRewardManager.initStorage(persistence);
+        this.resumeCompetitionIfAny();
 
         if (ConfigManager.redisRanking()) {
             if (this.redisPlayerCount == null) {
@@ -119,6 +151,33 @@ public class BukkitCompetitionManager implements CompetitionManager {
         }
         commandConfigMap.put(competitionConfig.id(), competitionConfig);
         return true;
+    }
+
+    /**
+     * 服务器重启 / 崩溃后，从快照把被打断的比赛接回来继续跑。
+     * 只有「本地榜单 + SQL 后端」才做这件事：Redis 榜单本身就在库里，重载时赛事也未停止。
+     */
+    private void resumeCompetitionIfAny() {
+        if (persistence == null || !persistence.available()) return;
+        if (ConfigManager.redisRanking()) return;
+        if (currentCompetition != null && currentCompetition.isOnGoing()) return;
+
+        CompetitionPersistence.SnapshotRow snapshot = persistence.loadSnapshot();
+        if (snapshot == null) return;
+        CompetitionConfig config = commandConfigMap.get(snapshot.competition());
+        long now = Instant.now().getEpochSecond();
+        int remaining = (int) (snapshot.startedAt() + snapshot.duration() - now);
+        if (config == null || remaining <= 0) {
+            plugin.getPluginLogger().info("Dropped stale competition snapshot `"
+                    + snapshot.competition() + "` (remaining " + remaining + "s)");
+            persistence.deleteSnapshotAsync();
+            return;
+        }
+        CompetitionGoal goal = CompetitionGoal.index().value(snapshot.goal());
+        Competition competition = new Competition(plugin, config, goal);
+        if (competition.resume(snapshot.startedAt(), remaining, snapshot.scores())) {
+            this.currentCompetition = competition;
+        }
     }
 
     /**

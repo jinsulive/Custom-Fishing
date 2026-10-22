@@ -41,6 +41,19 @@ public class CompetitionPlayer implements Comparable<CompetitionPlayer> {
     }
 
     /**
+     * 用指定的成绩与刷新时间构造（仅用于从快照恢复榜单，保住同分排序）。
+     *
+     * @param player the name of the player.
+     * @param score  the score of the player.
+     * @param time   the last update time in milliseconds.
+     */
+    public CompetitionPlayer(String player, double score, long time) {
+        this.player = player;
+        this.score = score;
+        this.time = time;
+    }
+
+    /**
      * Adds the specified score to the player's current score.
      * If the added score is positive, updates the player's time to the current time.
      *
