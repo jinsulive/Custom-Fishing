@@ -29,21 +29,28 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.command.SimpleCommandMap;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.incendo.cloud.SenderMapper;
 import org.incendo.cloud.bukkit.CloudBukkitCapabilities;
+import org.incendo.cloud.component.CommandComponent;
 import org.incendo.cloud.execution.ExecutionCoordinator;
 import org.incendo.cloud.paper.LegacyPaperCommandManager;
 import org.incendo.cloud.setting.ManagerSetting;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 public class BukkitCommandManager extends AbstractCommandManager<CommandSender> {
 
@@ -125,6 +132,11 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
 
     private final Index<String, CommandFeature<CommandSender>> INDEX = Index.create(CommandFeature::getFeatureID, FEATURES);
 
+    /**
+     * 本次 enable 是否属于运行期重载(PlugManX unload -> load 之类的场景).
+     */
+    private final boolean runtimeReload;
+
     public BukkitCommandManager(BukkitCustomFishingPlugin plugin) {
         super(plugin, new LegacyPaperCommandManager<>(
                 plugin.getBootstrap(),
@@ -136,7 +148,7 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
         // unregister 只摘 Brigadier 节点, 不清 CommandMap), 残留会让本次 commandMap.register
         // 因为 label 已占用而返回 false, 表现同样是"重载后指令消失"
         purgeStaleCommands(pluginName);
-        final boolean runtimeReload = consumeRuntimeReload(plugin.getDataDirectory());
+        this.runtimeReload = consumeRuntimeReload(plugin.getDataDirectory());
 
         final LegacyPaperCommandManager<CommandSender> manager = (LegacyPaperCommandManager<CommandSender>) getCommandManager();
         manager.settings().set(ManagerSetting.ALLOW_UNSAFE_REGISTRATION, true);
@@ -159,6 +171,161 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
             }
         } else if (manager.hasCapability(CloudBukkitCapabilities.ASYNCHRONOUS_COMPLETION)) {
             manager.registerAsynchronousCompletions();
+        }
+    }
+
+    /**
+     * 注册完成后主动把命令树下发给在线玩家.
+     *
+     * <p>Paper 只在启动阶段把命令树同步给客户端, 运行期重新注册的命令不会自动体现到客户端,
+     * 表现为"服务端明明有命令, 客户端却提示未知命令".</p>
+     */
+    @Override
+    public void registerDefaultFeatures() {
+        super.registerDefaultFeatures();
+        resendCommandTree();
+        if (this.runtimeReload) {
+            plugin.getPluginLogger().info("Command tree has been resent to online players");
+        }
+    }
+
+    /**
+     * 注销全部命令.
+     *
+     * <p>现代 Brigadier 通道下 cloud 每注销一个根节点就会调用一次 {@code player.updateCommands()},
+     * 该调用会让 Paper 在异步线程里重建整棵命令树; 紧接着删除下一个根节点就会与这次遍历并发,
+     * 抛出 {@code ConcurrentModificationException}, 客户端因此收不到新的命令树.
+     * 所以这里先把所有根节点删完, 最后只补发一次.</p>
+     */
+    @Override
+    public void unregisterFeatures() {
+        if (!unregisterBrigadierRoots()) {
+            super.unregisterFeatures();
+            return;
+        }
+        this.registeredRootCommandComponents.clear();
+        this.registeredFeatures.forEach(CommandFeature::unregisterRelatedFunctions);
+        this.registeredFeatures.clear();
+        resendCommandTree();
+    }
+
+    /**
+     * 一次性摘除现代 Brigadier 通道下注册的全部根节点(不做任何 resend).
+     *
+     * @return 是否走了现代通道并成功摘除; {@code false} 表示应退回 cloud 的默认注销逻辑
+     */
+    private boolean unregisterBrigadierRoots() {
+        final Object handler;
+        try {
+            handler = this.getCommandManager().commandRegistrationHandler();
+        } catch (Throwable t) {
+            return false;
+        }
+        if (handler == null || !handler.getClass().getName().endsWith("ModernPaperBrigadier")) {
+            return false;
+        }
+        try {
+            final Field commandsField = findField(handler.getClass(), "commands");
+            final Field aliasesField = findField(handler.getClass(), "aliases");
+            if (commandsField == null || aliasesField == null) return false;
+            final Object commands = commandsField.get(handler);
+            // commands 为 null 说明现代通道根本没注册成功(例如运行期重载), 交给 cloud 原逻辑收尾
+            if (commands == null) return false;
+            final Object dispatcher = dispatchOf(commands);
+            final Object root = dispatcher.getClass().getMethod("getRoot").invoke(dispatcher);
+
+            final Set<String> labels = new LinkedHashSet<>();
+            if (aliasesField.get(handler) instanceof Map<?, ?> aliases) {
+                // 别名(label 展开后)也要一并摘掉, 否则会留下悬挂节点
+                for (final Object value : aliases.values()) {
+                    if (value instanceof Collection<?> aliasesOfLabel) {
+                        for (final Object alias : aliasesOfLabel) {
+                            if (alias instanceof String string) labels.add(string);
+                        }
+                    }
+                }
+            }
+            for (final CommandComponent<CommandSender> component : this.registeredRootCommandComponents) {
+                labels.add(component.name());
+            }
+            if (labels.isEmpty()) return true;
+
+            final Method removeCommand = removeCommandMethod();
+            for (final String label : labels) {
+                removeCommand.invoke(root, label);
+            }
+            return true;
+        } catch (Throwable t) {
+            // 反射路径不可用时退回 cloud 的逐条注销, 顶多重新出现并发告警, 不影响卸载
+            return false;
+        }
+    }
+
+    /**
+     * 取得 Paper 命令注册接口上的 {@code getDispatcher()} 方法.
+     *
+     * @param commands Paper 的 Commands 实例
+     * @return Brigadier 的命令分发器
+     * @throws ReflectiveOperationException 反射失败
+     */
+    private static Object dispatchOf(@NotNull Object commands) throws ReflectiveOperationException {
+        try {
+            final Class<?> type = Class.forName("io.papermc.paper.command.brigadier.Commands");
+            return type.getMethod("getDispatcher").invoke(commands);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            return commands.getClass().getMethod("getDispatcher").invoke(commands);
+        }
+    }
+
+    /**
+     * 取得 Brigadier {@code CommandNode#removeCommand(String)}.
+     *
+     * <p>编译期依赖的 brigadier 版本没有该方法, 运行期(Paper)才有, 因此必须反射获取.</p>
+     *
+     * @return removeCommand 方法句柄
+     * @throws ReflectiveOperationException 反射失败
+     */
+    @NotNull
+    private static Method removeCommandMethod() throws ReflectiveOperationException {
+        final Method method = Class.forName("com.mojang.brigadier.tree.CommandNode")
+                .getMethod("removeCommand", String.class);
+        method.setAccessible(true);
+        return method;
+    }
+
+    /**
+     * 沿继承链查找字段.
+     *
+     * @param type      起始类型
+     * @param fieldName 字段名
+     * @return 字段, 找不到返回 {@code null}
+     */
+    private static Field findField(@NotNull Class<?> type, @NotNull String fieldName) {
+        Class<?> current = type;
+        while (current != null) {
+            try {
+                final Field field = current.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                return field;
+            } catch (NoSuchFieldException e) {
+                current = current.getSuperclass();
+            } catch (Throwable t) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 把最新的命令树下发给所有在线玩家(必须在主线程调用).
+     */
+    private static void resendCommandTree() {
+        try {
+            for (final Player player : Bukkit.getOnlinePlayers()) {
+                player.updateCommands();
+            }
+        } catch (Throwable ignored) {
+            // 补发失败不影响命令本身可用, 玩家重新登录即可
         }
     }
 
