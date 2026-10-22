@@ -179,64 +179,85 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
      *
      * <p>Paper 只在启动阶段把命令树同步给客户端, 运行期重新注册的命令不会自动体现到客户端,
      * 表现为"服务端明明有命令, 客户端却提示未知命令".</p>
+     *
+     * <p>补发放在注册全部完成之后同步执行: 此时不会再有节点增删, 异步重建与结构修改不会交错.
+     * 不能用调度器延后到下一 tick —— enable 阶段插件尚未标记为 enabled, Bukkit 调度器会拒收任务.</p>
      */
     @Override
     public void registerDefaultFeatures() {
         super.registerDefaultFeatures();
         resendCommandTree();
-        if (this.runtimeReload) {
-            plugin.getPluginLogger().info("Command tree has been resent to online players");
-        }
     }
 
     /**
      * 注销全部命令.
      *
-     * <p>现代 Brigadier 通道下 cloud 每注销一个根节点就会调用一次 {@code player.updateCommands()},
-     * 该调用会让 Paper 在异步线程里重建整棵命令树; 紧接着删除下一个根节点就会与这次遍历并发,
-     * 抛出 {@code ConcurrentModificationException}, 客户端因此收不到新的命令树.
-     * 所以这里先把所有根节点删完, 最后只补发一次.</p>
+     * <p>cloud 原实现是"逐个根节点 删除 + {@code player.updateCommands()}"。这有两个问题:
+     * 一是 {@code updateCommands()} 会让 Paper 在异步线程重建整棵命令树, 而下一个根节点的删除
+     * 紧接着发生, 两次操作并发就抛 {@code ConcurrentModificationException}; 二是卸载阶段根本
+     * 不需要下发命令树(PlugManX 随后自己还会清理命令, 又是一次并发源)。</p>
+     *
+     * <p>所以这里一次性摘完所有根节点, <b>且不做任何 resend</b>; 命令树由下一次 enable 的
+     * {@link #registerDefaultFeatures()} 统一补发。</p>
      */
     @Override
     public void unregisterFeatures() {
-        if (!unregisterBrigadierRoots()) {
+        final int removed = unregisterRootCommandsQuietly();
+        if (removed < 0) {
+            // 极少数情况下(拿不到 Brigadier 分派器)退回 cloud 原逻辑, 重新出现并发告警但不影响卸载
+            plugin.getPluginLogger().warn("Failed to remove command nodes quietly, falling back to the default unregistration");
             super.unregisterFeatures();
             return;
         }
+        plugin.getPluginLogger().info("Removed " + removed + " root command node(s) from the brigadier tree");
         this.registeredRootCommandComponents.clear();
         this.registeredFeatures.forEach(CommandFeature::unregisterRelatedFunctions);
         this.registeredFeatures.clear();
-        resendCommandTree();
     }
 
     /**
-     * 一次性摘除现代 Brigadier 通道下注册的全部根节点(不做任何 resend).
+     * 一次性摘除全部根命令节点, 过程中不触发任何命令树下发.
      *
-     * @return 是否走了现代通道并成功摘除; {@code false} 表示应退回 cloud 的默认注销逻辑
+     * @return 摘除的节点数; {@code -1} 表示应退回 cloud 的默认注销逻辑
      */
-    private boolean unregisterBrigadierRoots() {
-        final Object handler;
+    private int unregisterRootCommandsQuietly() {
+        final Object root = dispatcherRoot();
+        if (root == null) return -1;
+        final Set<String> labels = rootLabels();
+        if (labels.isEmpty()) return 0;
         try {
-            handler = this.getCommandManager().commandRegistrationHandler();
+            final Method removeCommand = removeCommandMethod();
+            if (removeCommand != null) {
+                for (final String label : labels) {
+                    removeCommand.invoke(root, label);
+                }
+                return labels.size();
+            }
+            // 运行期 brigadier 没有 removeCommand 时, 直接操作 children(与它等价的删除方式)
+            final Map<String, ?> children = childrenMapOf(root);
+            if (children == null) return -1;
+            labels.forEach(children::remove);
+            return labels.size();
         } catch (Throwable t) {
-            return false;
+            return -1;
         }
-        if (handler == null || !handler.getClass().getName().endsWith("ModernPaperBrigadier")) {
-            return false;
-        }
-        try {
-            final Field commandsField = findField(handler.getClass(), "commands");
-            final Field aliasesField = findField(handler.getClass(), "aliases");
-            if (commandsField == null || aliasesField == null) return false;
-            final Object commands = commandsField.get(handler);
-            // commands 为 null 说明现代通道根本没注册成功(例如运行期重载), 交给 cloud 原逻辑收尾
-            if (commands == null) return false;
-            final Object dispatcher = dispatchOf(commands);
-            final Object root = dispatcher.getClass().getMethod("getRoot").invoke(dispatcher);
+    }
 
-            final Set<String> labels = new LinkedHashSet<>();
-            if (aliasesField.get(handler) instanceof Map<?, ?> aliases) {
-                // 别名(label 展开后)也要一并摘掉, 否则会留下悬挂节点
+    /**
+     * 收集需要摘除的根节点标签.
+     *
+     * <p>除了 cloud 注册时记下的别名(含 {@code FLATTEN_ALIASES} 展开出来的 label), 还要补上
+     * 命令组件本身的名称, 避免别名表拿不到时漏删留下悬挂节点.</p>
+     *
+     * @return 标签集合
+     */
+    @NotNull
+    private Set<String> rootLabels() {
+        final Set<String> labels = new LinkedHashSet<>();
+        try {
+            final Object handler = this.getCommandManager().commandRegistrationHandler();
+            final Field aliasesField = handler == null ? null : findField(handler.getClass(), "aliases");
+            if (aliasesField != null && aliasesField.get(handler) instanceof Map<?, ?> aliases) {
                 for (final Object value : aliases.values()) {
                     if (value instanceof Collection<?> aliasesOfLabel) {
                         for (final Object alias : aliasesOfLabel) {
@@ -245,35 +266,66 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
                     }
                 }
             }
-            for (final CommandComponent<CommandSender> component : this.registeredRootCommandComponents) {
-                labels.add(component.name());
-            }
-            if (labels.isEmpty()) return true;
+        } catch (Throwable ignored) {
+            // 拿不到别名表就只靠组件名, 下面的 removeCommand 是按 label 删除的, 组件名同样有效
+        }
+        for (final CommandComponent<CommandSender> component : this.registeredRootCommandComponents) {
+            labels.add(component.name());
+        }
+        return labels;
+    }
 
-            final Method removeCommand = removeCommandMethod();
-            for (final String label : labels) {
-                removeCommand.invoke(root, label);
+    /**
+     * 取得 Brigadier 的根命令节点.
+     *
+     * <p>优先从 cloud 的现代通道 handler 里取 Paper 的 {@code Commands} 实例(Server 启动路径),
+     * 拿不到时再从 {@code CraftServer#getServer()} 反查 {@code MinecraftServer#getCommands()},
+     * 这样运行期重载走 CommandMap 通道时同样能拿到同一个分派器.</p>
+     *
+     * @return 根节点; 取不到返回 {@code null}
+     */
+    private Object dispatcherRoot() {
+        try {
+            final Object handler = this.getCommandManager().commandRegistrationHandler();
+            final Field commandsField = handler == null ? null : findField(handler.getClass(), "commands");
+            if (commandsField != null) {
+                final Object commands = commandsField.get(handler);
+                if (commands != null) {
+                    final Object root = rootOf(commands);
+                    if (root != null) return root;
+                }
             }
-            return true;
+        } catch (Throwable ignored) {
+        }
+        try {
+            final Object server = Bukkit.getServer();
+            final Object nmsServer = server.getClass().getMethod("getServer").invoke(server);
+            final Object commands = nmsServer.getClass().getMethod("getCommands").invoke(nmsServer);
+            return rootOf(commands);
         } catch (Throwable t) {
-            // 反射路径不可用时退回 cloud 的逐条注销, 顶多重新出现并发告警, 不影响卸载
-            return false;
+            return null;
         }
     }
 
     /**
-     * 取得 Paper 命令注册接口上的 {@code getDispatcher()} 方法.
+     * 从 Paper 的 {@code Commands} 实例取 Brigadier 根节点.
      *
      * @param commands Paper 的 Commands 实例
-     * @return Brigadier 的命令分发器
-     * @throws ReflectiveOperationException 反射失败
+     * @return 根节点; 反射失败返回 {@code null}
      */
-    private static Object dispatchOf(@NotNull Object commands) throws ReflectiveOperationException {
+    private static Object rootOf(@NotNull Object commands) {
         try {
-            final Class<?> type = Class.forName("io.papermc.paper.command.brigadier.Commands");
-            return type.getMethod("getDispatcher").invoke(commands);
-        } catch (ClassNotFoundException | NoSuchMethodException e) {
-            return commands.getClass().getMethod("getDispatcher").invoke(commands);
+            Object dispatcher;
+            try {
+                // 优先走接口方法, 实现类不公开时直接反射实现类会 IllegalAccessException
+                dispatcher = Class.forName("io.papermc.paper.command.brigadier.Commands")
+                        .getMethod("getDispatcher").invoke(commands);
+            } catch (ClassNotFoundException | NoSuchMethodException e) {
+                dispatcher = commands.getClass().getMethod("getDispatcher").invoke(commands);
+            }
+            return dispatcher.getClass().getMethod("getRoot").invoke(dispatcher);
+        } catch (Throwable t) {
+            return null;
         }
     }
 
@@ -282,15 +334,35 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
      *
      * <p>编译期依赖的 brigadier 版本没有该方法, 运行期(Paper)才有, 因此必须反射获取.</p>
      *
-     * @return removeCommand 方法句柄
-     * @throws ReflectiveOperationException 反射失败
+     * @return 方法句柄; 运行期没有该方法时返回 {@code null}
      */
     @NotNull
-    private static Method removeCommandMethod() throws ReflectiveOperationException {
-        final Method method = Class.forName("com.mojang.brigadier.tree.CommandNode")
-                .getMethod("removeCommand", String.class);
-        method.setAccessible(true);
-        return method;
+    private static Method removeCommandMethod() {
+        try {
+            final Method method = Class.forName("com.mojang.brigadier.tree.CommandNode")
+                    .getMethod("removeCommand", String.class);
+            method.setAccessible(true);
+            return method;
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
+    /**
+     * 取 {@code CommandNode#children} 的实际 map.
+     *
+     * @param node 命令节点
+     * @return 子节点 map; 取不到返回 {@code null}
+     */
+    @SuppressWarnings("unchecked")
+    private static Map<String, ?> childrenMapOf(@NotNull Object node) {
+        final Field field = findField(node.getClass(), "children");
+        if (field == null) return null;
+        try {
+            return field.get(node) instanceof Map<?, ?> map ? (Map<String, ?>) map : null;
+        } catch (Throwable t) {
+            return null;
+        }
     }
 
     /**
@@ -319,10 +391,14 @@ public class BukkitCommandManager extends AbstractCommandManager<CommandSender> 
     /**
      * 把最新的命令树下发给所有在线玩家(必须在主线程调用).
      */
-    private static void resendCommandTree() {
+    private void resendCommandTree() {
         try {
+            final int players = Bukkit.getOnlinePlayers().size();
             for (final Player player : Bukkit.getOnlinePlayers()) {
                 player.updateCommands();
+            }
+            if (this.runtimeReload && players > 0) {
+                plugin.getPluginLogger().info("Command tree has been resent to " + players + " online player(s)");
             }
         } catch (Throwable ignored) {
             // 补发失败不影响命令本身可用, 玩家重新登录即可
