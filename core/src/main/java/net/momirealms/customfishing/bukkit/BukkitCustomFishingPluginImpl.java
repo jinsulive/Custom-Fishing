@@ -255,9 +255,10 @@ public class BukkitCustomFishingPluginImpl extends BukkitCustomFishingPlugin {
         if (this.itemBrowserManager != null) this.itemBrowserManager.unload();
         if (this.commandManager != null) {
             if (!Bukkit.getServer().isStopping()) {
+                // 服务器仍在运行 => 这是一次运行期卸载(PlugManX 等), 下次 enable 需要换命令通道.
+                // 标记先落盘, 因为卸载插件时 ClassLoader 可能被一并丢弃, 且注销过程本身也可能抛异常
+                BukkitCommandManager.markRuntimeReload(getDataDirectory());
                 this.commandManager.unregisterFeatures();
-                // 服务器仍在运行 => 这是一次运行期卸载(PlugManX 等), 下次 enable 需要换命令通道
-                BukkitCommandManager.markRuntimeReload();
             }
         }
         this.scheduler.shutdownScheduler();
